@@ -1,0 +1,181 @@
+/* Design tokens — Figma node 185:22537
+   + Mini text / Button from layout usage where marked */
+
+@font-face {
+  font-family: "TT Travels DemiBold";
+  src: url("../assets/fonts/tt-travels-demibold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  /* ——— Colors / Neutral ——— */
+  --color-neutral-050715: #050715;
+  --color-neutral-5e6167: #5e6167;
+  --color-neutral-bec1c8: #bec1c8;
+  --color-neutral-d5d7db: #d5d7db;
+  --color-neutral-dcdfe6: #dcdfe6;
+  --color-neutral-ececee: #ececee;
+  --color-neutral-ffffff: #ffffff;
+
+  /* ——— Colors / Accent ——— */
+  --color-accent-e55557: #e55557;
+  --color-accent-d74244: #d74244;
+
+  /* Semantic aliases */
+  --color-text-primary: var(--color-neutral-050715);
+  --color-text-secondary: var(--color-neutral-5e6167);
+  --color-text-muted: var(--color-neutral-bec1c8);
+  --color-border: var(--color-neutral-dcdfe6);
+  --color-border-subtle: var(--color-neutral-d5d7db);
+  --color-surface-subtle: var(--color-neutral-ececee);
+  --color-surface: var(--color-neutral-ffffff);
+  --color-accent: var(--color-accent-e55557);
+  --color-accent-hover: var(--color-accent-d74244);
+
+  /* Page chrome (layout frame, not in 185:22537 swatches) */
+  --color-page-bg: #f5f5f5;
+
+  /* ——— Font family ——— */
+  --font-family: "Inter", system-ui, sans-serif;
+  --font-heading-family: "TT Travels DemiBold", "Inter", system-ui, sans-serif;
+
+  /* Heading - 1: 48 / 52 / Medium / -2 */
+  --font-h1-size: 48px;
+  --font-h1-line: 52px;
+  --font-h1-weight: 600;
+  --font-h1-tracking: -2px;
+
+  /* Heading - 2: 32 / 36 / Medium / -1 */
+  --font-h2-size: 32px;
+  --font-h2-line: 36px;
+  --font-h2-weight: 600;
+  --font-h2-tracking: -1px;
+
+  /* Heading - 3: 24 / 28 / Medium / -1 */
+  --font-h3-size: 24px;
+  --font-h3-line: 28px;
+  --font-h3-weight: 600;
+  --font-h3-tracking: -1px;
+
+  /* Heading - 4: 18 / 24 / Medium / 0 */
+  --font-h4-size: 18px;
+  --font-h4-line: 24px;
+  --font-h4-weight: 500;
+  --font-h4-tracking: 0;
+
+  /* Body text: 18 / 24 / Regular / 0 · default color secondary */
+  --font-body-size: 18px;
+  --font-body-line: 24px;
+  --font-body-weight: 400;
+  --font-body-tracking: 0;
+
+  /* Item text: 20 / 24 / Regular / 0 · default color primary */
+  --font-item-size: 20px;
+  --font-item-line: 24px;
+  --font-item-weight: 400;
+  --font-item-tracking: 0;
+
+  /* Badge: 12 / 16 / Medium / 0 · uppercase */
+  --font-badge-size: 12px;
+  --font-badge-line: 16px;
+  --font-badge-weight: 500;
+  --font-badge-tracking: 0;
+
+  /* Button: 12 / 16 / Bold / 0.24px · uppercase (sample in 185:22546) */
+  --font-button-size: 12px;
+  --font-button-line: 16px;
+  --font-button-weight: 700;
+  --font-button-tracking: 0.24px;
+
+  /* Mini text — used in layout labels/clock (not on 185:22537 sheet) */
+  --font-mini-size: 14px;
+  --font-mini-line: 20px;
+  --font-mini-weight: 400;
+  --font-mini-tracking: 0;
+}
+
+/* ——— Type utilities ——— */
+
+.text-h1 {
+  font-family: var(--font-heading-family);
+  font-size: var(--font-h1-size);
+  line-height: var(--font-h1-line);
+  font-weight: var(--font-h1-weight);
+  letter-spacing: var(--font-h1-tracking);
+  color: var(--color-text-primary);
+}
+
+.text-h2 {
+  font-family: var(--font-heading-family);
+  font-size: var(--font-h2-size);
+  line-height: var(--font-h2-line);
+  font-weight: var(--font-h2-weight);
+  letter-spacing: var(--font-h2-tracking);
+  color: var(--color-text-primary);
+}
+
+.text-h3 {
+  font-family: var(--font-heading-family);
+  font-size: var(--font-h3-size);
+  line-height: var(--font-h3-line);
+  font-weight: var(--font-h3-weight);
+  letter-spacing: var(--font-h3-tracking);
+  color: var(--color-text-primary);
+}
+
+.text-h4 {
+  font-family: var(--font-family);
+  font-size: var(--font-h4-size);
+  line-height: var(--font-h4-line);
+  font-weight: var(--font-h4-weight);
+  letter-spacing: var(--font-h4-tracking);
+  color: var(--color-text-primary);
+}
+
+.text-body {
+  font-family: var(--font-family);
+  font-size: var(--font-body-size);
+  line-height: var(--font-body-line);
+  font-weight: var(--font-body-weight);
+  letter-spacing: var(--font-body-tracking);
+  color: var(--color-text-secondary);
+}
+
+.text-item {
+  font-family: var(--font-family);
+  font-size: var(--font-item-size);
+  line-height: var(--font-item-line);
+  font-weight: var(--font-item-weight);
+  letter-spacing: var(--font-item-tracking);
+  color: var(--color-text-primary);
+}
+
+.text-badge {
+  font-family: var(--font-family);
+  font-size: var(--font-badge-size);
+  line-height: var(--font-badge-line);
+  font-weight: var(--font-badge-weight);
+  letter-spacing: var(--font-badge-tracking);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.text-button {
+  font-family: var(--font-family);
+  font-size: var(--font-button-size);
+  line-height: var(--font-button-line);
+  font-weight: var(--font-button-weight);
+  letter-spacing: var(--font-button-tracking);
+  text-transform: uppercase;
+}
+
+.text-mini {
+  font-family: var(--font-family);
+  font-size: var(--font-mini-size);
+  line-height: var(--font-mini-line);
+  font-weight: var(--font-mini-weight);
+  letter-spacing: var(--font-mini-tracking);
+  color: var(--color-text-secondary);
+}

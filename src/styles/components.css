@@ -1,0 +1,379 @@
+/* UI kit — Figma nodes:
+   185:22563 case logos · 185:22622 stack icons · 185:22677 badges
+   185:22716 buttons · 185:22864 menu · 185:22853 avatars */
+
+:root {
+  --btn-size: 48px;
+  --btn-radius: 12px;
+  --icon-size: 20px;
+  --stack-icon-size: 24px;
+  --logo-size: 40px;
+  --logo-radius: 8px;
+
+  --avatar-big: 88px;
+  --avatar-big-radius: 20px;
+  --avatar-small: 64px;
+  --avatar-small-radius: 8.878px;
+
+  --btn-behance-hover: #0055ff;
+  --btn-dribbble-hover: #ea4c89;
+  --btn-telegram-hover: #249bd7;
+  --btn-max-hover: #805eff;
+  --btn-mail-hover: #e55557;
+}
+
+/* ——— Avatar ——— */
+
+.avatar {
+  position: relative;
+  overflow: hidden;
+  background: #eaeaea;
+  flex-shrink: 0;
+}
+
+.avatar--big {
+  width: var(--avatar-big);
+  height: var(--avatar-big);
+  border-radius: var(--avatar-big-radius);
+}
+
+.avatar--small {
+  width: var(--avatar-small);
+  height: var(--avatar-small);
+  border-radius: var(--avatar-small-radius);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.avatar[data-avatar-hover="desktop"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/img/avatar/avatar-hover-desktop.png");
+  background-size: cover;
+  background-position: center top;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+  pointer-events: none;
+}
+
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  .avatar[data-avatar-hover="desktop"] img {
+    transition:
+      opacity 0.28s ease,
+      transform 0.28s ease;
+  }
+
+  .avatar[data-avatar-hover="desktop"]:hover img {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  .avatar[data-avatar-hover="desktop"]:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ——— Buttons ——— */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--btn-size);
+  margin: 0;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--btn-radius);
+  background: transparent;
+  font-family: var(--font-family);
+  font-size: var(--font-button-size);
+  font-weight: var(--font-button-weight);
+  line-height: var(--font-button-line);
+  letter-spacing: var(--font-button-tracking);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn__icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.btn--primary {
+  gap: 8px;
+  background: var(--color-accent);
+  color: var(--color-neutral-ffffff);
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn--primary .btn__icon {
+  filter: brightness(0) invert(1);
+}
+
+.btn--secondary {
+  gap: 4px;
+  border: 1px solid var(--color-neutral-bec1c8);
+  background: transparent;
+  color: var(--color-text-primary);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-text-primary);
+}
+
+.btn--icon {
+  width: var(--btn-size);
+  padding: 0;
+}
+
+.btn--social {
+  width: var(--btn-size);
+  padding: 0;
+  background: var(--color-text-primary);
+}
+
+.btn--social .btn__icon {
+  filter: brightness(0) invert(1);
+}
+
+.btn--behance:hover {
+  background: var(--btn-behance-hover);
+}
+
+.btn--dribbble:hover {
+  background: var(--btn-dribbble-hover);
+}
+
+.btn--ghost {
+  width: var(--btn-size);
+  padding: 0;
+  border: 1px solid var(--color-neutral-bec1c8);
+  background: transparent;
+}
+
+.btn--ghost .btn__icon {
+  opacity: 0.55;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.btn--telegram:hover {
+  border-color: var(--btn-telegram-hover);
+}
+
+.btn--telegram:hover .btn__icon {
+  opacity: 1;
+  filter: none;
+  /* tint via replacing src in CSS isn't possible; use mask version */
+}
+
+.btn--telegram:hover .btn__icon--default {
+  display: none;
+}
+
+.btn--telegram:hover .btn__icon--hover,
+.btn--max:hover .btn__icon--hover {
+  display: block;
+}
+
+.btn--telegram .btn__icon--hover,
+.btn--max .btn__icon--hover {
+  display: none;
+}
+
+.btn--max:hover {
+  border-color: var(--btn-max-hover);
+}
+
+.btn--max:hover .btn__icon--default {
+  display: none;
+}
+
+.btn--mail:hover {
+  border-color: var(--btn-mail-hover);
+}
+
+.btn--mail:hover .btn__icon {
+  opacity: 1;
+  filter: invert(40%) sepia(74%) saturate(1846%) hue-rotate(328deg) brightness(95%) contrast(90%);
+}
+
+.btn--arrow {
+  width: var(--btn-size);
+  padding: 0;
+  background: var(--color-accent);
+}
+
+.btn--arrow:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn--arrow .btn__icon {
+  filter: brightness(0) invert(1);
+}
+
+.btn--menu {
+  width: var(--btn-size);
+  padding: 0;
+  border: 1px solid var(--color-neutral-bec1c8);
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn--menu .btn__icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.2s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.2s ease;
+}
+
+.btn--menu .btn__icon--default {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.btn--menu:not(.is-open):hover,
+.btn--menu:not(.is-open).is-pressed {
+  border-color: transparent;
+  background: var(--color-accent);
+}
+
+.btn--menu:not(.is-open):hover .btn__icon--default,
+.btn--menu:not(.is-open).is-pressed .btn__icon--default {
+  opacity: 0;
+  transform: scale(0.86);
+}
+
+.btn--menu:not(.is-open):hover .btn__icon--pressed,
+.btn--menu:not(.is-open).is-pressed .btn__icon--pressed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.btn--menu.is-open {
+  border-color: var(--color-neutral-bec1c8);
+  background: transparent;
+}
+
+.btn--menu.is-open .btn__icon--default,
+.btn--menu.is-open .btn__icon--pressed {
+  opacity: 0;
+  transform: scale(0.86);
+}
+
+.btn--menu.is-open .btn__icon--close {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Figma: active(close) hover also has red fill */
+.btn--menu.is-open:hover,
+.btn--menu.is-pressed {
+  border-color: transparent;
+  background: var(--color-accent);
+}
+
+.btn--menu.is-open:hover .btn__icon--close,
+.btn--menu.is-open.is-pressed .btn__icon--close {
+  filter: brightness(0) invert(1);
+}
+
+/* ——— Badges ——— */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background: var(--badge-bg);
+  font-size: var(--font-badge-size);
+  font-weight: var(--font-badge-weight);
+  line-height: var(--font-badge-line);
+  letter-spacing: var(--font-badge-tracking);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.badge--surface {
+  background: var(--color-surface);
+}
+
+.badge--stack {
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: var(--badge-bg);
+  gap: 4px;
+}
+
+.badge__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.badge--stack .badge__icon,
+.stack-tag__icon {
+  display: block;
+  width: var(--stack-icon-size);
+  height: var(--stack-icon-size);
+  object-fit: contain;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+/* ——— Case logos ——— */
+
+.case-logo {
+  flex-shrink: 0;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  border-radius: var(--logo-radius);
+  overflow: hidden;
+  display: block;
+  object-fit: cover;
+  background: transparent;
+}
+
+/* brand tiles (PS/AI/Miro) — soft clip */
+.stack-tag__icon--tile {
+  border-radius: 5px;
+}

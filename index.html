@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная — Антон Барбаров — Product / UX Designer</title>
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/tokens.css" />
+    <link rel="stylesheet" href="./src/styles/components.css" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260718-1" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- LEFT — sticky -->
+      <aside class="panel panel--left" aria-label="Навигация">
+        <div class="panel__top">
+          <a href="./index.html" class="js-scroll-top" aria-label="На главную">
+            <div class="avatar avatar--big" aria-hidden="true" data-avatar-hover="desktop">
+              <img
+                src="./src/assets/img/avatar/avatar-88.png"
+                alt=""
+                width="88"
+                height="88"
+              />
+            </div>
+          </a>
+          <nav class="side-nav" aria-label="Разделы">
+            <a class="side-nav__link js-nav-link is-active" href="#hero-title">Кейсы</a>
+            <a class="side-nav__link js-nav-link" href="#stack-title">Технический стек</a>
+            <a class="side-nav__link js-nav-link" href="#experience-title">Опыт работы</a>
+          </nav>
+        </div>
+        <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" download="Барбаров Антон Сергеевич.pdf">
+          Смотреть CV
+          <img
+            class="btn__icon"
+            src="./src/assets/svg/ui/download.svg"
+            alt=""
+            width="20"
+            height="20"
+          />
+        </a>
+      </aside>
+
+      <!-- CENTER — only scrollable column -->
+      <main class="panel panel--center" id="main" aria-label="Основной контент">
+        <div class="panel__scroll">
+          <header class="mobile-topbar" aria-label="Мобильная шапка">
+            <div class="mobile-topbar__head">
+              <a href="./index.html" class="js-scroll-top" aria-label="На главную">
+                <div class="avatar avatar--small" aria-hidden="true">
+                  <img
+                    src="./src/assets/img/avatar/avatar-88.png"
+                    alt=""
+                    width="88"
+                    height="88"
+                  />
+                </div>
+              </a>
+              <button
+                class="btn btn--menu js-menu-toggle"
+                type="button"
+                aria-label="Открыть меню"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <img
+                  class="btn__icon btn__icon--default"
+                  src="./src/assets/svg/ui/menu.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <img
+                  class="btn__icon btn__icon--pressed"
+                  src="./src/assets/svg/ui/menu-pressed.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <img
+                  class="btn__icon btn__icon--close"
+                  src="./src/assets/svg/ui/close.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+              </button>
+            </div>
+            <div class="mobile-topbar__identity">
+              <p class="mobile-topbar__name">Антон Барбаров</p>
+            </div>
+          </header>
+          <div class="mobile-sticky-topbar" aria-label="Дополнительная мобильная шапка" hidden>
+            <div class="mobile-sticky-topbar__left">
+              <a href="./index.html" class="js-scroll-top" aria-label="На главную">
+                <div class="avatar mobile-sticky-topbar__avatar" aria-hidden="true">
+                  <img
+                    src="./src/assets/img/avatar/avatar-88.png"
+                    alt=""
+                    width="48"
+                    height="48"
+                  />
+                </div>
+              </a>
+              <div class="mobile-sticky-topbar__identity">
+                <p class="mobile-sticky-topbar__name">Антон Барбаров</p>
+                <p class="mobile-sticky-topbar__role">Продуктовый / UX дизайнер</p>
+              </div>
+            </div>
+            <button
+              class="btn btn--menu js-menu-toggle"
+              type="button"
+              aria-label="Открыть меню"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <img
+                class="btn__icon btn__icon--default"
+                src="./src/assets/svg/ui/menu.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--pressed"
+                src="./src/assets/svg/ui/menu-pressed.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--close"
+                src="./src/assets/svg/ui/close.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </button>
+          </div>
+
+          <header class="hero">
+            <p class="hero__name">Антон Барбаров</p>
+            <h1 class="hero__title" id="hero-title">
+              <span class="hero__title-primary"
+                >Продуктовый / UX дизайнер.</span
+              ><br /><span class="hero__title-muted"
+                >Проектирую&nbsp;интерфейсы.<br />Фокус — SaaS и ecom</span
+              >
+            </h1>
+          </header>
+
+          <section class="section" id="cases" aria-label="Кейсы">
+            <div class="cases">
+              <!-- Case 1 -->
+              <a class="case-card" href="./case-01.html" aria-label="Открыть кейс: Финтех продукт для фермеров">
+                <div class="case-card__cover case-card__cover--phone">
+                  <img
+                    class="case-card__cover-img case-card__cover-img--shot"
+                    src="./src/assets/img/cases/universal/case-01-cover.png"
+                    alt="Мокап финтех-приложения"
+                  />
+                </div>
+                <div class="case-card__body">
+                  <div class="case-card__head">
+                    <div class="badges">
+                      <span class="badge">B2B</span>
+                      <span class="badge">Fintech</span>
+                      <span class="badge">Web</span>
+                      <span class="badge">Mobile</span>
+                    </div>
+                    <h2 class="case-card__title">
+                      Разработка финтех продукта для фермеров
+                    </h2>
+                  </div>
+                  <dl class="case-card__meta">
+                    <div>
+                      <dt>Период работы</dt>
+                      <dd>2024 — 2026</dd>
+                    </div>
+                    <div>
+                      <dt>Главный результат</dt>
+                      <dd>Суммарный доход проекта за 2 года</dd>
+                    </div>
+                  </dl>
+                </div>
+              </a>
+
+              <!-- Case 2 -->
+              <a class="case-card" href="./case-02.html" aria-label="Открыть кейс: Дизайн-система поле.рф">
+                <div class="case-card__cover case-card__cover--light">
+                  <img
+                    class="case-card__cover-img case-card__cover-img--shot"
+                    src="./src/assets/img/cases/universal/case-02-cover.png"
+                    alt="Дизайн-система поле.рф"
+                  />
+                </div>
+                <div class="case-card__body">
+                  <div class="case-card__head">
+                    <div class="badges">
+                      <span class="badge">B2B</span>
+                      <span class="badge">Fintech</span>
+                      <span class="badge">Web</span>
+                      <span class="badge">Mobile</span>
+                    </div>
+                    <h2 class="case-card__title">Дизайн<span class="type-sign">-</span>система поле.рф</h2>
+                  </div>
+                  <dl class="case-card__meta">
+                    <div>
+                      <dt>Период работы</dt>
+                      <dd>2024 — 2026</dd>
+                    </div>
+                    <div>
+                      <dt>Главный результат</dt>
+                      <dd>Разработано более 30 базовых компонентов дизайн-системы</dd>
+                    </div>
+                  </dl>
+                </div>
+              </a>
+
+              <!-- Case 3 -->
+              <a
+                class="case-card"
+                href="./case-03.html"
+                aria-label="Открыть кейс: Редизайн системы регистрации платформы поле.рф"
+              >
+                <div class="case-card__cover case-card__cover--light">
+                  <img
+                    class="case-card__cover-img case-card__cover-img--shot"
+                    src="./src/assets/img/cases/universal/case-03-cover.png"
+                    alt="Редизайн регистрации поле.рф"
+                  />
+                </div>
+                <div class="case-card__body">
+                  <div class="case-card__head">
+                    <div class="badges">
+                      <span class="badge">B2B</span>
+                      <span class="badge">Fintech</span>
+                      <span class="badge">Web</span>
+                      <span class="badge">Mobile</span>
+                    </div>
+                    <h2 class="case-card__title">
+                      Редизайн системы регистрации платформы поле.рф
+                    </h2>
+                  </div>
+                  <dl class="case-card__meta">
+                    <div>
+                      <dt>Период работы</dt>
+                      <dd>2024 — 2026</dd>
+                    </div>
+                    <div>
+                      <dt>Главный результат</dt>
+                      <dd>+11 роста конверсии в регистрацию</dd>
+                    </div>
+                  </dl>
+                </div>
+              </a>
+
+              <!-- Case 4 -->
+              <a
+                class="case-card"
+                href="./case-04.html"
+                aria-label="Открыть кейс: Визуалы"
+              >
+                <div class="case-card__cover case-card__cover--dark">
+                  <img
+                    class="case-card__cover-img case-card__cover-img--shot"
+                    src="./src/assets/img/cases/universal/case-04-cover.png"
+                    alt="Визуалы"
+                  />
+                </div>
+                <div class="case-card__body">
+                  <div class="case-card__head">
+                    <div class="badges">
+                      <span class="badge">B2B</span>
+                      <span class="badge">Fintech</span>
+                      <span class="badge">Web</span>
+                      <span class="badge">Mobile</span>
+                    </div>
+                    <h2 class="case-card__title">Визуалы</h2>
+                  </div>
+                  <dl class="case-card__meta">
+                    <div>
+                      <dt>Период работы</dt>
+                      <dd>2024 — 2026</dd>
+                    </div>
+                    <div>
+                      <dt>Главный результат</dt>
+                      <dd>+20% роста вовлеченности в соцсетях</dd>
+                    </div>
+                  </dl>
+                </div>
+              </a>
+            </div>
+
+            <h2 class="section__title section__title--old-cases">Кейсы 2021-2023</h2>
+            <div class="mini-cases mini-cases--with-title" id="old-cases">
+              <a class="mini-case" href="https://www.behance.net/gallery/150237467/sber-its" target="_blank" rel="noopener noreferrer">
+                <img
+                  class="case-logo"
+                  src="./src/assets/img/logos/sber.png"
+                  alt=""
+                  width="40"
+                  height="40"
+                />
+                <span class="mini-case__title"
+                  >Система оперативного мониторинга дорожно-транспортной
+                  обстановки</span
+                >
+                <span class="mini-case__year">2022</span>
+              </a>
+              <a class="mini-case" href="https://www.behance.net/gallery/122487583/Picture-this-3D" target="_blank" rel="noopener noreferrer">
+                <img
+                  class="case-logo"
+                  src="./src/assets/img/logos/picturethis.png"
+                  alt=""
+                  width="40"
+                  height="40"
+                />
+                <span class="mini-case__title"
+                  >Интерактивный 3D конфигуратор</span
+                >
+                <span class="mini-case__year">2021</span>
+              </a>
+              <a class="mini-case" href="https://www.behance.net/gallery/121255009/sistema-avtomatizacii-dizajn-proektov-tochnoe-reshenie" target="_blank" rel="noopener noreferrer">
+                <img
+                  class="case-logo"
+                  src="./src/assets/img/logos/repair.png"
+                  alt=""
+                  width="40"
+                  height="40"
+                />
+                <span class="mini-case__title"
+                  >AR cистема расчета планирование ремонта</span
+                >
+                <span class="mini-case__year">2021</span>
+              </a>
+              <a class="mini-case" href="https://www.behance.net/gallery/129729531/Parking-book-app" target="_blank" rel="noopener noreferrer">
+                <img
+                  class="case-logo"
+                  src="./src/assets/img/logos/parking.png"
+                  alt=""
+                  width="40"
+                  height="40"
+                />
+                <span class="mini-case__title"
+                  >Cистема организации городских парковочных мест</span
+                >
+                <span class="mini-case__year">2023</span>
+              </a>
+            </div>
+          </section>
+
+          <section class="section" id="stack" aria-labelledby="stack-title">
+            <h2 class="section__title" id="stack-title">Технический стек</h2>
+            <div class="stack-grid">
+              <article class="stack-card">
+                <h3 class="stack-card__title">Продуктовый дизайн</h3>
+                <div class="stack-card__tags">
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/figma.png?v=2" alt="" width="24" height="24" />Figma</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon stack-tag__icon--tile" src="./src/assets/img/stack/photoshop.png?v=2" alt="" width="24" height="24" />Photoshop</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon stack-tag__icon--tile" src="./src/assets/img/stack/illustrator.png?v=2" alt="" width="24" height="24" />Illustrator</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon stack-tag__icon--tile" src="./src/assets/img/stack/miro.png?v=2" alt="" width="24" height="24" />Miro</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/jira.png?v=2" alt="" width="24" height="24" />Jira</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/confluence.png?v=2" alt="" width="24" height="24" />Confluence</span
+                  >
+                </div>
+              </article>
+
+              <article class="stack-card">
+                <h3 class="stack-card__title">UX исследования</h3>
+                <div class="stack-card__tags">
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/figma.png?v=2" alt="" width="24" height="24" />Figma</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/pathway.png?v=2" alt="" width="24" height="24" />Pathway</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/yandex-metrika.png?v=2" alt="" width="24" height="24" />Яндекс метрика</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon stack-tag__icon--tile" src="./src/assets/img/stack/yandex-telemost.png?v=2" alt="" width="24" height="24" />Яндекс телемост</span
+                  >
+                </div>
+              </article>
+
+              <article class="stack-card">
+                <h3 class="stack-card__title">3D моделинг</h3>
+                <div class="stack-card__tags">
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/blender.png?v=2" alt="" width="24" height="24" />Blender 3D</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/krea.png?v=2" alt="" width="24" height="24" />Krea</span
+                  >
+                </div>
+              </article>
+
+              <article class="stack-card">
+                <h3 class="stack-card__title">Нейросети</h3>
+                <div class="stack-card__tags">
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/cursorai.png?v=2" alt="" width="24" height="24" />Cursor AI</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/chatgpt.png?v=2" alt="" width="24" height="24" />ChatGPT</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/krea.png?v=2" alt="" width="24" height="24" />Krea</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/perplexity.png?v=2" alt="" width="24" height="24" />Perplexity</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/figma.png?v=2" alt="" width="24" height="24" />Figma</span
+                  >
+                  <span class="badge badge--stack"
+                    ><img class="stack-tag__icon" src="./src/assets/img/stack/alice-ai.png?v=1" alt="" width="24" height="24" />Alice AI</span
+                  >
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section section--experience" id="experience" aria-labelledby="experience-title">
+            <h2 class="section__title" id="experience-title">Опыт работы</h2>
+            <div class="experience-list">
+              <article class="job-card">
+                <div class="job-card__main">
+                  <div class="job-logo" aria-hidden="true">
+                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/pole-rf.png?v=1" alt="" width="56" height="56" />
+                  </div>
+                  <div class="job-card__meta">
+                    <h3 class="job-card__title">Поле.рф</h3>
+                    <div class="job-card__dates">
+                      <span class="job-card__period">2 года и 8 месяцев</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card__tags">
+                  <span class="badge badge--surface">Продуктовый дизайн</span>
+                  <span class="badge badge--surface">UX исследования</span>
+                  <span class="badge badge--surface">3D</span>
+                </div>
+              </article>
+
+              <article class="job-card">
+                <div class="job-card__main">
+                  <div class="job-logo" aria-hidden="true">
+                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/angelsit.png?v=1" alt="" width="56" height="56" />
+                  </div>
+                  <div class="job-card__meta">
+                    <h3 class="job-card__title">AngelsIT</h3>
+                    <div class="job-card__dates">
+                      <span class="job-card__period">4 года и 6 месяцев</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card__tags">
+                  <span class="badge badge--surface">Продуктовый дизайн</span>
+                  <span class="badge badge--surface">Графический дизайн</span>
+                  <span class="badge badge--surface">UX исследования</span>
+                </div>
+              </article>
+
+              <article class="job-card">
+                <div class="job-card__main">
+                  <div class="job-logo" aria-hidden="true">
+                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/yunona.png?v=1" alt="" width="56" height="56" />
+                  </div>
+                  <div class="job-card__meta">
+                    <h3 class="job-card__title">ЮНОНА</h3>
+                    <div class="job-card__dates">
+                      <span class="job-card__period">2 года</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card__tags">
+                  <span class="badge badge--surface">Веб дизайн</span>
+                  <span class="badge badge--surface">Графический дизайн</span>
+                  <span class="badge badge--surface">Коммуникационный дизайн</span>
+                </div>
+              </article>
+
+              <article class="job-card">
+                <div class="job-card__main">
+                  <div class="job-logo" aria-hidden="true">
+                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/arctic-lab.png?v=1" alt="" width="56" height="56" />
+                  </div>
+                  <div class="job-card__meta">
+                    <h3 class="job-card__title">Арктическая лаборатория</h3>
+                    <div class="job-card__dates">
+                      <span class="job-card__period">10 месяцев</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card__tags">
+                  <span class="badge badge--surface">Веб дизайн</span>
+                  <span class="badge badge--surface">Графический дизайн</span>
+                  <span class="badge badge--surface">Коммуникационный дизайн</span>
+                </div>
+              </article>
+
+              <article class="job-card">
+                <div class="job-card__main">
+                  <div class="job-logo" aria-hidden="true">
+                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/leaf-placeholder.png?v=1" alt="" width="56" height="56" />
+                  </div>
+                  <div class="job-card__meta">
+                    <h3 class="job-card__title">Promo cafe</h3>
+                    <div class="job-card__dates">
+                      <span class="job-card__period">1 год и 3 месяца</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card__tags">
+                  <span class="badge badge--surface">Веб дизайн</span>
+                  <span class="badge badge--surface">Коммуникационный дизайн</span>
+                </div>
+              </article>
+
+              <article class="job-card">
+                <div class="job-card__main">
+                  <div class="job-logo" aria-hidden="true">
+                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/leaf-placeholder.png?v=1" alt="" width="56" height="56" />
+                  </div>
+                  <div class="job-card__meta">
+                    <h3 class="job-card__title">Медиацех</h3>
+                    <div class="job-card__dates">
+                      <span class="job-card__period">1 год и 4 месяца</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card__tags">
+                  <span class="badge badge--surface">Веб дизайн</span>
+                  <span class="badge badge--surface">Коммуникационный дизайн</span>
+                </div>
+              </article>
+
+              <article class="job-card">
+                <div class="job-card__main">
+                  <div class="job-logo" aria-hidden="true">
+                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/leaf-placeholder.png?v=1" alt="" width="56" height="56" />
+                  </div>
+                  <div class="job-card__meta">
+                    <h3 class="job-card__title">Веб-студия Алькор</h3>
+                    <div class="job-card__dates">
+                      <span class="job-card__period">4 месяца</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-card__tags">
+                  <span class="badge badge--surface">Веб дизайн</span>
+                  <span class="badge badge--surface">Брендинг</span>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section" id="contact" aria-label="Контакты">
+            <div class="contact-card">
+              <div class="contact-card__intro">
+                <p class="contact-card__headline">
+                  Буду рад пообщаться и обсудить возможное сотрудничество ✍️
+                </p>
+              </div>
+              <div class="contact-card__footer">
+                <div class="contact-card__channels">
+                  <div class="contact-channel">
+                    <span class="contact-channel__label">Телеграм</span>
+                    <a
+                      class="contact-channel__value"
+                      href="https://t.me/moberg_87"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >@moberg_87</a
+                    >
+                  </div>
+                  <div class="contact-channel">
+                    <span class="contact-channel__label">Электронная почта</span>
+                    <a
+                      class="contact-channel__value"
+                      href="mailto:anton.barbarov@yandex.ru"
+                      >anton.barbarov@yandex.ru</a
+                    >
+                  </div>
+                </div>
+                <div class="contact-card__socials">
+                  <a
+                    class="btn btn--social btn--behance"
+                    href="https://www.behance.net/moberg1987"
+                    aria-label="Behance"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      class="btn__icon"
+                      src="./src/assets/svg/ui/behance.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                    />
+                  </a>
+                  <a
+                    class="btn btn--social btn--dribbble"
+                    href="https://dribbble.com/Moberg1987"
+                    aria-label="Dribbble"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      class="btn__icon"
+                      src="./src/assets/svg/ui/dribbble.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- RIGHT — sticky -->
+      <aside class="panel panel--right" aria-label="Статус">
+        <div class="wave-stack" aria-label="Быстрые контакты">
+          <button class="wave" type="button" aria-label="Открыть быстрые контакты">
+            🤚
+          </button>
+          <div class="wave-stack__socials" aria-hidden="true">
+            <a
+              class="btn btn--social btn--behance wave-stack__social"
+              href="https://www.behance.net/moberg1987"
+              aria-label="Behance"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/behance.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--social btn--dribbble wave-stack__social"
+              href="https://dribbble.com/Moberg1987"
+              aria-label="Dribbble"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/dribbble.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--ghost btn--telegram wave-stack__social"
+              href="https://t.me/moberg_87"
+              aria-label="Telegram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon btn__icon--default"
+                src="./src/assets/svg/ui/telegram.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--hover"
+                src="./src/assets/svg/ui/telegram-hover.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--ghost btn--mail wave-stack__social"
+              href="mailto:anton.barbarov@yandex.ru"
+              aria-label="Email"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/mail.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+          </div>
+        </div>
+        <p class="clock" id="clock">GMT +3, --:--</p>
+      </aside>
+
+      <section class="mobile-menu" id="mobile-menu" aria-label="Мобильное меню" hidden>
+        <div class="mobile-menu__main">
+          <div class="mobile-menu__top">
+            <div class="avatar avatar--small" aria-hidden="true">
+              <img
+                src="./src/assets/img/avatar/avatar-88.png"
+                alt=""
+                width="88"
+                height="88"
+              />
+            </div>
+            <button
+              class="btn btn--menu js-menu-toggle is-open"
+              type="button"
+              aria-label="Закрыть меню"
+              aria-controls="mobile-menu"
+              aria-expanded="true"
+            >
+              <img
+                class="btn__icon btn__icon--default"
+                src="./src/assets/svg/ui/menu.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--pressed"
+                src="./src/assets/svg/ui/menu-pressed.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--close"
+                src="./src/assets/svg/ui/close.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </button>
+          </div>
+          <div class="mobile-menu__identity">
+            <p class="mobile-menu__name">Антон Барбаров</p>
+            <p class="mobile-menu__role">Продуктовый / UX дизайнер</p>
+          </div>
+          <p class="clock mobile-menu__clock mobile-menu__clock--top" id="clock-menu">GMT +3, --:--</p>
+          <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
+            <a class="mobile-menu__link js-nav-link is-active" href="#hero-title">Кейсы</a>
+            <a class="mobile-menu__link js-nav-link" href="#stack-title">Технический стек</a>
+            <a class="mobile-menu__link js-nav-link" href="#experience-title">Опыт работы</a>
+          </nav>
+        </div>
+        <div class="mobile-menu__footer">
+          <a class="btn btn--primary mobile-menu__cv" href="./src/assets/docs/Barbarov-Anton-CV.pdf" download="Барбаров Антон Сергеевич.pdf">
+            Смотреть CV
+            <img
+              class="btn__icon"
+              src="./src/assets/svg/ui/download.svg"
+              alt=""
+              width="20"
+              height="20"
+            />
+          </a>
+          <p class="clock mobile-menu__clock mobile-menu__clock--bottom" id="clock-menu-bottom">
+            GMT +3, --:--
+          </p>
+          <div class="mobile-menu__socials">
+            <a
+              class="btn btn--ghost btn--mail"
+              href="mailto:anton.barbarov@yandex.ru"
+              aria-label="Email"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/mail.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--ghost btn--telegram"
+              href="https://t.me/moberg_87"
+              aria-label="Telegram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon btn__icon--default"
+                src="./src/assets/svg/ui/telegram.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--hover"
+                src="./src/assets/svg/ui/telegram-hover.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--social btn--behance"
+              href="https://www.behance.net/moberg1987"
+              aria-label="Behance"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/behance.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--social btn--dribbble"
+              href="https://dribbble.com/Moberg1987"
+              aria-label="Dribbble"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/dribbble.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./src/js/main.js?v=20260718-2" type="module"></script>
+  </body>
+</html>

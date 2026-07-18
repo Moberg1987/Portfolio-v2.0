@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кейс — Визуалы</title>
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/tokens.css" />
+    <link rel="stylesheet" href="./src/styles/components.css" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260718-1" />
+  </head>
+  <body class="case-page--design-system">
+    <div class="app">
+      <aside class="panel panel--left" aria-label="Навигация">
+        <div class="panel__top">
+          <a href="./index.html" class="js-scroll-top" aria-label="На главную">
+            <div class="avatar avatar--big" aria-hidden="true" data-avatar-hover="desktop">
+              <img
+                src="./src/assets/img/avatar/avatar-88.png"
+                alt=""
+                width="88"
+                height="88"
+              />
+            </div>
+          </a>
+          <nav class="side-nav" aria-label="Разделы кейса">
+            <a class="side-nav__link js-nav-link is-active" href="#main">Описание</a>
+            <a class="side-nav__link js-nav-link" href="#case-dribbble-shots">Dribbble shots</a>
+            <a class="side-nav__link js-nav-link" href="#case-pole-rf">Поле.рф</a>
+            <a class="side-nav__link js-nav-link" href="#case-mockups">Mockups</a>
+          </nav>
+        </div>
+        <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" download="Барбаров Антон Сергеевич.pdf">
+          Смотреть CV
+          <img
+            class="btn__icon"
+            src="./src/assets/svg/ui/download.svg"
+            alt=""
+            width="20"
+            height="20"
+          />
+        </a>
+      </aside>
+
+      <main class="panel panel--center" id="main" aria-label="Основной контент">
+        <div class="panel__scroll">
+          <header class="mobile-topbar" aria-label="Мобильная шапка">
+            <div class="mobile-topbar__head">
+              <a href="./index.html" class="js-scroll-top" aria-label="На главную">
+                <div class="avatar avatar--small" aria-hidden="true">
+                  <img
+                    src="./src/assets/img/avatar/avatar-88.png"
+                    alt=""
+                    width="88"
+                    height="88"
+                  />
+                </div>
+              </a>
+              <button
+                class="btn btn--menu js-menu-toggle"
+                type="button"
+                aria-label="Открыть меню"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <img
+                  class="btn__icon btn__icon--default"
+                  src="./src/assets/svg/ui/menu.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <img
+                  class="btn__icon btn__icon--pressed"
+                  src="./src/assets/svg/ui/menu-pressed.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+                <img
+                  class="btn__icon btn__icon--close"
+                  src="./src/assets/svg/ui/close.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                />
+              </button>
+            </div>
+            <div class="mobile-topbar__identity">
+              <p class="mobile-topbar__name">Антон Барбаров</p>
+            </div>
+          </header>
+
+          <div class="mobile-sticky-topbar" aria-label="Дополнительная мобильная шапка" hidden>
+            <div class="mobile-sticky-topbar__left">
+              <a href="./index.html" class="js-scroll-top" aria-label="На главную">
+                <div class="avatar mobile-sticky-topbar__avatar" aria-hidden="true">
+                  <img
+                    src="./src/assets/img/avatar/avatar-88.png"
+                    alt=""
+                    width="48"
+                    height="48"
+                  />
+                </div>
+              </a>
+              <div class="mobile-sticky-topbar__identity">
+                <p class="mobile-sticky-topbar__name">Антон Барбаров</p>
+                <p class="mobile-sticky-topbar__role">Продуктовый / UX дизайнер</p>
+              </div>
+            </div>
+            <button
+              class="btn btn--menu js-menu-toggle"
+              type="button"
+              aria-label="Открыть меню"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <img
+                class="btn__icon btn__icon--default"
+                src="./src/assets/svg/ui/menu.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--pressed"
+                src="./src/assets/svg/ui/menu-pressed.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--close"
+                src="./src/assets/svg/ui/close.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </button>
+          </div>
+
+          <section class="section case-intro" id="case-intro" aria-label="О кейсе">
+            <a class="btn btn--secondary case-intro__back" href="./index.html">
+              <span class="case-intro__back-arrow" aria-hidden="true">&#8592;</span>
+              Назад
+            </a>
+
+            <div class="case-intro__lead">
+              <div class="case-intro__heading">
+                <h1 class="hero__title case-intro__title" id="case-title">
+                  Визуалы
+                </h1>
+              </div>
+
+              <p class="case-intro__description">
+                Метрики на последнем месте работы
+              </p>
+            </div>
+
+            <div class="case-results" id="case-results" aria-label="Результаты">
+              <article class="case-result-card">
+                <div class="case-result-card__confetti" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <h2 class="case-result-card__value">+20%</h2>
+                <p class="case-result-card__label">
+                  Рост вовлечённости
+                  <br class="case-result-card__br" />в соцсетях
+                </p>
+              </article>
+              <article class="case-result-card">
+                <div class="case-result-card__confetti" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <h2 class="case-result-card__value">70+</h2>
+                <p class="case-result-card__label">Подготовлено иллюстраций</p>
+              </article>
+              <article class="case-result-card">
+                <div class="case-result-card__confetti" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <h2 class="case-result-card__value">100+</h2>
+                <p class="case-result-card__label">
+                  Создано 3D<span class="type-sign">-</span>иконок
+                </p>
+              </article>
+            </div>
+
+            <figure class="case-cover" aria-label="Обложка проекта">
+              <img
+                class="case-cover__img"
+                src="./src/assets/img/cases/universal/case-04-cover.png"
+                alt="Обложка кейса Визуалы"
+              />
+            </figure>
+
+            <div class="case-content" aria-label="Подробности кейса">
+              <section class="case-content__section" aria-label="О кейсе">
+                <h2 class="case-content__title">Описание</h2>
+                <p class="case-content__text">
+                  Помимо ключевых профессиональных компетенций, я активно прокачиваю
+                  дополнительные навыки в области графики: осваиваю 3D-дизайн, графический
+                  дизайн, моушн-графику, а за последние полтора года добавил в свой арсенал
+                  ещё и генерацию визуального контента с помощью ИИ.
+                </p>
+                <p class="case-content__text">
+                  Эти умения существенно помогают мне в работе. Чтобы протестировать и
+                  отточить новые технологии, я создаю небольшие визуальные работы (шоты)
+                  и публикую их в социальных сетях.
+                </p>
+                <p class="case-content__text">
+                  В данном кейсе представлены отдельные рендеры с Dribbble, а также проекты,
+                  реализованные мной на предыдущем месте работы.
+                </p>
+              </section>
+            </div>
+
+            <section
+              class="case-showcase"
+              id="case-dribbble-shots"
+              aria-label="Dribbble shots"
+            >
+              <h2 class="case-content__title case-showcase__title">Dribbble shots</h2>
+              <div class="case-showcase__media">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-dribbble-01.png"
+                  alt="3D-рендер фитнес-оборудования"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="case-showcase__media">
+                <video
+                  class="case-showcase__video"
+                  src="./src/assets/video/cases/case-04-dribbble-01.mp4"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  aria-label="Dribbble shot video 1"
+                ></video>
+              </div>
+              <div class="case-showcase__media">
+                <video
+                  class="case-showcase__video"
+                  src="./src/assets/video/cases/case-04-dribbble-02.mp4"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  aria-label="Dribbble shot video 2"
+                ></video>
+              </div>
+            </section>
+
+            <section class="case-showcase" id="case-pole-rf" aria-label="Поле.рф">
+              <h2 class="case-content__title case-showcase__title">Поле.рф</h2>
+              <p class="case-content__text">
+                В поле.рф я разработал десятки моделей и больше сотни 3Д иконок.
+              </p>
+              <div class="case-showcase__media case-showcase__media--no-radius">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-pole-01.png"
+                  alt="3D-иконки поле.рф"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="case-showcase__media">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-pole-02.png"
+                  alt="3D-визуал дизайн-системы поле.рф"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="case-showcase__media">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-pole-03.png"
+                  alt="3D-визуал Production Area"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="case-showcase__media">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-pole-04.png"
+                  alt="3D-визуал с диаграммой и монетами"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="case-showcase__media">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-pole-05.png"
+                  alt="3D-визуал Поле-Кредит"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="case-showcase__media">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-pole-06.png"
+                  alt="3D-визуал DESIGN / курилка"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </section>
+
+            <section class="case-showcase" id="case-mockups" aria-label="Mockups">
+              <h2 class="case-content__title case-showcase__title">Mockups</h2>
+              <p class="case-content__text">
+                Также у меня был опыт создания мокапов для продажи на различных сервисах.
+              </p>
+              <div class="case-showcase__media">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-mockup-03.png"
+                  alt="Мокапы телефонов на подставках"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="case-showcase__media">
+                <img
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-04-mockup-02.png"
+                  alt="Мокап двух телефонов"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </section>
+
+            <a
+              class="case-next-link"
+              href="./case-01.html"
+              aria-label="Следующий кейс: Финтех продукт для фермеров"
+            >
+              <article class="case-next-card">
+                <div class="case-next-card__content">
+                  <p class="case-next-card__label">Следующий кейс</p>
+                  <h3 class="case-next-card__title">Финтех продукт для фермеров</h3>
+                </div>
+                <span class="case-next-card__action" aria-hidden="true">
+                  <img src="./src/assets/svg/ui/arrow.svg" alt="" width="20" height="20" />
+                </span>
+              </article>
+            </a>
+
+            <section class="section" id="contact" aria-label="Контакты">
+              <div class="contact-card">
+                <div class="contact-card__intro">
+                  <p class="contact-card__headline">
+                    Буду рад пообщаться и обсудить возможное сотрудничество ✍️
+                  </p>
+                </div>
+                <div class="contact-card__footer">
+                  <div class="contact-card__channels">
+                    <div class="contact-channel">
+                      <span class="contact-channel__label">Телеграм</span>
+                      <a
+                        class="contact-channel__value"
+                        href="https://t.me/moberg_87"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >@moberg_87</a
+                      >
+                    </div>
+                    <div class="contact-channel">
+                      <span class="contact-channel__label">Электронная почта</span>
+                      <a
+                        class="contact-channel__value"
+                        href="mailto:anton.barbarov@yandex.ru"
+                        >anton.barbarov@yandex.ru</a
+                      >
+                    </div>
+                  </div>
+                  <div class="contact-card__socials">
+                    <a
+                      class="btn btn--social btn--behance"
+                      href="https://www.behance.net/moberg1987"
+                      aria-label="Behance"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        class="btn__icon"
+                        src="./src/assets/svg/ui/behance.svg"
+                        alt=""
+                        width="20"
+                        height="20"
+                      />
+                    </a>
+                    <a
+                      class="btn btn--social btn--dribbble"
+                      href="https://dribbble.com/Moberg1987"
+                      aria-label="Dribbble"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        class="btn__icon"
+                        src="./src/assets/svg/ui/dribbble.svg"
+                        alt=""
+                        width="20"
+                        height="20"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </main>
+
+      <aside class="panel panel--right" aria-label="Статус">
+        <div class="wave-stack" aria-label="Быстрые контакты">
+          <button class="wave" type="button" aria-label="Открыть быстрые контакты">
+            🤚
+          </button>
+          <div class="wave-stack__socials" aria-hidden="true">
+            <a
+              class="btn btn--social btn--behance wave-stack__social"
+              href="https://www.behance.net/moberg1987"
+              aria-label="Behance"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/behance.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--social btn--dribbble wave-stack__social"
+              href="https://dribbble.com/Moberg1987"
+              aria-label="Dribbble"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/dribbble.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--ghost btn--telegram wave-stack__social"
+              href="https://t.me/moberg_87"
+              aria-label="Telegram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon btn__icon--default"
+                src="./src/assets/svg/ui/telegram.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--hover"
+                src="./src/assets/svg/ui/telegram-hover.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--ghost btn--mail wave-stack__social"
+              href="mailto:anton.barbarov@yandex.ru"
+              aria-label="Email"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/mail.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+          </div>
+        </div>
+        <p class="clock" id="clock">GMT +3, --:--</p>
+      </aside>
+
+      <section class="mobile-menu" id="mobile-menu" aria-label="Мобильное меню" hidden>
+        <div class="mobile-menu__main">
+          <div class="mobile-menu__top">
+            <div class="avatar avatar--small" aria-hidden="true">
+              <img
+                src="./src/assets/img/avatar/avatar-88.png"
+                alt=""
+                width="88"
+                height="88"
+              />
+            </div>
+            <button
+              class="btn btn--menu js-menu-toggle is-open"
+              type="button"
+              aria-label="Закрыть меню"
+              aria-controls="mobile-menu"
+              aria-expanded="true"
+            >
+              <img
+                class="btn__icon btn__icon--default"
+                src="./src/assets/svg/ui/menu.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--pressed"
+                src="./src/assets/svg/ui/menu-pressed.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--close"
+                src="./src/assets/svg/ui/close.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </button>
+          </div>
+          <div class="mobile-menu__identity">
+            <p class="mobile-menu__name">Антон Барбаров</p>
+            <p class="mobile-menu__role">Продуктовый / UX дизайнер</p>
+          </div>
+          <p class="clock mobile-menu__clock mobile-menu__clock--top" id="clock-menu">GMT +3, --:--</p>
+          <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
+            <a class="mobile-menu__link js-nav-link is-active" href="#main">Описание</a>
+            <a class="mobile-menu__link js-nav-link" href="#case-dribbble-shots">Dribbble shots</a>
+            <a class="mobile-menu__link js-nav-link" href="#case-pole-rf">Поле.рф</a>
+            <a class="mobile-menu__link js-nav-link" href="#case-mockups">Mockups</a>
+          </nav>
+        </div>
+        <div class="mobile-menu__footer">
+          <a class="btn btn--primary mobile-menu__cv" href="./src/assets/docs/Barbarov-Anton-CV.pdf" download="Барбаров Антон Сергеевич.pdf">
+            Смотреть CV
+            <img
+              class="btn__icon"
+              src="./src/assets/svg/ui/download.svg"
+              alt=""
+              width="20"
+              height="20"
+            />
+          </a>
+          <p class="clock mobile-menu__clock mobile-menu__clock--bottom" id="clock-menu-bottom">
+            GMT +3, --:--
+          </p>
+          <div class="mobile-menu__socials">
+            <a
+              class="btn btn--ghost btn--mail"
+              href="mailto:anton.barbarov@yandex.ru"
+              aria-label="Email"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/mail.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--ghost btn--telegram"
+              href="https://t.me/moberg_87"
+              aria-label="Telegram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon btn__icon--default"
+                src="./src/assets/svg/ui/telegram.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+              <img
+                class="btn__icon btn__icon--hover"
+                src="./src/assets/svg/ui/telegram-hover.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--social btn--behance"
+              href="https://www.behance.net/moberg1987"
+              aria-label="Behance"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/behance.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+            <a
+              class="btn btn--social btn--dribbble"
+              href="https://dribbble.com/Moberg1987"
+              aria-label="Dribbble"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="btn__icon"
+                src="./src/assets/svg/ui/dribbble.svg"
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./src/js/main.js?v=20260718-2" type="module"></script>
+  </body>
+</html>
