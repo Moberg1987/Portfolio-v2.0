@@ -762,6 +762,21 @@ for (const tabsBlock of tabsBlocks) {
   });
 }
 
+const experienceMoreButton = document.querySelector(".experience__more");
+const experienceExtra = document.querySelector("#experience-extra");
+
+if (
+  experienceMoreButton instanceof HTMLButtonElement &&
+  experienceExtra instanceof HTMLElement
+) {
+  experienceMoreButton.addEventListener("click", () => {
+    const isExpanded = experienceExtra.hidden === false;
+    experienceExtra.hidden = isExpanded;
+    experienceMoreButton.setAttribute("aria-expanded", String(!isExpanded));
+    experienceMoreButton.textContent = isExpanded ? "Показать все" : "Скрыть";
+  });
+}
+
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && mobileMenuEl?.classList.contains("is-open")) {
     setMenuOpen(false);

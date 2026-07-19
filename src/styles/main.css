@@ -1409,6 +1409,14 @@ img {
   flex-direction: column;
 }
 
+.experience-list__extra[hidden] {
+  display: none;
+}
+
+.experience__more {
+  margin-top: 24px;
+}
+
 .job-card {
   display: flex;
   align-items: center;
