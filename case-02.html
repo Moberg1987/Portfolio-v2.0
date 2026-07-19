@@ -37,6 +37,7 @@
             <a class="side-nav__link js-nav-link is-active" href="#main">О дизайн-системе</a>
             <a class="side-nav__link js-nav-link" href="#case-tokens-title">Токены</a>
             <a class="side-nav__link js-nav-link" href="#case-components-title">Компоненты</a>
+            <a class="side-nav__link js-nav-link" href="#case-results-block">Результаты</a>
           </nav>
         </div>
         <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" download="Барбаров Антон Сергеевич.pdf">
@@ -230,6 +231,9 @@
                     decoding="async"
                   />
                 </figure>
+                <p class="case-content__text">
+                  Примеры организации переменных (токенов) в фигме представлены ниже.
+                </p>
                 <div class="case-accordions" aria-label="Примеры токенов">
                   <details class="case-accordion">
                     <summary class="case-accordion__summary">
@@ -309,6 +313,35 @@
                     decoding="async"
                   />
                 </figure>
+                <p class="case-content__text">
+                  В дизайн<span class="type-sign">-</span>системе выделяют несколько категорий
+                  компонентов:
+                </p>
+                <ul class="case-content__list">
+                  <li>
+                    базовые элементы (атомы) — фундаментальные строительные блоки;
+                  </li>
+                  <li>
+                    глобальные компоненты (переиспользуемые организмы) — готовые составные
+                    решения для многократного применения;
+                  </li>
+                  <li>визуальные ассеты — иконки и иллюстрации.</li>
+                </ul>
+                <p class="case-content__text">
+                  Отдельно в Figma хранится файл с переменными (глобальными токенами).
+                </p>
+                <figure class="case-cover" aria-label="Структура файлов дизайн-системы">
+                  <img
+                    class="case-cover__img"
+                    src="./src/assets/img/cases/case-02-figma-files.png"
+                    alt="Сетка файлов дизайн-системы поле.рф в Figma"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <p class="case-content__text">
+                  Примеры отдельных компонентов представлены ниже.
+                </p>
                 <div class="case-accordions" aria-label="Примеры токенов">
                   <details class="case-accordion">
                     <summary class="case-accordion__summary">
@@ -422,6 +455,122 @@
               </section>
 
             </div>
+
+            <section
+              class="case-results-tabs js-tabs"
+              id="case-results-block"
+              aria-label="Результаты проекта"
+            >
+              <h2 class="case-content__title">Результаты</h2>
+
+              <div class="case-results-tabs__head" role="tablist" aria-label="Переключение блока результатов">
+                <button
+                  class="case-results-tabs__tab is-active"
+                  type="button"
+                  role="tab"
+                  id="tab-done"
+                  aria-controls="panel-done"
+                  aria-selected="true"
+                >
+                  Что сделано
+                </button>
+                <button
+                  class="case-results-tabs__tab"
+                  type="button"
+                  role="tab"
+                  id="tab-problems"
+                  aria-controls="panel-problems"
+                  aria-selected="false"
+                >
+                  Основные проблемы
+                </button>
+              </div>
+
+              <div class="case-results-tabs__body">
+                <div
+                  class="case-results-tabs__panel is-active"
+                  role="tabpanel"
+                  id="panel-done"
+                  aria-labelledby="tab-done"
+                >
+                  <ul class="case-content__list">
+                    <li>
+                      В короткий срок освоил принципы системной работы с
+                      дизайн<span class="type-sign">-</span>системой и успешно интегрировался в
+                      кросс<span class="type-sign">-</span>функциональные процессы согласования
+                      компонентов (дизайнеры, разработчики, менеджеры).
+                    </li>
+                    <li>
+                      В течение последнего года выступал основным драйвером разработки
+                      компонентов.
+                    </li>
+                    <li>
+                      Выполнил значительную часть компонентов, запланированных в KPI на 2026
+                      год.
+                    </li>
+                    <li>
+                      Провёл более 10 демонстраций готовых компонентов для разработчиков и
+                      менеджмента.
+                    </li>
+                    <li>
+                      С текущего года заметно ускорилось внедрение новых компонентов; в политике
+                      компании закреплено снижение TTM для поддержки этой динамики.
+                    </li>
+                    <li>
+                      Команда дизайна теперь лидирует по ключевым вопросам
+                      дизайн<span class="type-sign">-</span>системы — ранее приоритет был у
+                      разработки.
+                    </li>
+                    <li>
+                      Достигнут существенный рост унификации и переиспользования компонентов во
+                      всех командах.
+                    </li>
+                    <li>
+                      Детальная документация компонентов позволила сократить количество багов.
+                    </li>
+                    <li>
+                      В результате интерфейсы стали более лаконичными, понятными и современными.
+                    </li>
+                  </ul>
+                </div>
+
+                <div
+                  class="case-results-tabs__panel"
+                  role="tabpanel"
+                  id="panel-problems"
+                  aria-labelledby="tab-problems"
+                  hidden
+                >
+                  <ul class="case-content__list">
+                    <li>
+                      Ресурсы на системную разработку полноценной
+                      дизайн<span class="type-sign">-</span>системы существенно ограничены.
+                    </li>
+                    <li>
+                      За годы работы каждое направление сформировало собственные
+                      UX<span class="type-sign">-</span>паттерны, интеграция которых оказалась
+                      непростой задачей.
+                    </li>
+                    <li>
+                      На старте было сложно обосновать руководству ценность
+                      дизайн<span class="type-sign">-</span>системы как инструмента, напрямую
+                      влияющего на ключевые метрики.
+                    </li>
+                    <li>
+                      В штате не предусмотрена отдельная роль дизайнера, ответственного за
+                      развитие дизайн<span class="type-sign">-</span>системы.
+                    </li>
+                    <li>
+                      Частые организационные перестановки меняли стратегический вектор компании
+                      и временно приостанавливали действие ранее согласованных правил работы с
+                      дизайн<span class="type-sign">-</span>системой.
+                    </li>
+                  </ul>
+                </div>
+
+                <button class="case-results-tabs__more" type="button" hidden>Показать еще</button>
+              </div>
+            </section>
 
             <a class="case-next-link" href="./case-03.html" aria-label="Следующий кейс: Редизайн системы регистрации поле.рф">
               <article class="case-next-card">
@@ -628,6 +777,7 @@
             <a class="mobile-menu__link js-nav-link is-active" href="#main">О дизайн-системе</a>
             <a class="mobile-menu__link js-nav-link" href="#case-tokens-title">Токены</a>
             <a class="mobile-menu__link js-nav-link" href="#case-components-title">Компоненты</a>
+            <a class="mobile-menu__link js-nav-link" href="#case-results-block">Результаты</a>
           </nav>
         </div>
         <div class="mobile-menu__footer">
