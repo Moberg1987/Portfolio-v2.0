@@ -39,9 +39,8 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior: smooth конфликтует с JS RAF-скроллом меню
+   (каждый scrollTo становится анимированным → лаг/ломаные якоря на проде) */
 
 html,
 body {
@@ -162,14 +161,8 @@ img {
 .panel--left .panel__top {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 369px;
+  justify-content: flex-start;
   gap: 40px;
-}
-
-/* case-02: align menu start with case-01 baseline */
-.case-page--design-system .panel--left .panel__top {
-  min-height: 289px;
 }
 
 .js-scroll-top {
@@ -237,6 +230,16 @@ img {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+@media (min-width: 1025px) {
+  .side-nav {
+    margin-top: 120px;
+  }
+
+  .case-page .side-nav {
+    margin-top: 56px;
+  }
 }
 
 .side-nav__link {

@@ -221,6 +221,11 @@ function setupCaseAccordion(accordion) {
   });
 }
 
+function scrollToYInstant(y) {
+  // behavior: "auto" — иначе CSS/браузерный smooth снова анимирует каждый кадр
+  window.scrollTo({ top: y, left: 0, behavior: "auto" });
+}
+
 function smoothScrollToY(targetY, duration = 450, onComplete = null) {
   const startY = window.scrollY;
   const maxY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
@@ -228,7 +233,7 @@ function smoothScrollToY(targetY, duration = 450, onComplete = null) {
   const distance = clampedTargetY - startY;
 
   if (Math.abs(distance) < 1) {
-    window.scrollTo(0, clampedTargetY);
+    scrollToYInstant(clampedTargetY);
     if (typeof onComplete === "function") {
       onComplete();
     }
@@ -246,7 +251,7 @@ function smoothScrollToY(targetY, duration = 450, onComplete = null) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
     const eased = 1 - (1 - progress) ** 3;
-    window.scrollTo(0, startY + distance * eased);
+    scrollToYInstant(startY + distance * eased);
 
     if (progress < 1) {
       scrollAnimationFrame = requestAnimationFrame(step);
@@ -254,7 +259,7 @@ function smoothScrollToY(targetY, duration = 450, onComplete = null) {
     }
 
     scrollAnimationFrame = null;
-    window.scrollTo(0, clampedTargetY);
+    scrollToYInstant(clampedTargetY);
     if (typeof onComplete === "function") {
       onComplete();
     }
@@ -414,13 +419,14 @@ function setMenuOpen(isOpen) {
       return;
     }
 
+    // Снимаем lock сразу — иначе scrollTo якорей мёртв ~280ms пока меню закрывается
+    document.body.classList.remove("is-menu-open");
     mobileMenuEl.classList.remove("is-open");
     mobileMenuEl.classList.add("is-closing");
 
     const finalizeClose = () => {
       mobileMenuEl.hidden = true;
       mobileMenuEl.classList.remove("is-closing");
-      document.body.classList.remove("is-menu-open");
       clearMobileMenuTransitionEndHandler();
       clearMobileMenuHideTimer();
       syncMobileStickyTopbar();
@@ -485,20 +491,29 @@ for (const link of navLinks) {
     if (!targetSection) return;
 
     setActiveNav(id);
-    isNavProgrammaticScroll = true;
-    programmaticNavId = id;
-    const offset = getScrollSpyOffset();
-    const targetY = targetSection.getBoundingClientRect().top + window.scrollY - offset;
-    const duration = getMenuScrollDuration(window.scrollY, targetY);
-    smoothScrollToY(targetY, duration, () => {
-      isNavProgrammaticScroll = false;
-      programmaticNavId = null;
-      setActiveNav(id);
-    });
+
+    const runNavScroll = () => {
+      isNavProgrammaticScroll = true;
+      programmaticNavId = id;
+      const offset = getScrollSpyOffset();
+      const targetY =
+        targetSection.getBoundingClientRect().top + window.scrollY - offset;
+      const duration = getMenuScrollDuration(window.scrollY, targetY);
+      smoothScrollToY(targetY, duration, () => {
+        isNavProgrammaticScroll = false;
+        programmaticNavId = null;
+        setActiveNav(id);
+      });
+    };
 
     if (isMobileViewport()) {
       setMenuOpen(false);
+      // кадр после снятия overflow:hidden — иначе targetY/scrollTo считаются на залоченном body
+      window.requestAnimationFrame(runNavScroll);
+      return;
     }
+
+    runNavScroll();
   });
 }
 
