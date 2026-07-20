@@ -16,8 +16,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/styles/tokens.css" />
-    <link rel="stylesheet" href="./src/styles/components.css" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260719-5" />
+    <link rel="stylesheet" href="./src/styles/components.css?v=20260720-1" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260720-4" />
   </head>
   <body class="case-page">
     <div class="app">
@@ -35,6 +35,7 @@
           </a>
           <nav class="side-nav" aria-label="Разделы кейса">
             <a class="side-nav__link js-nav-link is-active" href="#main">О продукте</a>
+            <a class="side-nav__link js-nav-link" href="#case-digital-deal">Цифровая сделка</a>
             <a class="side-nav__link js-nav-link" href="#case-landing">Лендинг</a>
             <a class="side-nav__link js-nav-link" href="#case-application-form">Форма подачи заявки</a>
             <a class="side-nav__link js-nav-link" href="#case-banners-hints">Баннеры и подсказки</a>
@@ -164,11 +165,10 @@
               </div>
 
               <p class="case-intro__description">
-                Финтех<span class="type-sign">-</span>продукт для российского фермера от
-                «поле.рф» — это наш собственный проект, и я вёл его от концепции до запуска. Мы
-                сделали ставку на доступность — без ежемесячных платежей, с гибкими условиями и
-                сниженной ставкой. Старт в середине 2024 года, сейчас выходим на финиш. Впереди
-                — интеграция с государственными сервисами.
+                Я создал с нуля уникальный финтех<span class="type-sign">-</span>продукт для
+                российских фермеров на «поле.рф»: без ежемесячных платежей, со сниженной
+                ставкой. Запустил в середине 2024 года, сейчас выхожу на финиш — впереди
+                интеграция с госсервисами.
               </p>
             </div>
 
@@ -219,35 +219,39 @@
             </figure>
 
             <div class="case-content" aria-label="Подробности кейса">
-              <section class="case-content__section" aria-label="О компании">
-                <h2 class="case-content__title">Компания</h2>
-                <p class="case-content__text">
-                  Поле.рф — цифровая платформа для решения ключевых задач: от закупки
-                  сельхозтоваров до продажи урожая и получения финансирования.
-                </p>
-              </section>
-
               <section class="case-content__section" aria-label="Бизнес-задачи">
                 <h2 class="case-content__title">Бизнес<span class="type-sign">-</span>задачи</h2>
                 <ul class="case-content__list">
+                  <li>
+                    Создание цифровой сделки по займу в личном кабинете пользователя (NDA);
+                  </li>
                   <li>Разработка лендинга финансового продукта и калькулятора займа;</li>
                   <li>Редизайн формы подачи заявки;</li>
-                  <li>Создание лендинга агентской программы и сделки в ЛК;</li>
-                  <li>
-                    Создание цифровой сделки по займу МКК в личном кабинете пользователя (NDA);
-                  </li>
                   <li>Разработка системы баннеров и подсказок.</li>
                 </ul>
               </section>
             </div>
 
-            <section class="case-timeline" aria-label="Таймлайн проекта">
-              <h2 class="case-content__title case-timeline__title">Таймлайн проекта</h2>
-              <div class="case-timeline__media">
+            <section
+              class="case-showcase"
+              id="case-digital-deal"
+              aria-label="Цифровая сделка"
+            >
+              <div class="case-showcase__heading">
+                <h2 class="case-content__title case-showcase__title">Цифровая сделка</h2>
+                <span class="badge badge--accent">NDA</span>
+              </div>
+              <p class="case-content__text">
+                Я спроектировал и внедрил процесс оформления и согласования займа в личном
+                кабинете — он охватывает сценарии и для заёмщика, и для финансового партнёра.
+                После релиза MVP срок от заключения договора до выдачи займа сократился
+                <strong>с 10 дней до 3‑х дней</strong>.
+              </p>
+              <div class="case-showcase__media">
                 <img
-                  class="case-timeline__img"
-                  src="./src/assets/img/cases/case-01-timeline-v2.png"
-                  alt="Таймлайн проекта с этапами разработки и бизнес-задачами"
+                  class="case-showcase__img"
+                  src="./src/assets/img/cases/case-01-digital-deal.png"
+                  alt="Карта экранов цифровой сделки в Figma"
                   loading="lazy"
                   decoding="async"
                 />
@@ -260,100 +264,364 @@
               aria-label="Лендинг финансового продукта"
             >
               <h2 class="case-content__title case-showcase__title">Лендинг финансового продукта</h2>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-mkk-02-4.png"
-                  alt="Мобильный экран лендинга Поле Финанс"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-mkk-02.png"
-                  alt="Мобильные экраны лендинга МКК"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-mkk-02-3.png"
-                  alt="Мобильные экраны формы заявки и успешной отправки"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-mkk-landing.png"
-                  alt="Экран лендинга МКК"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-mkk-03.png"
-                  alt="Мобильный экран этапов получения денег"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <p class="case-content__text">
+                Создал лендинг продукта и трёхэтапный калькулятор расчёта лимита по займу. Провёл
+                несколько итераций пользовательского тестирования. В этом году лендинг перевожу на
+                новые компоненты дизайн<span class="type-sign">-</span>системы.
+              </p>
+              <div
+                class="case-carousel js-carousel"
+                role="region"
+                aria-roledescription="carousel"
+                aria-label="Слайды лендинга финансового продукта"
+                tabindex="0"
+              >
+                <div class="case-carousel__viewport">
+                  <ul class="case-carousel__track" aria-live="polite">
+                    <li class="case-carousel__slide is-active" data-slide="0">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-landing-01.png"
+                        alt="Десктопный лендинг Поле Финанс"
+                        width="777"
+                        height="463"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="1" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-landing-02.png"
+                        alt="Мобильные экраны лендинга Поле Финанс"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="2" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-landing-03.png"
+                        alt="Мобильное меню лендинга Поле Финанс"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="3" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-landing-04.png"
+                        alt="Форма заявки и экран успешной отправки"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                  </ul>
+                  <button
+                    class="case-carousel__arrow case-carousel__arrow--prev js-carousel-prev"
+                    type="button"
+                    aria-label="Предыдущий слайд"
+                  >
+                    <img
+                      src="./src/assets/svg/ui/arrow.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <button
+                    class="case-carousel__arrow case-carousel__arrow--next js-carousel-next"
+                    type="button"
+                    aria-label="Следующий слайд"
+                  >
+                    <img
+                      src="./src/assets/svg/ui/arrow.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+                <div class="case-carousel__dots" role="tablist" aria-label="Навигация по слайдам">
+                  <button
+                    class="case-carousel__dot js-carousel-dot is-active"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 1"
+                    aria-selected="true"
+                    data-slide="0"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 2"
+                    aria-selected="false"
+                    data-slide="1"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 3"
+                    aria-selected="false"
+                    data-slide="2"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 4"
+                    aria-selected="false"
+                    data-slide="3"
+                  ></button>
+                </div>
               </div>
             </section>
 
             <section class="case-showcase" id="case-application-form" aria-label="Форма подачи заявки">
               <h2 class="case-content__title case-showcase__title">Форма подачи заявки</h2>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-credits-leasing-01.png"
-                  alt="Планшет с экраном страницы кредитов и лизинга"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="case-showcase__media case-showcase__media--no-radius">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-credits-leasing-02.png"
-                  alt="Схема пользовательского сценария на странице кредитов и лизинга"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <p class="case-content__text">
+                Провёл редизайн страницы финансовых продуктов. Упростил путь пользователя при
+                подаче заявки: заменил модальные окна на единую адаптивную форму на странице.
+                Тестировал прототипы на фермерах и региональных менеджерах.
+              </p>
+              <div
+                class="case-carousel js-carousel"
+                role="region"
+                aria-roledescription="carousel"
+                aria-label="Слайды формы подачи заявки"
+                tabindex="0"
+              >
+                <div class="case-carousel__viewport">
+                  <ul class="case-carousel__track" aria-live="polite">
+                    <li class="case-carousel__slide is-active" data-slide="0">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-form-01.png"
+                        alt="Планшет с карточками финансовых продуктов"
+                        width="777"
+                        height="463"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="1" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-form-02.png"
+                        alt="Страница кредитов и лизинга до редизайна"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="2" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-form-03.png"
+                        alt="Страница финансовых предложений после редизайна"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="3" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-form-04.png"
+                        alt="Пользовательский сценарий формы заявки на кредит"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                  </ul>
+                  <button
+                    class="case-carousel__arrow case-carousel__arrow--prev js-carousel-prev"
+                    type="button"
+                    aria-label="Предыдущий слайд"
+                  >
+                    <img
+                      src="./src/assets/svg/ui/arrow.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <button
+                    class="case-carousel__arrow case-carousel__arrow--next js-carousel-next"
+                    type="button"
+                    aria-label="Следующий слайд"
+                  >
+                    <img
+                      src="./src/assets/svg/ui/arrow.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+                <div class="case-carousel__dots" role="tablist" aria-label="Навигация по слайдам">
+                  <button
+                    class="case-carousel__dot js-carousel-dot is-active"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 1"
+                    aria-selected="true"
+                    data-slide="0"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 2"
+                    aria-selected="false"
+                    data-slide="1"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 3"
+                    aria-selected="false"
+                    data-slide="2"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 4"
+                    aria-selected="false"
+                    data-slide="3"
+                  ></button>
+                </div>
               </div>
             </section>
 
             <section class="case-showcase" id="case-banners-hints" aria-label="Баннеры и подсказки">
               <h2 class="case-content__title case-showcase__title">Баннеры и подсказки</h2>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-banners-02.png"
-                  alt="Экран с баннером авансирования под будущий урожай"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <p class="case-content__text">
+                Поскольку «поле.рф» — платформа «единого окна», нужно было органично внедрить наш
+                продукт в личный кабинет, лендинги, калькуляторы удобрений, карточки продуктов и
+                другие разделы.
+              </p>
+              <div
+                class="case-carousel js-carousel"
+                role="region"
+                aria-roledescription="carousel"
+                aria-label="Слайды баннеров и подсказок"
+                tabindex="0"
+              >
+                <div class="case-carousel__viewport">
+                  <ul class="case-carousel__track" aria-live="polite">
+                    <li class="case-carousel__slide is-active" data-slide="0">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-banners-carousel-02.png"
+                        alt="Лендинг авансирования с подсказкой о предодобренном займе"
+                        width="777"
+                        height="463"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="1" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-banners-carousel-01.png"
+                        alt="Блок с карточками агентской программы и сервисов"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="2" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-banners-carousel-03.png"
+                        alt="Результаты расчета с промо-баннером финансирования"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                  </ul>
+                  <button
+                    class="case-carousel__arrow case-carousel__arrow--prev js-carousel-prev"
+                    type="button"
+                    aria-label="Предыдущий слайд"
+                  >
+                    <img
+                      src="./src/assets/svg/ui/arrow.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <button
+                    class="case-carousel__arrow case-carousel__arrow--next js-carousel-next"
+                    type="button"
+                    aria-label="Следующий слайд"
+                  >
+                    <img
+                      src="./src/assets/svg/ui/arrow.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+                <div class="case-carousel__dots" role="tablist" aria-label="Навигация по слайдам">
+                  <button
+                    class="case-carousel__dot js-carousel-dot is-active"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 1"
+                    aria-selected="true"
+                    data-slide="0"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 2"
+                    aria-selected="false"
+                    data-slide="1"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 3"
+                    aria-selected="false"
+                    data-slide="2"
+                  ></button>
+                </div>
               </div>
-              <div class="case-showcase__media">
+            </section>
+
+            <section class="case-timeline" aria-label="Таймлайн проекта">
+              <h2 class="case-content__title case-timeline__title">Таймлайн проекта</h2>
+              <div class="case-timeline__media">
                 <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-banners-01.png"
-                  alt="Блок с карточками партнерской программы на странице кредитов и лизинга"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-banners-03.png"
-                  alt="Экран результатов расчета с промо-баннером"
+                  class="case-timeline__img"
+                  src="./src/assets/img/cases/case-01-timeline-v2.png"
+                  alt="Таймлайн проекта с этапами разработки и бизнес-задачами"
                   loading="lazy"
                   decoding="async"
                 />
@@ -399,6 +667,11 @@
                 >
                   <ul class="case-content__list">
                     <li>
+                      Больше года делал с командой цифровую сделку в личном кабинете. Всего было
+                      3 итерации: mvp, интеграция с бюро кредитной истории, перевод их на новые
+                      компоненты дизайн-системы.
+                    </li>
+                    <li>
                       Запустил лендинг в сжатые сроки. Собрал первую итерацию лендинга за 2
                       дня — простой дизайн без избыточных фич. Это позволило оперативно открыть
                       поток лидогенерации.
@@ -425,13 +698,8 @@
                       прозрачность процесса подачи заявки.
                     </li>
                     <li>
-                      Создал лендинг агентской программы и личный кабинет агента для привлечения
-                      новых заемщиков на платформу.
-                    </li>
-                    <li>
-                      Больше года делал с командой цифровую сделку в личном кабинете. Всего было
-                      3 итерации: mvp, интеграция с бюро кредитной истории, перевод их на новые
-                      компоненты дизайн-системы.
+                      На всей платформе сделал систему баннеров и подсказок, рекламирующих наш
+                      продукт.
                     </li>
                   </ul>
                 </div>
@@ -675,6 +943,7 @@
           <p class="clock mobile-menu__clock mobile-menu__clock--top" id="clock-menu">GMT +3, --:--</p>
           <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
             <a class="mobile-menu__link js-nav-link is-active" href="#main">О продукте</a>
+            <a class="mobile-menu__link js-nav-link" href="#case-digital-deal">Цифровая сделка</a>
             <a class="mobile-menu__link js-nav-link" href="#case-landing">Лендинг</a>
             <a class="mobile-menu__link js-nav-link" href="#case-application-form"
               >Форма подачи заявки</a
@@ -770,6 +1039,6 @@
       </section>
     </div>
 
-    <script src="./src/js/main.js?v=20260719-3" type="module"></script>
+    <script src="./src/js/main.js?v=20260720-1" type="module"></script>
   </body>
 </html>

@@ -777,6 +777,93 @@ for (const tabsBlock of tabsBlocks) {
   });
 }
 
+function initCarousel(carouselEl) {
+  const track = carouselEl.querySelector(".case-carousel__track");
+  const slides = [...carouselEl.querySelectorAll(".case-carousel__slide")];
+  const dots = [...carouselEl.querySelectorAll(".js-carousel-dot")];
+  const prevBtn = carouselEl.querySelector(".js-carousel-prev");
+  const nextBtn = carouselEl.querySelector(".js-carousel-next");
+  if (!(track instanceof HTMLElement) || slides.length === 0) return;
+
+  let currentIndex = Math.max(
+    0,
+    slides.findIndex((slide) => slide.classList.contains("is-active"))
+  );
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+
+  function goTo(index) {
+    const total = slides.length;
+    currentIndex = ((index % total) + total) % total;
+
+    for (const [i, slide] of slides.entries()) {
+      const active = i === currentIndex;
+      slide.classList.toggle("is-active", active);
+      slide.setAttribute("aria-hidden", String(!active));
+    }
+
+    for (const [i, dot] of dots.entries()) {
+      const active = i === currentIndex;
+      dot.classList.toggle("is-active", active);
+      dot.setAttribute("aria-selected", String(active));
+    }
+  }
+
+  prevBtn?.addEventListener("click", () => goTo(currentIndex - 1));
+  nextBtn?.addEventListener("click", () => goTo(currentIndex + 1));
+
+  for (const dot of dots) {
+    dot.addEventListener("click", () => {
+      const slideIndex = Number(dot.dataset.slide);
+      if (Number.isFinite(slideIndex)) goTo(slideIndex);
+    });
+  }
+
+  carouselEl.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      goTo(currentIndex - 1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      goTo(currentIndex + 1);
+    }
+  });
+
+  track.addEventListener(
+    "touchstart",
+    (event) => {
+      touchStartX = event.changedTouches[0]?.clientX ?? 0;
+      touchDeltaX = 0;
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchmove",
+    (event) => {
+      touchDeltaX = (event.changedTouches[0]?.clientX ?? 0) - touchStartX;
+    },
+    { passive: true }
+  );
+
+  track.addEventListener(
+    "touchend",
+    () => {
+      if (Math.abs(touchDeltaX) < 40) return;
+      goTo(touchDeltaX > 0 ? currentIndex - 1 : currentIndex + 1);
+      touchDeltaX = 0;
+    },
+    { passive: true }
+  );
+
+  goTo(currentIndex);
+}
+
+for (const carouselEl of document.querySelectorAll(".js-carousel")) {
+  if (carouselEl instanceof HTMLElement) initCarousel(carouselEl);
+}
+
 const experienceMoreButton = document.querySelector(".experience__more");
 const experienceExtra = document.querySelector("#experience-extra");
 
