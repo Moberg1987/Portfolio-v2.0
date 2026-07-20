@@ -1112,6 +1112,19 @@ img {
   background: var(--cover-light);
 }
 
+.case-carousel--tall .case-carousel__viewport {
+  aspect-ratio: 777 / 510;
+}
+
+.case-carousel--h463 .case-carousel__viewport {
+  aspect-ratio: auto;
+  height: 463px;
+}
+
+.case-carousel--h463 .case-carousel__img {
+  object-fit: cover;
+}
+
 .case-carousel__track {
   position: relative;
   margin: 0;
@@ -2272,6 +2285,11 @@ img {
   .case-carousel__arrow {
     width: 36px;
     height: 36px;
+  }
+
+  .case-carousel--h463 .case-carousel__viewport {
+    height: auto;
+    aspect-ratio: 777 / 463;
   }
 
   .case-carousel__arrow--prev {

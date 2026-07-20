@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="./src/styles/tokens.css" />
     <link rel="stylesheet" href="./src/styles/components.css" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260719-5" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260720-6" />
   </head>
   <body class="case-page case-page--design-system">
     <div class="app">
@@ -34,12 +34,12 @@
             </div>
           </a>
           <nav class="side-nav" aria-label="Разделы кейса">
-            <a class="side-nav__link js-nav-link is-active" href="#main">Описание</a>
+            <a class="side-nav__link js-nav-link is-active" href="#case-task-title">Задача</a>
             <a class="side-nav__link js-nav-link" href="#case-process-title">Процесс работы</a>
             <a class="side-nav__link js-nav-link" href="#case-results-block">Результаты</a>
           </nav>
         </div>
-        <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" download="Барбаров Антон Сергеевич.pdf">
+        <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" target="_blank" rel="noopener noreferrer">
           Смотреть CV
           <img
             class="btn__icon"
@@ -204,8 +204,18 @@
             </figure>
 
             <div class="case-content" aria-label="Подробности кейса">
-              <section class="case-content__section" aria-label="О проекте">
-                <h2 class="case-content__title">Описание задачи</h2>
+              <section class="case-content__section" aria-label="Задача">
+                <h2 class="case-content__title" id="case-task-title">Задача</h2>
+                <p class="case-content__text">
+                  На старте 2024 года регистрация была проблемной: запутанная логика, громоздкий
+                  интерфейс и частые баги. Задача — поднять конверсию. Решение — переработать
+                  принципы флоу, пересобрать сценарий и добавить удобные компоненты, в первую
+                  очередь для мобильных экранов.
+                </p>
+              </section>
+
+              <section class="case-content__section" id="case-components" aria-label="Процесс работы">
+                <h2 class="case-content__title" id="case-process-title">Процесс работы</h2>
                 <ul class="case-content__list">
                   <li>
                     Данная задача выполнялась в два этапа: в 2024 и 2026 годах.
@@ -220,37 +230,102 @@
                     регистрацию перевели на новые компоненты из дизайн-системы.
                   </li>
                 </ul>
-              </section>
-
-              <section class="case-content__section" id="case-components" aria-label="Процесс работы">
-                <h2 class="case-content__title" id="case-process-title">Процесс работы</h2>
-                <figure class="case-cover" aria-label="Десктопный экран регистрации">
-                  <img
-                    class="case-cover__img"
-                    src="./src/assets/img/cases/universal/registration-06.png"
-                    alt="Десктопный экран регистрации поле.рф на ноутбуке"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
-                <figure class="case-cover" aria-label="Экраны регистрации">
-                  <img
-                    class="case-cover__img"
-                    src="./src/assets/img/cases/universal/registration-05.png"
-                    alt="Мобильные экраны регистрации и партнёрской программы поле.рф"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
-                <figure class="case-cover" aria-label="Модальное окно входа и регистрации">
-                  <img
-                    class="case-cover__img"
-                    src="./src/assets/img/cases/universal/registration-07.png"
-                    alt="Десктопный экран входа и регистрации поле.рф на ноутбуке"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
+                <div
+                  class="case-carousel case-carousel--tall js-carousel"
+                  role="region"
+                  aria-roledescription="carousel"
+                  aria-label="Слайды процесса работы"
+                  tabindex="0"
+                >
+                  <div class="case-carousel__viewport">
+                    <ul class="case-carousel__track" aria-live="polite">
+                      <li class="case-carousel__slide is-active" data-slide="0">
+                        <img
+                          class="case-carousel__img"
+                          src="./src/assets/img/cases/case-03-process-01.png"
+                          alt="Десктопный экран регистрации поле.рф на ноутбуке"
+                          width="777"
+                          height="510"
+                          decoding="async"
+                        />
+                      </li>
+                      <li class="case-carousel__slide" data-slide="1" aria-hidden="true">
+                        <img
+                          class="case-carousel__img"
+                          src="./src/assets/img/cases/case-03-process-02.png"
+                          alt="Десктопный экран входа и регистрации поле.рф на ноутбуке"
+                          width="777"
+                          height="510"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </li>
+                      <li class="case-carousel__slide" data-slide="2" aria-hidden="true">
+                        <img
+                          class="case-carousel__img"
+                          src="./src/assets/img/cases/case-03-process-03.png"
+                          alt="Мобильные экраны регистрации и партнёрской программы поле.рф"
+                          width="777"
+                          height="510"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </li>
+                    </ul>
+                    <button
+                      class="case-carousel__arrow case-carousel__arrow--prev js-carousel-prev"
+                      type="button"
+                      aria-label="Предыдущий слайд"
+                    >
+                      <img
+                        src="./src/assets/svg/ui/arrow.svg"
+                        alt=""
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                      />
+                    </button>
+                    <button
+                      class="case-carousel__arrow case-carousel__arrow--next js-carousel-next"
+                      type="button"
+                      aria-label="Следующий слайд"
+                    >
+                      <img
+                        src="./src/assets/svg/ui/arrow.svg"
+                        alt=""
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </div>
+                  <div class="case-carousel__dots" role="tablist" aria-label="Навигация по слайдам">
+                    <button
+                      class="case-carousel__dot js-carousel-dot is-active"
+                      type="button"
+                      role="tab"
+                      aria-label="Слайд 1"
+                      aria-selected="true"
+                      data-slide="0"
+                    ></button>
+                    <button
+                      class="case-carousel__dot js-carousel-dot"
+                      type="button"
+                      role="tab"
+                      aria-label="Слайд 2"
+                      aria-selected="false"
+                      data-slide="1"
+                    ></button>
+                    <button
+                      class="case-carousel__dot js-carousel-dot"
+                      type="button"
+                      role="tab"
+                      aria-label="Слайд 3"
+                      aria-selected="false"
+                      data-slide="2"
+                    ></button>
+                  </div>
+                </div>
                 <p class="case-content__text">
                   Процесс работы над редизайном представлен ниже.
                 </p>
@@ -342,6 +417,22 @@
                     </summary>
                     <div class="case-accordion__content">
                       <div class="case-accordion__content-inner">
+                        <p class="case-accordion__body-text">
+                          В результате анализа конкурентов, которых было изучено порядка 10-15,
+                          выявилась интересная тенденция: большинство из них используют отдельную
+                          страницу для регистрации. Это позволяет удерживать пользователя дольше, а
+                          также предоставляет дополнительную информацию о продукте, его
+                          преимуществах и выгодах.
+                        </p>
+                        <p class="case-accordion__body-text">
+                          Также была отмечена ещё одна важная деталь: у многих конкурентов кнопка
+                          завершения регистрации всегда активна, и проверка корректности введённых
+                          данных происходит уже после нажатия. В нашем же случае кнопка становится
+                          доступной только тогда, когда все необходимые поля уже заполнены. Из-за
+                          этого у пользователей иногда возникает путаница, когда пропущенные поля
+                          выглядят как ошибка, даже если они необязательны, что вызывает некоторое
+                          недоумение.
+                        </p>
                         <img
                           class="case-accordion__img"
                           src="./src/assets/img/cases/universal/accordeon-image-05.png"
@@ -419,7 +510,7 @@
                         </p>
                         <p class="case-accordion__body-text">
                           Были разработаны и согласованы 2 первичных варианта флоу с руководителем
-                          направления IFA Павлом Денисюком
+                          направления IFA.
                         </p>
                         <img
                           class="case-accordion__img"
@@ -428,137 +519,6 @@
                           loading="lazy"
                           decoding="async"
                         />
-                        <h3 class="case-accordion__heading">Респонденты - Product owners</h3>
-                        <ul class="case-accordion__list">
-                          <li>Андрей Игнатюк (мобильное приложение)</li>
-                          <li>Антон Хабаров (inputs)</li>
-                          <li>Александр Агафонов (inputs)</li>
-                          <li>Иван Чупинский (outputs)</li>
-                          <li>Илья Балакшин (outputs)</li>
-                        </ul>
-                        <h3 class="case-accordion__heading">Модераторы</h3>
-                        <ul class="case-accordion__list">
-                          <li>Павел Денисюк (IFA)</li>
-                          <li>Антон Барбаров (Product designer)</li>
-                          <li>Мария Проскурина (Product designer)</li>
-                        </ul>
-                        <h3 class="case-accordion__heading">Комментарии PO</h3>
-                        <figure class="case-comment">
-                          <img
-                            class="case-comment__emoji"
-                            src="./src/assets/img/cases/universal/em-01.png"
-                            alt=""
-                            width="40"
-                            height="40"
-                            decoding="async"
-                          />
-                          <blockquote class="case-comment__card">
-                            <cite class="case-comment__author">Антон Хабаров</cite>
-                            <ul class="case-comment__body">
-                              <li>
-                                Первый вариант не подойдет, потому что левый блок перетягивает на
-                                себя внимание и есть риск фокусировки на него. Во втором варианте
-                                вес левой части также слишком большой
-                              </li>
-                              <li>
-                                Поле заполнения ИНН лучше, чем у конкурентов, но требует
-                                доработки...
-                              </li>
-                              <li>
-                                Сам переход на отдельную страницу регистрации является логичным
-                                шагом
-                              </li>
-                              <li>
-                                Названия ролей не релевантны и короткие названия не подходят и
-                                непонятны для фермеров
-                              </li>
-                              <li>Флоу входа в модальном окне норм</li>
-                            </ul>
-                          </blockquote>
-                        </figure>
-                        <figure class="case-comment">
-                          <img
-                            class="case-comment__emoji"
-                            src="./src/assets/img/cases/universal/em-02.png"
-                            alt=""
-                            width="40"
-                            height="40"
-                            decoding="async"
-                          />
-                          <blockquote class="case-comment__card">
-                            <cite class="case-comment__author">Андрей Игнатюк</cite>
-                            <ul class="case-comment__body">
-                              <li>
-                                У второго варианта блок с формой должен быть слева, так как
-                                пользователь в первую очередь смотрит влево
-                              </li>
-                              <li>Второй вариант лучше</li>
-                              <li>Слайдер на первом варианте слишком большой, а текста мало</li>
-                              <li>Флоу входа в модальном окне норм</li>
-                            </ul>
-                          </blockquote>
-                        </figure>
-                        <figure class="case-comment">
-                          <img
-                            class="case-comment__emoji"
-                            src="./src/assets/img/cases/universal/em-03.png"
-                            alt=""
-                            width="40"
-                            height="40"
-                            decoding="async"
-                          />
-                          <blockquote class="case-comment__card">
-                            <cite class="case-comment__author">Иван Чупинский</cite>
-                            <ul class="case-comment__body">
-                              <li>Второй вариант лучше</li>
-                              <li>Заголовок Добро пожаловать устарел и сейчас так не пишут</li>
-                              <li>Флоу входа в модальном окне норм</li>
-                              <li>
-                                Перевод других ролей на отдельные страницы не планируются в
-                                ближайшее время
-                              </li>
-                              <li>Дополнительная информация слева вообще необязательна</li>
-                            </ul>
-                          </blockquote>
-                        </figure>
-                        <figure class="case-comment">
-                          <img
-                            class="case-comment__emoji"
-                            src="./src/assets/img/cases/universal/em-02.png"
-                            alt=""
-                            width="40"
-                            height="40"
-                            decoding="async"
-                          />
-                          <blockquote class="case-comment__card">
-                            <cite class="case-comment__author">Илья Балакшин</cite>
-                            <ul class="case-comment__body">
-                              <li>На этапе выбора ролей сами названия ролей не релевантны</li>
-                              <li>Флоу входа в модальном окне норм</li>
-                              <li>
-                                Флоу регистрации тоже должен быть в модальном окне, отдельная
-                                страница не нужна
-                              </li>
-                            </ul>
-                          </blockquote>
-                        </figure>
-                        <figure class="case-comment">
-                          <img
-                            class="case-comment__emoji"
-                            src="./src/assets/img/cases/universal/em-03.png"
-                            alt=""
-                            width="40"
-                            height="40"
-                            decoding="async"
-                          />
-                          <blockquote class="case-comment__card">
-                            <cite class="case-comment__author">Александр Агафонов</cite>
-                            <ul class="case-comment__body">
-                              <li>Второй вариант лучше</li>
-                              <li>Флоу входа в модальном окне норм</li>
-                            </ul>
-                          </blockquote>
-                        </figure>
                         <h3 class="case-accordion__heading">Анализ полученных данных</h3>
                         <ol class="case-accordion__list">
                           <li>В итоге был выбран второй вариант с правками</li>
@@ -567,13 +527,6 @@
                             тестирования аудитории в Pathway
                           </li>
                         </ol>
-                        <img
-                          class="case-accordion__img"
-                          src="./src/assets/img/cases/universal/accordeon-image-12.png"
-                          alt="Выбранный вариант флоу регистрации"
-                          loading="lazy"
-                          decoding="async"
-                        />
                       </div>
                     </div>
                   </details>
@@ -623,34 +576,6 @@
                           loading="lazy"
                           decoding="async"
                         />
-                        <h3 class="case-accordion__heading">Задание для пользователей</h3>
-                        <ol class="case-accordion__list">
-                          <li>
-                            Нажмите на кнопку ниже «Показать изображения» и кликните на вариант
-                            оформления страницы, которая для вас более удобная в использовании из 3
-                            представленных
-                          </li>
-                          <li>
-                            Для того, чтобы увидеть второй и третий варианты прокрутите экран в
-                            правую часть
-                          </li>
-                          <li>Опрос займет не более 2 минут</li>
-                        </ol>
-                        <h3 class="case-accordion__heading">
-                          Открытый вопрос после прохождения тестирования
-                        </h3>
-                        <p class="case-accordion__body-text">
-                          Опишите почему вы выбрали этот вариант?
-                        </p>
-                        <h3 class="case-accordion__heading">
-                          Источники поиска респондентов (группы в телеграм+Сотрудники поле.рф)
-                        </h3>
-                        <ul class="case-accordion__list">
-                          <li>Кастдев-чат UX Boost</li>
-                          <li>[UNCRN.me] Коридорки и кастдев</li>
-                          <li>Респонденты для рисёча. 3600 участников.</li>
-                          <li>Сотрудники Поле.рф</li>
-                        </ul>
                         <h3 class="case-accordion__heading">Окончательная выборка</h3>
                         <p class="case-accordion__body-text">56 респондентов</p>
                         <h3 class="case-accordion__heading">Итоги тестирования</h3>
@@ -749,33 +674,6 @@
                           <li>Пройти флоу обоих вариантов от начала до конца регистрации;</li>
                           <li>Ответить на вопросы модераторов.</li>
                         </ol>
-                        <h3 class="case-accordion__heading">Вопросы респондентам</h3>
-                        <ol class="case-accordion__list">
-                          <li>
-                            Вы фермер и хотите зарегистрироваться на платформе. Выберите организацию
-                            ООО СХП ИМ. С. В. ЛУЦЕНКО «ПР. ВОЛЯ». Пройдите все этапы регистрации.
-                          </li>
-                          <li>Понятны ли вам названия ролей на первом этапе?</li>
-                          <li>
-                            Если бы вы хотели узнать, зачем нужен мой ИНН, куда бы вы кликнули?
-                          </li>
-                          <li>
-                            Куда бы вы кликнули, если бы захотели обратиться в поддержку?
-                          </li>
-                          <li>
-                            Куда бы вы кликнули, если бы захотели выйти из процесса регистрации?
-                          </li>
-                          <li>
-                            Понятно ли, где вы находитесь во флоу процесса регистрации, понятен ли
-                            степпер? На каком варианте он лучше?
-                          </li>
-                          <li>Какой вариант лучше с вашей точки зрения?</li>
-                          <li>
-                            Полезны ли для вас поинты в левой части экрана в первом варианте? Нужны
-                            ли они для вас и повышают ли доверие к платформе?
-                          </li>
-                          <li>Что можно улучшить?</li>
-                        </ol>
                         <h3 class="case-accordion__heading">Респонденты</h3>
                         <ul class="case-accordion__list">
                           <li>Фермеры;</li>
@@ -783,12 +681,6 @@
                         </ul>
                         <h3 class="case-accordion__heading">Выборка</h3>
                         <p class="case-accordion__body-text">14 респондентов.</p>
-                        <h3 class="case-accordion__heading">Модераторы</h3>
-                        <ul class="case-accordion__list">
-                          <li>Павел Денисюк (IFA);</li>
-                          <li>Антон Барбаров (Product designer);</li>
-                          <li>Мария Проскурина (Product designer).</li>
-                        </ul>
                         <h3 class="case-accordion__heading">Время проведения интервью</h3>
                         <p class="case-accordion__body-text">1 час.</p>
                         <h3 class="case-accordion__heading">Сроки проведения данного этапа</h3>
@@ -1322,13 +1214,13 @@
           </div>
           <p class="clock mobile-menu__clock mobile-menu__clock--top" id="clock-menu">GMT +3, --:--</p>
           <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
-            <a class="mobile-menu__link js-nav-link is-active" href="#main">Описание</a>
+            <a class="mobile-menu__link js-nav-link is-active" href="#case-task-title">Задача</a>
             <a class="mobile-menu__link js-nav-link" href="#case-process-title">Процесс работы</a>
             <a class="mobile-menu__link js-nav-link" href="#case-results-block">Результаты</a>
           </nav>
         </div>
         <div class="mobile-menu__footer">
-          <a class="btn btn--primary mobile-menu__cv" href="./src/assets/docs/Barbarov-Anton-CV.pdf" download="Барбаров Антон Сергеевич.pdf">
+          <a class="btn btn--primary mobile-menu__cv" href="./src/assets/docs/Barbarov-Anton-CV.pdf" target="_blank" rel="noopener noreferrer">
             Смотреть CV
             <img
               class="btn__icon"
@@ -1412,6 +1304,6 @@
       </section>
     </div>
 
-    <script src="./src/js/main.js?v=20260719-3" type="module"></script>
+    <script src="./src/js/main.js?v=20260720-1" type="module"></script>
   </body>
 </html>
