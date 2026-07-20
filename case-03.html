@@ -36,6 +36,7 @@
           <nav class="side-nav" aria-label="Разделы кейса">
             <a class="side-nav__link js-nav-link is-active" href="#main">Описание</a>
             <a class="side-nav__link js-nav-link" href="#case-process-title">Процесс работы</a>
+            <a class="side-nav__link js-nav-link" href="#case-results-block">Результаты</a>
           </nav>
         </div>
         <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" download="Барбаров Антон Сергеевич.pdf">
@@ -223,6 +224,15 @@
 
               <section class="case-content__section" id="case-components" aria-label="Процесс работы">
                 <h2 class="case-content__title" id="case-process-title">Процесс работы</h2>
+                <figure class="case-cover" aria-label="Десктопный экран регистрации">
+                  <img
+                    class="case-cover__img"
+                    src="./src/assets/img/cases/universal/registration-06.png"
+                    alt="Десктопный экран регистрации поле.рф на ноутбуке"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
                 <figure class="case-cover" aria-label="Экраны регистрации">
                   <img
                     class="case-cover__img"
@@ -232,6 +242,18 @@
                     decoding="async"
                   />
                 </figure>
+                <figure class="case-cover" aria-label="Модальное окно входа и регистрации">
+                  <img
+                    class="case-cover__img"
+                    src="./src/assets/img/cases/universal/registration-07.png"
+                    alt="Десктопный экран входа и регистрации поле.рф на ноутбуке"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <p class="case-content__text">
+                  Процесс работы над редизайном представлен ниже.
+                </p>
                 <div class="case-accordions" aria-label="Процесс работы">
                   <details class="case-accordion">
                     <summary class="case-accordion__summary">
@@ -943,6 +965,7 @@
                       <span class="case-accordion__label">
                         <span class="case-accordion__icon" aria-hidden="true">🧩</span>
                         Редизайн 2026 года
+                        <span class="badge">Update</span>
                       </span>
                       <span class="case-accordion__chevron" aria-hidden="true"></span>
                     </summary>
@@ -996,6 +1019,106 @@
               </section>
 
             </div>
+
+            <section
+              class="case-results-tabs js-tabs"
+              id="case-results-block"
+              aria-label="Результаты проекта"
+            >
+              <h2 class="case-content__title">Результаты</h2>
+
+              <div class="case-results-tabs__head" role="tablist" aria-label="Переключение блока результатов">
+                <button
+                  class="case-results-tabs__tab is-active"
+                  type="button"
+                  role="tab"
+                  id="tab-done"
+                  aria-controls="panel-done"
+                  aria-selected="true"
+                >
+                  Что сделано
+                </button>
+                <button
+                  class="case-results-tabs__tab"
+                  type="button"
+                  role="tab"
+                  id="tab-problems"
+                  aria-controls="panel-problems"
+                  aria-selected="false"
+                >
+                  Основные проблемы
+                </button>
+              </div>
+
+              <div class="case-results-tabs__body">
+                <div
+                  class="case-results-tabs__panel is-active"
+                  role="tabpanel"
+                  id="panel-done"
+                  aria-labelledby="tab-done"
+                >
+                  <ul class="case-content__list">
+                    <li>
+                      В качестве первого шага переработали флоу для самой частотной роли —
+                      «аграрий»: это позволило выстроить системную базу для унификации всех
+                      сценариев регистрации.
+                    </li>
+                    <li>
+                      Обновили интерфейсные компоненты — замена на более надёжные решения
+                      заметно сократила число ошибок в процессе регистрации.
+                    </li>
+                    <li>
+                      После объединения ролей сценарий регистрации стал лаконичнее: сложный
+                      функционал вынесли в личный кабинет, оставив на этапе регистрации только
+                      ключевые действия.
+                    </li>
+                    <li>
+                      Отказались от модальных окон в пользу отдельной страницы регистрации:
+                      пользователь получает больше контекста о платформе, растёт доверие, а
+                      фокус на целевом действии становится выше.
+                    </li>
+                    <li>
+                      В рамках проекта освоил практику проведения глубинных интервью и подбора
+                      респондентов — получил практический опыт в пользовательских
+                      исследованиях.
+                    </li>
+                  </ul>
+                </div>
+
+                <div
+                  class="case-results-tabs__panel"
+                  role="tabpanel"
+                  id="panel-problems"
+                  aria-labelledby="tab-problems"
+                  hidden
+                >
+                  <ul class="case-content__list">
+                    <li>
+                      Разные флоу регистрации для разных ролей —
+                      из<span class="type-sign">-</span>за этого не получалось выстроить единый
+                      пользовательский путь.
+                    </li>
+                    <li>
+                      Сложный процесс регистрации для поставщиков и продавцов: требовалось
+                      устанавливать специальный софт.
+                    </li>
+                    <li>
+                      Разнородность компонентов регистрации для разных ролей — элементы не были
+                      унифицированы.
+                    </li>
+                    <li>
+                      Нелогичные точки входа на регистрацию — пользователям было неочевидно, как
+                      начать процесс.
+                    </li>
+                    <li>
+                      Технические проблемы с компонентами — они существенно снижали конверсию.
+                    </li>
+                  </ul>
+                </div>
+
+                <button class="case-results-tabs__more" type="button" hidden>Показать еще</button>
+              </div>
+            </section>
 
             <a class="case-next-link" href="./case-04.html" aria-label="Следующий кейс: Визуалы">
               <article class="case-next-card">
@@ -1201,6 +1324,7 @@
           <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
             <a class="mobile-menu__link js-nav-link is-active" href="#main">Описание</a>
             <a class="mobile-menu__link js-nav-link" href="#case-process-title">Процесс работы</a>
+            <a class="mobile-menu__link js-nav-link" href="#case-results-block">Результаты</a>
           </nav>
         </div>
         <div class="mobile-menu__footer">
