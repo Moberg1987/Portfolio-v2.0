@@ -864,6 +864,61 @@ for (const carouselEl of document.querySelectorAll(".js-carousel")) {
   if (carouselEl instanceof HTMLElement) initCarousel(carouselEl);
 }
 
+function initBaSlider(root) {
+  const frame = root.querySelector(".ba-slider__frame");
+  const range = root.querySelector("[data-ba-range]");
+  if (!(frame instanceof HTMLElement) || !(range instanceof HTMLInputElement)) {
+    return;
+  }
+
+  let dragging = false;
+
+  function setPosition(percent) {
+    const clamped = Math.min(100, Math.max(0, percent));
+    root.style.setProperty("--ba-pos", `${clamped}%`);
+    if (Number(range.value) !== clamped) range.value = String(clamped);
+  }
+
+  function positionFromPointer(clientX) {
+    const rect = frame.getBoundingClientRect();
+    if (rect.width <= 0) return 50;
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+
+  setPosition(Number(range.value) || 50);
+
+  range.addEventListener("input", () => {
+    setPosition(Number(range.value));
+  });
+
+  frame.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0 && event.pointerType === "mouse") return;
+    dragging = true;
+    frame.setPointerCapture(event.pointerId);
+    setPosition(positionFromPointer(event.clientX));
+  });
+
+  frame.addEventListener("pointermove", (event) => {
+    if (!dragging) return;
+    setPosition(positionFromPointer(event.clientX));
+  });
+
+  const stopDragging = (event) => {
+    if (!dragging) return;
+    dragging = false;
+    if (frame.hasPointerCapture(event.pointerId)) {
+      frame.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  frame.addEventListener("pointerup", stopDragging);
+  frame.addEventListener("pointercancel", stopDragging);
+}
+
+for (const baSliderEl of document.querySelectorAll(".js-ba-slider")) {
+  if (baSliderEl instanceof HTMLElement) initBaSlider(baSliderEl);
+}
+
 const experienceMoreButton = document.querySelector(".experience__more");
 const experienceExtra = document.querySelector("#experience-extra");
 

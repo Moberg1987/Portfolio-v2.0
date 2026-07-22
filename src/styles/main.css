@@ -735,10 +735,10 @@ img {
 
 .case-content__text {
   margin: 0;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 0;
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--font-body-line);
+  letter-spacing: var(--font-body-tracking);
   color: var(--text);
 }
 
@@ -748,10 +748,10 @@ img {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 0;
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--font-body-line);
+  letter-spacing: var(--font-body-tracking);
   color: var(--text);
 }
 
@@ -799,10 +799,10 @@ img {
   align-items: center;
   gap: 12px;
   font-family: var(--font-family);
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: 0;
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--font-body-line);
+  letter-spacing: var(--font-body-tracking);
   color: var(--text);
 }
 
@@ -849,9 +849,10 @@ img {
   transition:
     grid-template-rows 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     padding-bottom 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.5;
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--font-body-line);
+  letter-spacing: var(--font-body-tracking);
   color: var(--text-secondary);
 }
 
@@ -889,6 +890,10 @@ img {
 
 .case-accordion__body-text {
   margin: 0;
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--font-body-line);
+  letter-spacing: var(--font-body-tracking);
   color: #5e6167;
 }
 
@@ -948,6 +953,10 @@ img {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--font-body-line);
+  letter-spacing: var(--font-body-tracking);
   color: #5e6167;
   min-width: 0;
   max-width: 100%;
@@ -1237,6 +1246,116 @@ img {
 }
 
 .case-carousel__dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ba-slider {
+  width: 100%;
+  max-width: 777px;
+  --ba-pos: 50%;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ba-slider__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 777 / 463;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--cover-light);
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.ba-slider__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+.ba-slider__img--after {
+  position: absolute;
+  inset: 0;
+}
+
+.ba-slider__before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  clip-path: inset(0 calc(100% - var(--ba-pos)) 0 0);
+}
+
+.ba-slider__img--before {
+  position: absolute;
+  inset: 0;
+}
+
+.ba-slider__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--ba-pos);
+  z-index: 2;
+  width: 0;
+  pointer-events: none;
+}
+
+.ba-slider__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0 0 0 1px rgb(5 7 21 / 12%);
+}
+
+.ba-slider__thumb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: rgb(5 7 21 / 45%);
+  color: #fff;
+  box-shadow: 0 2px 10px rgb(5 7 21 / 25%);
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(2px);
+}
+
+.ba-slider__arrows {
+  display: block;
+}
+
+.ba-slider__range {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 3;
+  margin: 0;
+  width: 100%;
+  height: 44px;
+  opacity: 0;
+  pointer-events: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+.ba-slider__range:focus-visible {
+  pointer-events: auto;
+}
+
+.ba-slider__frame:has(.ba-slider__range:focus-visible) {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -2256,14 +2375,13 @@ img {
   }
 
   .case-accordion__label {
-    font-size: 20px;
-    line-height: 28px;
-    letter-spacing: 0;
+    font-size: var(--font-body-size);
+    line-height: var(--font-body-line);
+    letter-spacing: var(--font-body-tracking);
   }
 
   .case-accordion__content {
     padding: 0 20px;
-    font-size: 16px;
   }
 
   .case-accordion[open] .case-accordion__content {
