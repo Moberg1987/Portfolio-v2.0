@@ -590,8 +590,11 @@ for (const waveStack of waveStacks) {
   waveSocials.addEventListener("pointerleave", scheduleCloseWaveSocials);
 }
 
+const canUseConfettiHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+
 for (const resultCard of resultCards) {
   if (!(resultCard instanceof HTMLElement)) continue;
+  if (!canUseConfettiHover.matches) continue;
 
   const activateConfetti = () => {
     resultCard.classList.add("is-confetti-active");
@@ -644,13 +647,47 @@ for (const tabsBlock of tabsBlocks) {
     tabPanel.dataset.expanded = isExpanded ? "true" : "false";
   };
 
+  const isTabsHeadVertical = () => {
+    return (
+      tabsHead instanceof HTMLElement &&
+      getComputedStyle(tabsHead).flexDirection === "column"
+    );
+  };
+
   const syncTabsHeadIndicator = (targetButton) => {
     if (!(tabsHead instanceof HTMLElement) || !(targetButton instanceof HTMLElement)) return;
 
     const headRect = tabsHead.getBoundingClientRect();
     const targetRect = targetButton.getBoundingClientRect();
-    tabsHead.style.setProperty("--tabs-active-x", `${targetRect.left - headRect.left}px`);
+
+    if (isTabsHeadVertical()) {
+      const activeY = targetRect.top - headRect.top + tabsHead.scrollTop;
+      tabsHead.style.setProperty("--tabs-active-y", `${activeY}px`);
+      tabsHead.style.setProperty("--tabs-active-h", `${targetRect.height}px`);
+      return;
+    }
+
+    const activeX = targetRect.left - headRect.left + tabsHead.scrollLeft;
+    tabsHead.style.setProperty("--tabs-active-x", `${activeX}px`);
     tabsHead.style.setProperty("--tabs-active-w", `${targetRect.width}px`);
+  };
+
+  const scrollTabIntoView = (targetButton) => {
+    if (!(tabsHead instanceof HTMLElement) || !(targetButton instanceof HTMLElement)) return;
+    if (isTabsHeadVertical()) return;
+
+    const headRect = tabsHead.getBoundingClientRect();
+    const targetRect = targetButton.getBoundingClientRect();
+    const pad = 8;
+
+    if (targetRect.left < headRect.left + pad) {
+      tabsHead.scrollBy({ left: targetRect.left - headRect.left - pad, behavior: "smooth" });
+      return;
+    }
+
+    if (targetRect.right > headRect.right - pad) {
+      tabsHead.scrollBy({ left: targetRect.right - headRect.right + pad, behavior: "smooth" });
+    }
   };
 
   const syncTabsBodyMinHeight = () => {
@@ -722,6 +759,7 @@ for (const tabsBlock of tabsBlocks) {
 
     syncActivePanelVisibility();
     syncTabsHeadIndicator(targetButton);
+    scrollTabIntoView(targetButton);
   };
 
   for (const tabButton of tabButtons) {

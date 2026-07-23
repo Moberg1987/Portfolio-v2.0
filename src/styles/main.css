@@ -283,10 +283,12 @@ img {
 
 .hero__title {
   margin: 0;
+  max-width: 100%;
   font-size: var(--font-h1-size);
   font-weight: var(--font-h1-weight);
   line-height: var(--font-h1-line);
   letter-spacing: var(--font-h1-tracking);
+  overflow-wrap: break-word;
 }
 
 .hero__title-primary {
@@ -660,10 +662,12 @@ img {
   }
 }
 
-.case-result-card:hover .case-result-card__confetti,
-.case-result-card.is-confetti-active .case-result-card__confetti,
-.case-result-card:focus-within .case-result-card__confetti {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .case-result-card:hover .case-result-card__confetti,
+  .case-result-card.is-confetti-active .case-result-card__confetti,
+  .case-result-card:focus-within .case-result-card__confetti {
+    opacity: 1;
+  }
 }
 
 .case-result-card__value {
@@ -2122,8 +2126,8 @@ img {
   }
 
   .hero__title {
-    font-size: var(--font-h1-size);
-    line-height: var(--font-h1-line);
+    font-size: clamp(32px, 5.2vw, var(--font-h1-size));
+    line-height: 1.12;
     letter-spacing: var(--font-h1-tracking);
   }
 
@@ -2254,18 +2258,21 @@ img {
     display: flex;
     flex-direction: column;
     margin: auto 0;
-    gap: 40px;
+    gap: 16px;
     min-height: 0;
+    overflow-y: auto;
   }
 
   .mobile-menu__link {
     font-family: var(--font-heading-family);
-    font-size: var(--font-h2-size);
-    font-weight: var(--font-h2-weight);
-    line-height: var(--font-h2-line);
-    letter-spacing: var(--font-h2-tracking);
+    font-size: var(--font-h3-size);
+    font-weight: var(--font-h3-weight);
+    line-height: var(--font-h3-line);
+    letter-spacing: var(--font-h3-tracking);
     color: var(--text);
+    max-width: 100%;
     width: fit-content;
+    overflow-wrap: break-word;
     transition: color 0.2s ease;
   }
 
@@ -2328,8 +2335,8 @@ img {
   }
 
   .hero__title {
-    font-size: var(--font-h2-size);
-    line-height: var(--font-h2-line);
+    font-size: clamp(28px, 8.4vw, var(--font-h2-size));
+    line-height: 1.15;
     letter-spacing: var(--font-h2-tracking);
   }
 
@@ -2367,6 +2374,10 @@ img {
   .case-result-card {
     min-height: 0;
     padding: 20px;
+  }
+
+  .case-result-card__confetti {
+    display: none;
   }
 
   .case-content {
@@ -2440,11 +2451,6 @@ img {
     padding: 20px;
   }
 
-  .case-next-card__label {
-    font-size: var(--font-body-size);
-    line-height: var(--font-body-line);
-  }
-
   .case-next-card__title {
     font-size: var(--font-h3-size);
     line-height: var(--font-h3-line);
@@ -2452,13 +2458,32 @@ img {
   }
 
   .case-results-tabs__head {
+    flex-direction: column;
+    align-self: stretch;
     width: 100%;
-    overflow-x: auto;
-    padding: 6px;
+    max-width: 100%;
+    overflow: visible;
+    --tabs-active-y: 8px;
+    --tabs-active-h: 48px;
+  }
+
+  .case-results-tabs__head::before {
+    top: 0;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: var(--tabs-active-h);
+    transform: translateY(var(--tabs-active-y));
+    transition:
+      transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+      height 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.2s ease;
   }
 
   .case-results-tabs__tab {
+    width: 100%;
     flex-shrink: 0;
+    white-space: nowrap;
+    text-align: left;
   }
 
   .mini-cases {
@@ -2467,8 +2492,19 @@ img {
   }
 
   .mini-case {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 20px;
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .mini-case__title {
+    flex: none;
+    width: 100%;
+  }
+
+  .mini-case__year {
+    margin-top: 4px;
   }
 
   .section__title {
@@ -2517,13 +2553,16 @@ img {
   }
 
   .contact-card__socials {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: auto;
+    display: flex;
+    gap: 8px;
   }
 
   .contact-card__socials .btn {
-    width: 100%;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    padding: 0;
   }
 
   .mobile-topbar .avatar,
@@ -2545,7 +2584,7 @@ img {
   .mobile-menu__nav {
     margin: auto 0;
     min-height: 0;
-    gap: 32px;
+    gap: 12px;
   }
 
   .mobile-menu__footer {
@@ -2584,21 +2623,14 @@ img {
   }
 
   .mobile-menu__link {
-    font-size: var(--font-h2-size);
-    line-height: var(--font-h2-line);
+    font-size: var(--font-h3-size);
+    font-weight: var(--font-h3-weight);
+    line-height: var(--font-h3-line);
+    letter-spacing: var(--font-h3-tracking);
   }
 
   .case-card__cover {
     aspect-ratio: 311 / 220;
     min-height: 0;
-  }
-
-  .mini-case {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .mini-case__year {
-    width: 100%;
   }
 }
