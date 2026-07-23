@@ -694,10 +694,10 @@ img {
   }
 }
 
-/* Minus / dash glyphs — Inter Bold at inherited size (TT Travels looks bad here) */
+/* Minus / dash glyphs — Inter at inherited weight (TT Travels looks bad here) */
 .type-sign {
   font-family: var(--font-family);
-  font-weight: 700;
+  font-weight: inherit;
 }
 
 .case-cover {
@@ -800,7 +800,7 @@ img {
   gap: 12px;
   font-family: var(--font-family);
   font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
+  font-weight: var(--font-h4-weight);
   line-height: var(--font-body-line);
   letter-spacing: var(--font-body-tracking);
   color: var(--text);
@@ -809,6 +809,16 @@ img {
 .case-accordion__icon {
   font-size: 22px;
   line-height: 1;
+}
+
+.case-accordion__num {
+  flex-shrink: 0;
+  min-width: 1.5em;
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--text-muted);
 }
 
 .case-accordion__chevron {
@@ -894,7 +904,7 @@ img {
   font-weight: var(--font-body-weight);
   line-height: var(--font-body-line);
   letter-spacing: var(--font-body-tracking);
-  color: #5e6167;
+  color: var(--text);
 }
 
 .case-accordion__body-text + .case-accordion__body-text {
@@ -957,7 +967,7 @@ img {
   font-weight: var(--font-body-weight);
   line-height: var(--font-body-line);
   letter-spacing: var(--font-body-tracking);
-  color: #5e6167;
+  color: var(--text);
   min-width: 0;
   max-width: 100%;
   list-style-position: outside;
@@ -1177,19 +1187,18 @@ img {
   width: 40px;
   height: 40px;
   padding: 0;
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: 50%;
   background: var(--color-surface);
   color: var(--color-text-primary);
   cursor: pointer;
   box-shadow: 0 2px 8px rgb(5 7 21 / 8%);
   transform: translateY(-50%);
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .case-carousel__arrow:hover {
-  background: var(--color-surface-subtle);
-  border-color: var(--color-neutral-bec1c8);
+  background: var(--accent);
 }
 
 .case-carousel__arrow:focus-visible {
@@ -1203,6 +1212,11 @@ img {
   height: 20px;
   pointer-events: none;
   filter: brightness(0);
+  transition: filter 0.2s ease;
+}
+
+.case-carousel__arrow:hover img {
+  filter: brightness(0) invert(1);
 }
 
 .case-carousel__arrow--prev {
