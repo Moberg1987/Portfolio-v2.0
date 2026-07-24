@@ -252,14 +252,82 @@
                 После релиза MVP срок от заключения договора до выдачи займа сократился
                 <strong>на 55%</strong>.
               </p>
-              <div class="case-showcase__media">
-                <img
-                  class="case-showcase__img"
-                  src="./src/assets/img/cases/case-01-digital-deal.png"
-                  alt="Карта экранов цифровой сделки в Figma"
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div
+                class="case-carousel js-carousel"
+                role="region"
+                aria-roledescription="carousel"
+                aria-label="Слайды цифровой сделки"
+                tabindex="0"
+              >
+                <div class="case-carousel__viewport">
+                  <ul class="case-carousel__track" aria-live="polite">
+                    <li class="case-carousel__slide is-active" data-slide="0">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-digital-deal-01.png"
+                        alt="Интерфейс цифровой сделки в личном кабинете"
+                        width="777"
+                        height="463"
+                        decoding="async"
+                      />
+                    </li>
+                    <li class="case-carousel__slide" data-slide="1" aria-hidden="true">
+                      <img
+                        class="case-carousel__img"
+                        src="./src/assets/img/cases/case-01-digital-deal-02.png"
+                        alt="Карта экранов цифровой сделки в Figma"
+                        width="777"
+                        height="463"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </li>
+                  </ul>
+                  <button
+                    class="case-carousel__arrow case-carousel__arrow--prev js-carousel-prev"
+                    type="button"
+                    aria-label="Предыдущий слайд"
+                  >
+                    <img
+                      src="./src/assets/svg/ui/arrow.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <button
+                    class="case-carousel__arrow case-carousel__arrow--next js-carousel-next"
+                    type="button"
+                    aria-label="Следующий слайд"
+                  >
+                    <img
+                      src="./src/assets/svg/ui/arrow.svg"
+                      alt=""
+                      width="20"
+                      height="20"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+                <div class="case-carousel__dots" role="tablist" aria-label="Навигация по слайдам">
+                  <button
+                    class="case-carousel__dot js-carousel-dot is-active"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 1"
+                    aria-selected="true"
+                    data-slide="0"
+                  ></button>
+                  <button
+                    class="case-carousel__dot js-carousel-dot"
+                    type="button"
+                    role="tab"
+                    aria-label="Слайд 2"
+                    aria-selected="false"
+                    data-slide="1"
+                  ></button>
+                </div>
               </div>
             </section>
 
