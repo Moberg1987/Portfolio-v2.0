@@ -2485,7 +2485,7 @@ img {
     width: 100%;
     flex-shrink: 0;
     white-space: nowrap;
-    text-align: left;
+    text-align: center;
   }
 
   .mini-cases {
