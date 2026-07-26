@@ -13,7 +13,7 @@
   --avatar-big: 88px;
   --avatar-big-radius: 20px;
   --avatar-small: 64px;
-  --avatar-small-radius: 8.878px;
+  --avatar-small-radius: calc(var(--avatar-big-radius) * 64 / 88);
 
   --btn-behance-hover: #0055ff;
   --btn-dribbble-hover: #ea4c89;
@@ -29,6 +29,7 @@
   overflow: hidden;
   background: #eaeaea;
   flex-shrink: 0;
+  isolation: isolate;
 }
 
 .avatar--big {
@@ -44,10 +45,12 @@
 }
 
 .avatar img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  border-radius: inherit;
 }
 
 .avatar[data-avatar-hover="desktop"]::after {

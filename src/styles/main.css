@@ -362,9 +362,11 @@ img {
   transition: transform 0.7s ease;
 }
 
-.case-card__cover-img:hover,
-.case-card__cover-img--shot:hover {
-  transform: scale(1.1);
+@media (hover: hover) and (pointer: fine) {
+  .case-card__cover-img:hover,
+  .case-card__cover-img--shot:hover {
+    transform: scale(1.1);
+  }
 }
 
 .case-card__body {
