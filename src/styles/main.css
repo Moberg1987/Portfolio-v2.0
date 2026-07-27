@@ -441,20 +441,18 @@ img {
 
 .case-intro__back {
   width: fit-content;
-  gap: 8px;
+  gap: 4px;
+  padding-left: 16px;
   font-weight: 700;
 }
 
 .case-intro__back-arrow {
-  display: inline-flex;
-  align-items: center;
-  font-size: 20px;
-  line-height: 1;
-}
-
-.case-intro__back-label {
-  display: inline-block;
-  transform: translateY(2px);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .case-intro__heading {
