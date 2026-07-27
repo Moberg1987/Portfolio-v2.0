@@ -16,7 +16,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/styles/tokens.css" />
-    <link rel="stylesheet" href="./src/styles/components.css" />
+    <link rel="stylesheet" href="./src/styles/components.css?v=20260727-12" />
     <link rel="stylesheet" href="./src/styles/main.css?v=20260719-5" />
   </head>
   <body>
@@ -27,10 +27,21 @@
           <a href="./" class="js-scroll-top" aria-label="На главную">
             <div class="avatar avatar--big" aria-hidden="true" data-avatar-hover="desktop">
               <img
-                src="./src/assets/img/avatar/avatar-88.png"
+                class="avatar__base"
+                src="./src/assets/img/avatar/avatar-intro-first.png?v=9"
                 alt=""
                 width="88"
                 height="88"
+              />
+              <img
+                class="avatar__anim js-avatar-intro"
+                alt=""
+                width="88"
+                height="88"
+                hidden
+                data-avatar-anim="./src/assets/video/avatar-intro.webp?v=2"
+                data-avatar-last="./src/assets/img/avatar/avatar-intro-last.png?v=9"
+                data-avatar-duration="1570"
               />
             </div>
           </a>
@@ -61,10 +72,21 @@
               <a href="./" class="js-scroll-top" aria-label="На главную">
                 <div class="avatar avatar--small" aria-hidden="true">
                   <img
-                    src="./src/assets/img/avatar/avatar-88.png"
+                    class="avatar__base"
+                    src="./src/assets/img/avatar/avatar-intro-first.png?v=9"
                     alt=""
                     width="88"
                     height="88"
+                  />
+                  <img
+                    class="avatar__anim js-avatar-intro"
+                    alt=""
+                    width="88"
+                    height="88"
+                    hidden
+                    data-avatar-anim="./src/assets/video/avatar-intro.webp?v=2"
+                    data-avatar-last="./src/assets/img/avatar/avatar-intro-last.png?v=9"
+                    data-avatar-duration="1570"
                   />
                 </div>
               </a>
@@ -805,6 +827,193 @@
       </section>
     </div>
 
-    <script src="./src/js/main.js?v=20260719-3" type="module"></script>
+    <script>
+      (() => {
+        const animImgs = [...document.querySelectorAll("img.js-avatar-intro")];
+        const visible = animImgs.filter((img) => {
+          const host = img.closest(".avatar");
+          return host != null && host.getClientRects().length > 0;
+        });
+        const targets = visible.length > 0 ? visible : animImgs.slice(0, 1);
+
+        const parseCssSeconds = (value, fallback) => {
+          const parsed = Number.parseFloat(value);
+          return Number.isFinite(parsed) ? parsed : fallback;
+        };
+
+        const whenLeftPanelSettled = () =>
+          new Promise((resolve) => {
+            const leftPanel = document.querySelector(".panel--left");
+            if (!(leftPanel instanceof HTMLElement)) {
+              resolve();
+              return;
+            }
+
+            const panelStyle = getComputedStyle(leftPanel);
+            if (panelStyle.display === "none" || panelStyle.animationName === "none") {
+              resolve();
+              return;
+            }
+
+            let settled = false;
+            const finish = () => {
+              if (settled) return;
+              settled = true;
+              resolve();
+            };
+
+            const webAnimations =
+              typeof leftPanel.getAnimations === "function" ? leftPanel.getAnimations() : [];
+            const panelAnimation =
+              webAnimations.find((animation) => animation.animationName === "panel-fade-in-left") ??
+              webAnimations[0];
+
+            if (panelAnimation?.playState === "finished") {
+              finish();
+              return;
+            }
+
+            if (panelAnimation?.finished) {
+              panelAnimation.finished.then(finish).catch(finish);
+            }
+
+            const onAnimationEnd = (event) => {
+              if (event.target !== leftPanel) return;
+              if (event.animationName && event.animationName !== "panel-fade-in-left") return;
+              leftPanel.removeEventListener("animationend", onAnimationEnd);
+              finish();
+            };
+            leftPanel.addEventListener("animationend", onAnimationEnd);
+
+            const rootStyles = getComputedStyle(document.documentElement);
+            const durationSec = parseCssSeconds(
+              rootStyles.getPropertyValue("--panel-fade-up-duration"),
+              1,
+            );
+            const delaySec = parseCssSeconds(rootStyles.getPropertyValue("--panel-side-delay"), 0.5);
+            window.setTimeout(() => {
+              leftPanel.removeEventListener("animationend", onAnimationEnd);
+              finish();
+            }, (durationSec + delaySec) * 1000 + 80);
+          });
+
+        const preloadStill = (src) =>
+          new Promise((resolve) => {
+            const probe = new Image();
+            probe.onload = () => resolve(true);
+            probe.onerror = () => resolve(false);
+            probe.src = src;
+          });
+
+        const prefetchAnimBlob = (src) =>
+          fetch(src)
+            .then((response) => (response.ok ? response.blob() : null))
+            .catch(() => null);
+
+        const waitDecoded = (img, timeoutMs = 2500) => {
+          const decode = async () => {
+            if (typeof img.decode === "function") {
+              try {
+                await img.decode();
+                return;
+              } catch {
+                /* fall through */
+              }
+            }
+            if (img.complete && img.naturalWidth > 0) return;
+            await new Promise((resolve) => {
+              img.addEventListener("load", resolve, { once: true });
+              img.addEventListener("error", resolve, { once: true });
+            });
+          };
+
+          return Promise.race([
+            decode(),
+            new Promise((resolve) => window.setTimeout(resolve, timeoutMs)),
+          ]);
+        };
+
+        const nextFrame = () =>
+          new Promise((resolve) => {
+            requestAnimationFrame(() => requestAnimationFrame(resolve));
+          });
+
+        for (const anim of animImgs) {
+          if (!targets.includes(anim)) {
+            anim.remove();
+            continue;
+          }
+
+          const avatar = anim.closest(".avatar");
+          const base = avatar?.querySelector(".avatar__base");
+          const animSrc = anim.dataset.avatarAnim;
+          const lastSrc = anim.dataset.avatarLast;
+          const durationMs = Number(anim.dataset.avatarDuration) || 1570;
+
+          if (!(avatar instanceof HTMLElement) || !(base instanceof HTMLImageElement) || !animSrc || !lastSrc) {
+            continue;
+          }
+
+          const animBlobPromise = prefetchAnimBlob(animSrc);
+          preloadStill(lastSrc);
+
+          whenLeftPanelSettled().then(async () => {
+            let finished = false;
+            let objectUrl = null;
+
+            const finishIntro = (useLast) => {
+              if (finished) return;
+              finished = true;
+              if (useLast) base.src = lastSrc;
+              anim.classList.remove("is-playing");
+              anim.remove();
+              if (objectUrl) URL.revokeObjectURL(objectUrl);
+              avatar.classList.remove("is-intro-playing");
+            };
+
+            // абсолютный failsafe — лого никогда не должно висеть на интро-кадре
+            const failsafeId = window.setTimeout(() => finishIntro(true), durationMs + 2500);
+
+            try {
+              const [blob, lastOk] = await Promise.all([animBlobPromise, preloadStill(lastSrc)]);
+
+              if (!blob) {
+                window.clearTimeout(failsafeId);
+                finishIntro(lastOk);
+                return;
+              }
+
+              objectUrl = URL.createObjectURL(blob);
+              avatar.classList.add("is-intro-playing");
+
+              // Сначала в layout (без display:none), потом src — иначе Chrome
+              // часто декодит animated webp как статичный 1-й кадр.
+              anim.hidden = false;
+              anim.classList.remove("is-playing");
+              anim.src = objectUrl;
+              await waitDecoded(anim);
+              anim.classList.add("is-playing");
+              await nextFrame();
+
+              // таймер снятия сразу после показа — не ждём decode base
+              const settleMs = Math.max(0, durationMs - 48);
+              window.setTimeout(() => {
+                window.clearTimeout(failsafeId);
+                requestAnimationFrame(() => finishIntro(true));
+              }, settleMs);
+
+              if (lastOk) {
+                base.src = lastSrc;
+                waitDecoded(base).catch(() => {});
+              }
+            } catch {
+              window.clearTimeout(failsafeId);
+              finishIntro(true);
+            }
+          });
+        }
+      })();
+    </script>
+    <script src="./src/js/main.js?v=20260727-12" type="module"></script>
   </body>
 </html>
