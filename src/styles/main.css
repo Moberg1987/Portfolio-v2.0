@@ -2662,4 +2662,20 @@ img {
     aspect-ratio: 311 / 220;
     min-height: 0;
   }
+
+  /* First cover on case pages = same crop as homepage case cards */
+  .case-cover {
+    position: relative;
+    aspect-ratio: 311 / 220;
+  }
+
+  .case-cover__img,
+  .case-cover__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
