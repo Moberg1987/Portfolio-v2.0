@@ -1722,6 +1722,10 @@ img {
   border-bottom: 1px solid var(--color-border-subtle);
 }
 
+.job-card:last-child {
+  border-bottom: none;
+}
+
 .job-card__main {
   flex: 0 0 auto;
   min-width: 0;
