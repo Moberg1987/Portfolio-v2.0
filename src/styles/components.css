@@ -70,6 +70,11 @@
   transform: translateZ(0);
 }
 
+.avatar.is-intro-playing {
+  contain: layout paint;
+  transform: translateZ(0);
+}
+
 .avatar__anim.is-playing {
   opacity: 1;
   visibility: visible;
@@ -83,50 +88,18 @@
   backface-visibility: hidden;
 }
 
-.avatar.is-intro-playing[data-avatar-hover="desktop"]::after {
-  opacity: 0 !important;
-  transform: scale(1.04) !important;
-  transition: none !important;
-}
-
-.avatar.is-intro-playing[data-avatar-hover="desktop"] .avatar__base {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
-}
-
-.avatar[data-avatar-hover="desktop"]::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background-image: url("../assets/img/avatar/avatar-hover-desktop.png");
-  background-size: cover;
-  background-position: center top;
-  opacity: 0;
-  transform: scale(1.04);
-  transition:
-    opacity 0.28s ease,
-    transform 0.28s ease;
-  pointer-events: none;
+.avatar[data-avatar-hover="desktop"] {
+  transition: transform 0.35s ease;
 }
 
 @media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  /* только base — иначе hover гасит/скейлит анимированный webp */
-  .avatar[data-avatar-hover="desktop"] .avatar__base {
-    transition:
-      opacity 0.28s ease,
-      transform 0.28s ease;
+  .avatar[data-avatar-hover="desktop"]:hover {
+    transform: rotate(-7deg);
   }
 
-  .avatar[data-avatar-hover="desktop"]:hover .avatar__base {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-
-  .avatar[data-avatar-hover="desktop"]:hover::after {
-    opacity: 1;
-    transform: scale(1);
+  /* intro-анимация держит translateZ — не перебиваем её hover-поворотом */
+  .avatar.is-intro-playing[data-avatar-hover="desktop"]:hover {
+    transform: translateZ(0);
   }
 }
 

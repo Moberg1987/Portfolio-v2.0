@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>if('scrollRestoration' in history)history.scrollRestoration='manual'</script>
     <title>Главная — Антон Барбаров — Product / UX Designer</title>
     <link rel="icon" href="./favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
@@ -16,8 +17,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/styles/tokens.css" />
-    <link rel="stylesheet" href="./src/styles/components.css?v=20260727-13" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260728-1" />
+    <link rel="stylesheet" href="./src/styles/components.css?v=20260729-3" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260729-7" />
   </head>
   <body>
     <div class="app">
@@ -39,7 +40,7 @@
                 width="88"
                 height="88"
                 hidden
-                data-avatar-anim="./src/assets/video/avatar-intro.webp?v=2"
+                data-avatar-anim="./src/assets/video/avatar-intro.webp?v=4"
                 data-avatar-last="./src/assets/img/avatar/avatar-intro-last.png?v=11"
                 data-avatar-duration="1570"
               />
@@ -84,7 +85,7 @@
                     width="88"
                     height="88"
                     hidden
-                    data-avatar-anim="./src/assets/video/avatar-intro.webp?v=2"
+                    data-avatar-anim="./src/assets/video/avatar-intro.webp?v=4"
                     data-avatar-last="./src/assets/img/avatar/avatar-intro-last.png?v=11"
                     data-avatar-duration="1570"
                   />
@@ -858,6 +859,13 @@
           return Number.isFinite(parsed) ? parsed : fallback;
         };
 
+        const releaseLeftPanelLayer = (leftPanel) => {
+          // fill-mode: both оставляет transform на предке — Chrome дропает кадры animated webp
+          leftPanel.style.animation = "none";
+          leftPanel.style.transform = "none";
+          leftPanel.style.opacity = "1";
+        };
+
         const whenLeftPanelSettled = () =>
           new Promise((resolve) => {
             const leftPanel = document.querySelector(".panel--left");
@@ -868,6 +876,7 @@
 
             const panelStyle = getComputedStyle(leftPanel);
             if (panelStyle.display === "none" || panelStyle.animationName === "none") {
+              releaseLeftPanelLayer(leftPanel);
               resolve();
               return;
             }
@@ -876,6 +885,7 @@
             const finish = () => {
               if (settled) return;
               settled = true;
+              releaseLeftPanelLayer(leftPanel);
               resolve();
             };
 
@@ -988,7 +998,6 @@
               avatar.classList.remove("is-intro-playing");
             };
 
-            // абсолютный failsafe — лого никогда не должно висеть на интро-кадре
             const failsafeId = window.setTimeout(() => finishIntro(true), durationMs + 2500);
 
             try {
@@ -1003,8 +1012,7 @@
               objectUrl = URL.createObjectURL(blob);
               avatar.classList.add("is-intro-playing");
 
-              // Сначала в layout (без display:none), потом src — иначе Chrome
-              // часто декодит animated webp как статичный 1-й кадр.
+              // layout first, then src — иначе Chrome часто залипает animated webp на 1-м кадре
               anim.hidden = false;
               anim.classList.remove("is-playing");
               anim.src = objectUrl;
@@ -1012,17 +1020,11 @@
               anim.classList.add("is-playing");
               await nextFrame();
 
-              // таймер снятия сразу после показа — не ждём decode base
               const settleMs = Math.max(0, durationMs - 48);
               window.setTimeout(() => {
                 window.clearTimeout(failsafeId);
-                requestAnimationFrame(() => finishIntro(true));
+                requestAnimationFrame(() => finishIntro(lastOk));
               }, settleMs);
-
-              if (lastOk) {
-                base.src = lastSrc;
-                waitDecoded(base).catch(() => {});
-              }
             } catch {
               window.clearTimeout(failsafeId);
               finishIntro(true);
@@ -1031,6 +1033,6 @@
         }
       })();
     </script>
-    <script src="./src/js/main.js?v=20260727-12" type="module"></script>
+    <script src="./src/js/main.js?v=20260729-10" type="module"></script>
   </body>
 </html>

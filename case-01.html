@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>if('scrollRestoration' in history)history.scrollRestoration='manual'</script>
     <title>Кейс — Финтех продукт для фермеров</title>
     <link rel="icon" href="./favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
@@ -17,7 +18,7 @@
     />
     <link rel="stylesheet" href="./src/styles/tokens.css" />
     <link rel="stylesheet" href="./src/styles/components.css?v=20260727-13" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260728-1" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260729-7" />
   </head>
   <body class="case-page">
     <div class="app">
@@ -275,8 +276,8 @@
                     <li class="case-carousel__slide is-active" data-slide="0">
                       <img
                         class="case-carousel__img"
-                        src="./src/assets/img/cases/case-01-digital-deal-01.png"
-                        alt="Интерфейс цифровой сделки в личном кабинете"
+                        src="./src/assets/img/cases/case-01-digital-deal-01.png?v=2"
+                        alt="Заявка на кредит в личном кабинете: статус сделки и этапы согласования"
                         width="777"
                         height="463"
                         decoding="async"
@@ -575,6 +576,65 @@
               </div>
 
               <p class="case-content__text">Пересборка страницы «Кредиты и лизинг».</p>
+              <div
+                class="ba-toggle js-ba-toggle"
+                role="region"
+                aria-label="Сравнение интерфейса: было и стало"
+              >
+                <div class="ba-toggle__switch" role="tablist" aria-label="Переключатель было и стало">
+                  <button
+                    class="ba-toggle__tab"
+                    type="button"
+                    role="tab"
+                    id="ba-toggle-before"
+                    aria-controls="ba-toggle-panel-before"
+                    aria-selected="false"
+                    tabindex="-1"
+                    data-ba-view="before"
+                  >
+                    Было
+                  </button>
+                  <button
+                    class="ba-toggle__tab is-active"
+                    type="button"
+                    role="tab"
+                    id="ba-toggle-after"
+                    aria-controls="ba-toggle-panel-after"
+                    aria-selected="true"
+                    data-ba-view="after"
+                  >
+                    Стало
+                  </button>
+                </div>
+                <div class="ba-toggle__frame">
+                  <img
+                    class="ba-toggle__img"
+                    id="ba-toggle-panel-before"
+                    role="tabpanel"
+                    aria-labelledby="ba-toggle-before"
+                    src="./src/assets/img/cases/case-01-form-before-v2.png"
+                    alt="Страница кредитов и лизинга до редизайна"
+                    width="777"
+                    height="510"
+                    decoding="async"
+                    aria-hidden="true"
+                    data-ba-panel="before"
+                  />
+                  <img
+                    class="ba-toggle__img is-active"
+                    id="ba-toggle-panel-after"
+                    role="tabpanel"
+                    aria-labelledby="ba-toggle-after"
+                    src="./src/assets/img/cases/case-01-form-after-v2.png"
+                    alt="Страница финансовых предложений после редизайна"
+                    width="777"
+                    height="510"
+                    decoding="async"
+                    aria-hidden="false"
+                    data-ba-panel="after"
+                  />
+                </div>
+              </div>
               <div
                 class="ba-slider js-ba-slider"
                 role="region"
@@ -1169,6 +1229,6 @@
       </section>
     </div>
 
-    <script src="./src/js/main.js?v=20260727-12" type="module"></script>
+    <script src="./src/js/main.js?v=20260729-10" type="module"></script>
   </body>
 </html>

@@ -183,6 +183,11 @@ function setupCaseAccordion(accordion) {
 
     animation.onfinish = () => {
       onAnimationFinish(open);
+      if (open) {
+        for (const toggle of accordion.querySelectorAll(".js-ba-toggle")) {
+          toggle.dispatchEvent(new Event("ba-toggle:resync"));
+        }
+      }
     };
     animation.oncancel = onAnimationCancel;
   };
@@ -956,6 +961,133 @@ function initBaSlider(root) {
 for (const baSliderEl of document.querySelectorAll(".js-ba-slider")) {
   if (baSliderEl instanceof HTMLElement) initBaSlider(baSliderEl);
 }
+
+function initBaToggle(root) {
+  const switchEl = root.querySelector(".ba-toggle__switch");
+  const tabs = [...root.querySelectorAll(".ba-toggle__tab")];
+  const panels = [...root.querySelectorAll("[data-ba-panel]")];
+  if (!(switchEl instanceof HTMLElement) || tabs.length === 0 || panels.length === 0) {
+    return;
+  }
+
+  const clearPreviewState = () => {
+    switchEl.classList.remove("is-previewing");
+    for (const tab of tabs) tab.classList.remove("is-preview-target");
+  };
+
+  const getActiveTab = () => {
+    return tabs.find((tab) => tab.classList.contains("is-active")) ?? tabs[0];
+  };
+
+  const syncIndicator = (target) => {
+    if (!(target instanceof HTMLElement)) return;
+    switchEl.style.setProperty("--ba-toggle-active-x", `${target.offsetLeft}px`);
+    switchEl.style.setProperty("--ba-toggle-active-w", `${target.offsetWidth}px`);
+  };
+
+  const activate = (targetTab) => {
+    if (!(targetTab instanceof HTMLElement)) return;
+    const view = targetTab.dataset.baView || "before";
+
+    clearPreviewState();
+
+    for (const tab of tabs) {
+      const isActive = tab === targetTab;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+      tab.tabIndex = isActive ? 0 : -1;
+    }
+
+    for (const panel of panels) {
+      const isActive = panel.dataset.baPanel === view;
+      panel.classList.toggle("is-active", isActive);
+      panel.setAttribute("aria-hidden", isActive ? "false" : "true");
+    }
+
+    syncIndicator(targetTab);
+  };
+
+  for (const tab of tabs) {
+    const resetPressedState = () => {
+      tab.classList.remove("is-pressed");
+      if (tab.classList.contains("is-active")) return;
+      clearPreviewState();
+      syncIndicator(getActiveTab());
+    };
+
+    tab.addEventListener("pointerdown", () => {
+      tab.classList.add("is-pressed");
+      if (tab.classList.contains("is-active")) return;
+
+      switchEl.classList.add("is-previewing");
+      for (const other of tabs) {
+        other.classList.toggle("is-preview-target", other === tab);
+      }
+      syncIndicator(tab);
+    });
+
+    tab.addEventListener("pointerup", resetPressedState);
+    tab.addEventListener("pointerleave", resetPressedState);
+    tab.addEventListener("pointercancel", resetPressedState);
+
+    tab.addEventListener("click", () => {
+      activate(tab);
+    });
+  }
+
+  switchEl.addEventListener("keydown", (event) => {
+    const currentIndex = tabs.findIndex((tab) => tab.classList.contains("is-active"));
+    if (currentIndex < 0) return;
+
+    let nextIndex = currentIndex;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      nextIndex = (currentIndex + 1) % tabs.length;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = tabs.length - 1;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    tabs[nextIndex]?.focus();
+    activate(tabs[nextIndex]);
+  });
+
+  const syncActiveIndicator = () => syncIndicator(getActiveTab());
+
+  activate(getActiveTab());
+  syncActiveIndicator();
+  switchEl.classList.add("is-ready");
+
+  root.addEventListener("ba-toggle:resync", () => {
+    switchEl.classList.remove("is-ready");
+    syncActiveIndicator();
+    requestAnimationFrame(() => {
+      syncActiveIndicator();
+      switchEl.classList.add("is-ready");
+    });
+  });
+
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(syncActiveIndicator);
+  }
+
+  window.addEventListener("resize", syncActiveIndicator);
+}
+
+for (const baToggleEl of document.querySelectorAll(".js-ba-toggle")) {
+  if (baToggleEl instanceof HTMLElement) initBaToggle(baToggleEl);
+}
+
+// Sticky-панели + scroll restoration = центр «уезжает в потолок» и ползёт выше с каждым refresh
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+window.scrollTo(0, 0);
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && mobileMenuEl?.classList.contains("is-open")) {

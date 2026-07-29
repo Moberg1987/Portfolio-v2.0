@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>if('scrollRestoration' in history)history.scrollRestoration='manual'</script>
     <title>Кейс — Редизайн системы регистрации платформы поле.рф</title>
     <link rel="icon" href="./favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
@@ -17,7 +18,7 @@
     />
     <link rel="stylesheet" href="./src/styles/tokens.css" />
     <link rel="stylesheet" href="./src/styles/components.css?v=20260727-13" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260728-1" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260729-7" />
   </head>
   <body class="case-page case-page--design-system">
     <div class="app">
@@ -796,6 +797,127 @@
                     </div>
                   </details>
                 </div>
+
+                <p class="case-content__text">Наглядно сравнить изменения можно ниже.</p>
+
+                <div
+                  class="ba-toggle js-ba-toggle"
+                  role="region"
+                  aria-label="Сравнение регистрации: было и стало"
+                >
+                  <div class="ba-toggle__switch" role="tablist" aria-label="Переключатель было и стало">
+                    <button
+                      class="ba-toggle__tab"
+                      type="button"
+                      role="tab"
+                      id="ba-toggle-reg-before"
+                      aria-controls="ba-toggle-reg-panel-before"
+                      aria-selected="false"
+                      tabindex="-1"
+                      data-ba-view="before"
+                    >
+                      Было
+                    </button>
+                    <button
+                      class="ba-toggle__tab is-active"
+                      type="button"
+                      role="tab"
+                      id="ba-toggle-reg-after"
+                      aria-controls="ba-toggle-reg-panel-after"
+                      aria-selected="true"
+                      data-ba-view="after"
+                    >
+                      Стало
+                    </button>
+                  </div>
+                  <div class="ba-toggle__frame">
+                    <img
+                      class="ba-toggle__img"
+                      id="ba-toggle-reg-panel-before"
+                      role="tabpanel"
+                      aria-labelledby="ba-toggle-reg-before"
+                      src="./src/assets/img/cases/case-03-reg-before.png"
+                      alt="Регистрация до редизайна: модальные окна"
+                      width="777"
+                      height="510"
+                      loading="lazy"
+                      decoding="async"
+                      aria-hidden="true"
+                      data-ba-panel="before"
+                    />
+                    <img
+                      class="ba-toggle__img is-active"
+                      id="ba-toggle-reg-panel-after"
+                      role="tabpanel"
+                      aria-labelledby="ba-toggle-reg-after"
+                      src="./src/assets/img/cases/case-03-reg-after.png"
+                      alt="Регистрация после редизайна: отдельная страница"
+                      width="777"
+                      height="510"
+                      loading="lazy"
+                      decoding="async"
+                      aria-hidden="false"
+                      data-ba-panel="after"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ba-slider ba-slider--tall js-ba-slider"
+                  role="region"
+                  aria-label="Сравнение регистрации: было и стало"
+                >
+                  <div class="ba-slider__frame">
+                    <img
+                      class="ba-slider__img ba-slider__img--after"
+                      src="./src/assets/img/cases/case-03-reg-after-mobile.png"
+                      alt="Регистрация после редизайна: отдельная страница"
+                      width="777"
+                      height="510"
+                      loading="lazy"
+                      decoding="async"
+                      draggable="false"
+                    />
+                    <div class="ba-slider__before" data-ba-before>
+                      <img
+                        class="ba-slider__img ba-slider__img--before"
+                        src="./src/assets/img/cases/case-03-reg-before-mobile.png"
+                        alt="Регистрация до редизайна: модальные окна"
+                        width="777"
+                        height="510"
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                      />
+                    </div>
+                    <div class="ba-slider__divider" data-ba-divider aria-hidden="true">
+                      <span class="ba-slider__line"></span>
+                      <span class="ba-slider__thumb">
+                        <svg
+                          class="ba-slider__arrows"
+                          width="20"
+                          height="12"
+                          viewBox="0 0 20 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                        >
+                          <path d="M7 1L2 6L7 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M13 1L18 6L13 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                    </div>
+                    <input
+                      class="ba-slider__range"
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="50"
+                      step="0.1"
+                      aria-label="Позиция сравнения было и стало"
+                      data-ba-range
+                    />
+                  </div>
+                </div>
               </section>
 
             </div>
@@ -1220,6 +1342,6 @@
       </section>
     </div>
 
-    <script src="./src/js/main.js?v=20260727-12" type="module"></script>
+    <script src="./src/js/main.js?v=20260729-10" type="module"></script>
   </body>
 </html>
