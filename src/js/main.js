@@ -231,14 +231,84 @@ function scrollToYInstant(y) {
   window.scrollTo({ top: y, left: 0, behavior: "auto" });
 }
 
-function smoothScrollToY(targetY, duration = 450, onComplete = null) {
+function getDocumentMaxScrollY() {
+  const el = document.scrollingElement ?? document.documentElement;
+  return Math.max(0, el.scrollHeight - window.innerHeight);
+}
+
+let endScrollPinObserver = null;
+let endScrollPinTimerId = null;
+let endScrollPinUserAbort = null;
+
+function clearEndScrollPin() {
+  if (endScrollPinObserver) {
+    endScrollPinObserver.disconnect();
+    endScrollPinObserver = null;
+  }
+  if (endScrollPinTimerId !== null) {
+    window.clearTimeout(endScrollPinTimerId);
+    endScrollPinTimerId = null;
+  }
+  if (endScrollPinUserAbort) {
+    window.removeEventListener("wheel", endScrollPinUserAbort);
+    window.removeEventListener("touchmove", endScrollPinUserAbort);
+    window.removeEventListener("keydown", endScrollPinUserAbort);
+    endScrollPinUserAbort = null;
+  }
+}
+
+function pinScrollToDocumentEnd(durationMs = 1200) {
+  clearEndScrollPin();
+
+  const pin = () => {
+    scrollToYInstant(getDocumentMaxScrollY());
+  };
+
+  endScrollPinUserAbort = () => {
+    clearEndScrollPin();
+  };
+
+  pin();
+
+  window.addEventListener("wheel", endScrollPinUserAbort, { passive: true });
+  window.addEventListener("touchmove", endScrollPinUserAbort, { passive: true });
+  window.addEventListener("keydown", endScrollPinUserAbort);
+
+  if (typeof ResizeObserver === "undefined") {
+    endScrollPinTimerId = window.setTimeout(() => {
+      pin();
+      clearEndScrollPin();
+    }, durationMs);
+    return;
+  }
+
+  endScrollPinObserver = new ResizeObserver(pin);
+  endScrollPinObserver.observe(document.documentElement);
+  const scrollRoot = document.scrollingElement;
+  if (scrollRoot && scrollRoot !== document.documentElement) {
+    endScrollPinObserver.observe(scrollRoot);
+  }
+
+  endScrollPinTimerId = window.setTimeout(() => {
+    pin();
+    clearEndScrollPin();
+  }, durationMs);
+}
+
+function smoothScrollToY(targetY, duration = 450, onComplete = null, { stickToEnd = false } = {}) {
   const startY = window.scrollY;
-  const maxY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-  const clampedTargetY = Math.min(Math.max(0, targetY), maxY);
+  const resolveTargetY = () => {
+    const maxY = getDocumentMaxScrollY();
+    if (stickToEnd) return maxY;
+    return Math.min(Math.max(0, targetY), maxY);
+  };
+
+  let clampedTargetY = resolveTargetY();
   const distance = clampedTargetY - startY;
 
   if (Math.abs(distance) < 1) {
     scrollToYInstant(clampedTargetY);
+    if (stickToEnd) pinScrollToDocumentEnd();
     if (typeof onComplete === "function") {
       onComplete();
     }
@@ -249,6 +319,7 @@ function smoothScrollToY(targetY, duration = 450, onComplete = null) {
     cancelAnimationFrame(scrollAnimationFrame);
     scrollAnimationFrame = null;
   }
+  clearEndScrollPin();
 
   const startTime = performance.now();
 
@@ -256,7 +327,9 @@ function smoothScrollToY(targetY, duration = 450, onComplete = null) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
     const eased = 1 - (1 - progress) ** 3;
-    scrollToYInstant(startY + distance * eased);
+    // lazy-img / шрифты могут нарастить scrollHeight mid-flight — догоняем живой низ
+    clampedTargetY = resolveTargetY();
+    scrollToYInstant(startY + (clampedTargetY - startY) * eased);
 
     if (progress < 1) {
       scrollAnimationFrame = requestAnimationFrame(step);
@@ -264,7 +337,8 @@ function smoothScrollToY(targetY, duration = 450, onComplete = null) {
     }
 
     scrollAnimationFrame = null;
-    scrollToYInstant(clampedTargetY);
+    scrollToYInstant(resolveTargetY());
+    if (stickToEnd) pinScrollToDocumentEnd();
     if (typeof onComplete === "function") {
       onComplete();
     }
@@ -287,6 +361,12 @@ function onScrollSpy() {
     if (section.getBoundingClientRect().top <= offset + SCROLL_SPY_EPSILON_PX) {
       current = section.id;
     }
+  }
+
+  // у низа страницы последний пункт (Контакты) может не дойти до offset — форсим его
+  const maxY = getDocumentMaxScrollY();
+  if (window.scrollY >= maxY - SCROLL_SPY_EPSILON_PX) {
+    current = sections[sections.length - 1].id;
   }
 
   setActiveNav(current);
@@ -500,15 +580,23 @@ for (const link of navLinks) {
     const runNavScroll = () => {
       isNavProgrammaticScroll = true;
       programmaticNavId = id;
-      const offset = getScrollSpyOffset();
-      const targetY =
-        targetSection.getBoundingClientRect().top + window.scrollY - offset;
+      const stickToEnd = id === "contact";
+      const targetY = stickToEnd
+        ? getDocumentMaxScrollY()
+        : targetSection.getBoundingClientRect().top +
+          window.scrollY -
+          getScrollSpyOffset();
       const duration = getMenuScrollDuration(window.scrollY, targetY);
-      smoothScrollToY(targetY, duration, () => {
-        isNavProgrammaticScroll = false;
-        programmaticNavId = null;
-        setActiveNav(id);
-      });
+      smoothScrollToY(
+        targetY,
+        duration,
+        () => {
+          isNavProgrammaticScroll = false;
+          programmaticNavId = null;
+          setActiveNav(id);
+        },
+        { stickToEnd },
+      );
     };
 
     if (isMobileViewport()) {
@@ -1081,6 +1169,82 @@ function initBaToggle(root) {
 
 for (const baToggleEl of document.querySelectorAll(".js-ba-toggle")) {
   if (baToggleEl instanceof HTMLElement) initBaToggle(baToggleEl);
+}
+
+const COPY_RESET_MS = 1000;
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+}
+
+function initCopyButton(button) {
+  const defaultLabel = button.getAttribute("aria-label") || "Скопировать";
+  let resetTimerId = null;
+
+  button.addEventListener("click", async () => {
+    const text = button.dataset.copy;
+    if (!text) return;
+
+    try {
+      await copyTextToClipboard(text);
+    } catch {
+      return;
+    }
+
+    button.classList.add("is-copied");
+    button.setAttribute("aria-label", "Скопировано");
+
+    window.clearTimeout(resetTimerId);
+    resetTimerId = window.setTimeout(() => {
+      button.classList.remove("is-copied");
+      button.setAttribute("aria-label", defaultLabel);
+    }, COPY_RESET_MS);
+  });
+}
+
+for (const copyButton of document.querySelectorAll(".js-copy")) {
+  if (copyButton instanceof HTMLButtonElement) initCopyButton(copyButton);
+}
+
+function initStackGlow(grid) {
+  const cards = [...grid.querySelectorAll(".stack-card")];
+  if (cards.length === 0) return;
+
+  const syncMouse = (event) => {
+    for (const card of cards) {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--mouse-x", `${event.clientX - rect.left}px`);
+      card.style.setProperty("--mouse-y", `${event.clientY - rect.top}px`);
+    }
+  };
+
+  grid.addEventListener("mousemove", syncMouse);
+
+  for (const card of cards) {
+    card.addEventListener("mouseenter", () => {
+      card.classList.add("is-glowing");
+    });
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("is-glowing");
+    });
+  }
+}
+
+for (const stackGrid of document.querySelectorAll(".js-stack-glow")) {
+  if (stackGrid instanceof HTMLElement) initStackGlow(stackGrid);
 }
 
 // Sticky-панели + scroll restoration = центр «уезжает в потолок» и ползёт выше с каждым refresh

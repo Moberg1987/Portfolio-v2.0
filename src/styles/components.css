@@ -87,21 +87,6 @@
   backface-visibility: hidden;
 }
 
-.avatar[data-avatar-hover="desktop"] {
-  transition: transform 0.35s ease;
-}
-
-@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
-  .avatar[data-avatar-hover="desktop"]:hover {
-    transform: rotate(-7deg);
-  }
-
-  /* intro-анимация держит translateZ — не перебиваем её hover-поворотом */
-  .avatar.is-intro-playing[data-avatar-hover="desktop"]:hover {
-    transform: translateZ(0);
-  }
-}
-
 /* ——— Buttons ——— */
 
 .btn {
@@ -365,7 +350,8 @@
   height: 48px;
   padding: 0 16px;
   border-radius: 12px;
-  background: var(--badge-bg);
+  border: 1px solid var(--color-border);
+  background: transparent;
   gap: 4px;
 }
 

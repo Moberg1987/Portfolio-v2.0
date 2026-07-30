@@ -24,15 +24,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/styles/tokens.css?v=20260730-1" />
-    <link rel="stylesheet" href="./src/styles/components.css?v=20260730-4" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260730-15" />
+    <link rel="stylesheet" href="./src/styles/components.css?v=20260730-5" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260730-36" />
   </head>
   <body class="case-page case-page--design-system">
     <div class="app">
       <aside class="panel panel--left" aria-label="Навигация">
         <div class="panel__top">
           <a href="./" class="js-scroll-top" aria-label="На главную">
-            <div class="avatar avatar--big" aria-hidden="true" data-avatar-hover="desktop">
+            <div class="avatar avatar--big" aria-hidden="true">
               <img
                 src="./src/assets/img/avatar/avatar-88.png?v=11"
                 alt=""
@@ -42,11 +42,12 @@
             </div>
           </a>
           <nav class="side-nav" aria-label="Разделы кейса">
-            <a class="side-nav__link js-nav-link is-active" href="#main">О дизайн-системе</a>
+            <a class="side-nav__link js-nav-link is-active" href="#main">Описание</a>
             <a class="side-nav__link js-nav-link" href="#case-components-title">Пример компонента</a>
             <a class="side-nav__link js-nav-link" href="#case-other-components-title">Другие компоненты</a>
             <a class="side-nav__link js-nav-link" href="#case-tokens-title">Токены</a>
             <a class="side-nav__link js-nav-link" href="#case-results-block">Результаты</a>
+            <a class="side-nav__link js-nav-link" href="#contact">Контакты</a>
           </nav>
         </div>
         <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" target="_blank" rel="noopener noreferrer">
@@ -171,21 +172,13 @@
               </div>
 
               <p class="case-intro__description">
-                Уже 2 года участвую в развитии дизайн<span class="type-sign">-</span>системы
-                «поле.рф». Беру на себя основную часть работы по проектированию компонентов и их
-                документации.
+                Уже 2 года развиваю дизайн<span class="type-sign">-</span>систему «поле.рф»:
+                foundations, компоненты и документация для передачи в разработку. Цель —
+                меньше локального кастома и быстрее сборка интерфейсов в продуктовых командах.
               </p>
             </div>
 
             <div class="case-results" id="case-results" aria-label="Результаты">
-              <article class="case-result-card">
-                <div class="case-result-card__confetti" aria-hidden="true">
-                  <span></span><span></span><span></span><span></span><span></span><span></span>
-                  <span></span><span></span><span></span><span></span><span></span><span></span>
-                </div>
-                <h2 class="case-result-card__value"><span class="type-sign">−</span>60%</h2>
-                <p class="case-result-card__label">Снижение доли кастомных компонентов</p>
-              </article>
               <article class="case-result-card">
                 <div class="case-result-card__confetti" aria-hidden="true">
                   <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -201,6 +194,14 @@
                 </div>
                 <h2 class="case-result-card__value">2500+</h2>
                 <p class="case-result-card__label">Создано токенов</p>
+              </article>
+              <article class="case-result-card">
+                <div class="case-result-card__confetti" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <h2 class="case-result-card__value">2 года</h2>
+                <p class="case-result-card__label">Веду дизайн-систему</p>
               </article>
             </div>
 
@@ -218,25 +219,25 @@
             </figure>
 
             <div class="case-content" aria-label="Подробности кейса">
-              <section class="case-content__section" aria-label="Основные обязанности">
-                <h2 class="case-content__title">Основные обязанности</h2>
-                <ul class="case-content__list">
-                  <li>
-                    Участвую в разработке foundations (основных глобальных
-                    переменных/токенов);
-                  </li>
-                  <li>
-                    Разрабатываю все необходимые компоненты с подробными use cases и описанием
-                    для разработки;
-                  </li>
-                  <li>
-                    Еженедельно провожу демо для разработчиков и передаю им готовые
-                    результаты.
-                  </li>
-                </ul>
+              <section class="case-content__section" aria-label="Роль и команда">
+                <h2 class="case-content__title">Роль и команда</h2>
+                <p class="case-content__text">
+                  Отдельной роли дизайнера дизайн<span class="type-sign">-</span>системы в штате
+                  нет — эту роль выполняю я. Согласовываю изменения с разработкой, другими
+                  дизайнерами и менеджерами: демо, груминги, передача в прод.
+                </p>
               </section>
 
-              <section class="case-content__section" aria-label="Бизнес-задачи">
+              <section class="case-content__section" aria-label="Мой вклад">
+                <h2 class="case-content__title">Мой вклад</h2>
+                <p class="case-content__text">
+                  Проектирую компоненты от начала до конца: variants, use cases, спеки для
+                  разработки. Главный приоритет — унификация и переиспользование библиотеки в
+                  командах.
+                </p>
+              </section>
+
+              <section class="case-content__section" aria-label="Пример компонента">
                 <h2 class="case-content__title" id="case-components-title">
                   Пример разработанного компонента
                 </h2>
@@ -753,21 +754,67 @@
                   <div class="contact-card__channels">
                     <div class="contact-channel">
                       <span class="contact-channel__label">Телеграм</span>
-                      <a
-                        class="contact-channel__value"
-                        href="https://t.me/moberg_87"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >@moberg_87</a
-                      >
+                      <div class="contact-channel__row">
+                        <a
+                          class="contact-channel__value"
+                          href="https://t.me/moberg_87"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >@moberg_87</a
+                        >
+                        <button
+                          class="btn-copy js-copy"
+                          type="button"
+                          data-copy="@moberg_87"
+                          aria-label="Скопировать @moberg_87"
+                        >
+                          <img
+                            class="btn-copy__icon btn-copy__icon--copy"
+                            src="./src/assets/svg/ui/copy.svg?v=3"
+                            alt=""
+                            width="12"
+                            height="12"
+                          />
+                          <img
+                            class="btn-copy__icon btn-copy__icon--done"
+                            src="./src/assets/svg/ui/check.svg"
+                            alt=""
+                            width="12"
+                            height="12"
+                          />
+                        </button>
+                      </div>
                     </div>
                     <div class="contact-channel">
                       <span class="contact-channel__label">Электронная почта</span>
-                      <a
-                        class="contact-channel__value"
-                        href="mailto:anton.barbarov@yandex.ru"
-                        >anton.barbarov@yandex.ru</a
-                      >
+                      <div class="contact-channel__row">
+                        <a
+                          class="contact-channel__value"
+                          href="mailto:anton.barbarov@yandex.ru"
+                          >anton.barbarov@yandex.ru</a
+                        >
+                        <button
+                          class="btn-copy js-copy"
+                          type="button"
+                          data-copy="anton.barbarov@yandex.ru"
+                          aria-label="Скопировать anton.barbarov@yandex.ru"
+                        >
+                          <img
+                            class="btn-copy__icon btn-copy__icon--copy"
+                            src="./src/assets/svg/ui/copy.svg?v=3"
+                            alt=""
+                            width="12"
+                            height="12"
+                          />
+                          <img
+                            class="btn-copy__icon btn-copy__icon--done"
+                            src="./src/assets/svg/ui/check.svg"
+                            alt=""
+                            width="12"
+                            height="12"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                   <div class="contact-card__socials">
@@ -882,7 +929,13 @@
             </a>
           </div>
         </div>
-        <p class="clock" id="clock">GMT +3, --:--</p>
+        <div class="status-block">
+          <p class="availability">
+            <span class="availability__dot" aria-hidden="true"></span>
+            Open to Work
+          </p>
+          <p class="clock" id="clock">GMT +3, --:--</p>
+        </div>
       </aside>
 
       <section class="mobile-menu" id="mobile-menu" aria-label="Мобильное меню" hidden>
@@ -932,11 +985,12 @@
           </div>
           <p class="clock mobile-menu__clock mobile-menu__clock--top" id="clock-menu">GMT +3, --:--</p>
           <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
-            <a class="mobile-menu__link js-nav-link is-active" href="#main">О дизайн-системе</a>
+            <a class="mobile-menu__link js-nav-link is-active" href="#main">Описание</a>
             <a class="mobile-menu__link js-nav-link" href="#case-components-title">Пример компонента</a>
             <a class="mobile-menu__link js-nav-link" href="#case-other-components-title">Другие компоненты</a>
             <a class="mobile-menu__link js-nav-link" href="#case-tokens-title">Токены</a>
             <a class="mobile-menu__link js-nav-link" href="#case-results-block">Результаты</a>
+            <a class="mobile-menu__link js-nav-link" href="#contact">Контакты</a>
           </nav>
         </div>
         <div class="mobile-menu__footer">
@@ -1017,6 +1071,6 @@
       </section>
     </div>
 
-    <script src="./src/js/main.js?v=20260729-10" type="module"></script>
+    <script src="./src/js/main.js?v=20260730-18" type="module"></script>
   </body>
 </html>

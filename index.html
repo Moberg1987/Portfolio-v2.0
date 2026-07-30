@@ -25,8 +25,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/styles/tokens.css?v=20260730-1" />
-    <link rel="stylesheet" href="./src/styles/components.css?v=20260730-4" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260730-17" />
+    <link rel="stylesheet" href="./src/styles/components.css?v=20260730-5" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260730-36" />
   </head>
   <body>
     <div class="app">
@@ -34,7 +34,7 @@
       <aside class="panel panel--left" aria-label="Навигация">
         <div class="panel__top">
           <a href="./" class="js-scroll-top" aria-label="На главную">
-            <div class="avatar avatar--big" aria-hidden="true" data-avatar-hover="desktop">
+            <div class="avatar avatar--big" aria-hidden="true">
               <img
                 class="avatar__base"
                 src="./src/assets/img/avatar/avatar-intro-first.png?v=11"
@@ -58,7 +58,7 @@
             <a class="side-nav__link js-nav-link is-active" href="#hero-title">Последние кейсы</a>
             <a class="side-nav__link js-nav-link" href="#old-cases-title">Ранние кейсы</a>
             <a class="side-nav__link js-nav-link" href="#stack-title">Экспертиза</a>
-            <a class="side-nav__link js-nav-link" href="#experience-title">Опыт</a>
+            <a class="side-nav__link js-nav-link" href="#contact">Контакты</a>
           </nav>
         </div>
         <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" target="_blank" rel="noopener noreferrer">
@@ -264,7 +264,7 @@
                     </div>
                     <div>
                       <dt>Главный результат</dt>
-                      <dd>+11 роста конверсии в регистрацию</dd>
+                      <dd>+11% к конверсии в регистрацию</dd>
                     </div>
                   </dl>
                 </div>
@@ -301,7 +301,7 @@
                     </div>
                     <div>
                       <dt>Главный результат</dt>
-                      <dd>Снизил долю кастомных локальных компонентов на 60%</dd>
+                      <dd>За 2 года разработал 30+ компонентов и 2500+ токенов</dd>
                     </div>
                   </dl>
                 </div>
@@ -341,7 +341,7 @@
                     </div>
                     <div>
                       <dt>Главный результат</dt>
-                      <dd>+20% роста вовлеченности в соцсетях</dd>
+                      <dd>70+ иллюстраций, 30+ тизеров, 100+ иконок</dd>
                     </div>
                   </dl>
                 </div>
@@ -408,140 +408,79 @@
 
           <section class="section" id="stack" aria-labelledby="stack-title">
             <h2 class="section__title" id="stack-title">Экспертиза</h2>
-            <div class="stack-grid">
-              <article class="stack-card">
-                <div class="stack-card__heading">
-                  <span class="stack-card__dot stack-card__dot--product" aria-hidden="true"></span>
-                  <h3 class="stack-card__title">Продуктовый дизайн</h3>
-                </div>
-                <div class="stack-card__tags">
-                  <span class="badge badge--stack">Дизайн<span class="type-sign">-</span>системы</span>
-                  <span class="badge badge--stack">Прототипирование</span>
-                  <span class="badge badge--stack">Handoff</span>
-                  <span class="badge badge--stack">Метрики</span>
-                  <span class="badge badge--stack">Системное мышление</span>
-                </div>
-              </article>
-
-              <article class="stack-card">
-                <div class="stack-card__heading">
-                  <span class="stack-card__dot stack-card__dot--research" aria-hidden="true"></span>
-                  <h3 class="stack-card__title">UX исследования</h3>
-                </div>
-                <div class="stack-card__tags">
-                  <span class="badge badge--stack">Интервью</span>
-                  <span class="badge badge--stack">A/B тесты</span>
-                  <span class="badge badge--stack">Usability<span class="type-sign">-</span>тесты</span>
-                  <span class="badge badge--stack">JTBD / CJM</span>
-                  <span class="badge badge--stack">Яндекс.Метрика</span>
-                  <span class="badge badge--stack">Анализ данных</span>
-                </div>
-              </article>
-
-              <article class="stack-card">
-                <div class="stack-card__heading">
-                  <span class="stack-card__dot stack-card__dot--3d" aria-hidden="true"></span>
-                  <h3 class="stack-card__title">3D моделирование</h3>
-                </div>
-                <div class="stack-card__tags">
-                  <span class="badge badge--stack">Modeling</span>
-                  <span class="badge badge--stack">Animation</span>
-                  <span class="badge badge--stack">Compositing</span>
-                  <span class="badge badge--stack">Rendering</span>
-                  <span class="badge badge--stack">Physics</span>
-                  <span class="badge badge--stack">Environment</span>
-                </div>
-              </article>
-
-              <article class="stack-card">
-                <div class="stack-card__heading">
-                  <span class="stack-card__dot stack-card__dot--ai" aria-hidden="true"></span>
-                  <h3 class="stack-card__title">Нейросети</h3>
-                </div>
-                <div class="stack-card__tags">
-                  <span class="badge badge--stack">AI ресерч</span>
-                  <span class="badge badge--stack">Генерация визуалов</span>
-                  <span class="badge badge--stack">Vibe Coding</span>
-                  <span class="badge badge--stack">Прототипирование</span>
-                  <span class="badge badge--stack">AI<span class="type-sign">-</span>native</span>
-                  <span class="badge badge--stack">Prompting</span>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="section section--experience" id="experience" aria-labelledby="experience-title">
-            <h2 class="section__title" id="experience-title">Продуктовый опыт</h2>
-            <div class="experience-list">
-              <article class="job-card">
-                <div class="job-card__main">
-                  <a
-                    class="job-logo"
-                    href="https://xn--e1alid.xn--p1ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Сайт Поле.рф"
-                  >
-                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/pole-rf.png?v=1" alt="" width="56" height="56" />
-                  </a>
-                  <div class="job-card__meta">
-                    <h3 class="job-card__title">Поле.рф</h3>
-                    <p class="job-card__role">Senior Product Designer</p>
+            <div class="stack-grid js-stack-glow">
+              <article class="stack-card stack-card--product">
+                <div class="stack-card__glow" aria-hidden="true"></div>
+                <div class="stack-card__body">
+                  <div class="stack-card__shine" aria-hidden="true"></div>
+                  <div class="stack-card__heading">
+                    <span class="stack-card__dot stack-card__dot--product" aria-hidden="true"></span>
+                    <h3 class="stack-card__title">Продуктовый дизайн</h3>
+                  </div>
+                  <div class="stack-card__tags">
+                    <span class="badge badge--stack">Дизайн<span class="type-sign">-</span>системы</span>
+                    <span class="badge badge--stack">Прототипирование</span>
+                    <span class="badge badge--stack">Handoff</span>
+                    <span class="badge badge--stack">Метрики</span>
+                    <span class="badge badge--stack">Системное мышление</span>
                   </div>
                 </div>
-                <div class="job-card__tags">
-                  <span class="badge badge--surface">1 год и 10 месяцев</span>
+              </article>
+
+              <article class="stack-card stack-card--research">
+                <div class="stack-card__glow" aria-hidden="true"></div>
+                <div class="stack-card__body">
+                  <div class="stack-card__shine" aria-hidden="true"></div>
+                  <div class="stack-card__heading">
+                    <span class="stack-card__dot stack-card__dot--research" aria-hidden="true"></span>
+                    <h3 class="stack-card__title">UX исследования</h3>
+                  </div>
+                  <div class="stack-card__tags">
+                    <span class="badge badge--stack">Интервью</span>
+                    <span class="badge badge--stack">A/B тесты</span>
+                    <span class="badge badge--stack">Usability<span class="type-sign">-</span>тесты</span>
+                    <span class="badge badge--stack">JTBD / CJM</span>
+                    <span class="badge badge--stack">Яндекс.Метрика</span>
+                    <span class="badge badge--stack">Анализ данных</span>
+                  </div>
                 </div>
               </article>
 
-              <article class="job-card">
-                <div class="job-card__main">
-                  <a
-                    class="job-logo"
-                    href="https://angelsit.ru/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Сайт AngelsIT"
-                  >
-                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/angelsit.png?v=1" alt="" width="56" height="56" />
-                  </a>
-                  <div class="job-card__meta">
-                    <h3 class="job-card__title">AngelsIT</h3>
-                    <p class="job-card__role">Senior Product Designer</p>
+              <article class="stack-card stack-card--3d">
+                <div class="stack-card__glow" aria-hidden="true"></div>
+                <div class="stack-card__body">
+                  <div class="stack-card__shine" aria-hidden="true"></div>
+                  <div class="stack-card__heading">
+                    <span class="stack-card__dot stack-card__dot--3d" aria-hidden="true"></span>
+                    <h3 class="stack-card__title">3D моделирование</h3>
                   </div>
-                </div>
-                <div class="job-card__tags">
-                  <span class="badge badge--surface">4 года и 6 месяцев</span>
+                  <div class="stack-card__tags">
+                    <span class="badge badge--stack">Modeling</span>
+                    <span class="badge badge--stack">Animation</span>
+                    <span class="badge badge--stack">Compositing</span>
+                    <span class="badge badge--stack">Rendering</span>
+                    <span class="badge badge--stack">Physics</span>
+                    <span class="badge badge--stack">Environment</span>
+                  </div>
                 </div>
               </article>
 
-              <article class="job-card">
-                <div class="job-card__main">
-                  <div class="job-logo" aria-hidden="true">
-                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/yunona.png?v=1" alt="" width="56" height="56" />
+              <article class="stack-card stack-card--ai">
+                <div class="stack-card__glow" aria-hidden="true"></div>
+                <div class="stack-card__body">
+                  <div class="stack-card__shine" aria-hidden="true"></div>
+                  <div class="stack-card__heading">
+                    <span class="stack-card__dot stack-card__dot--ai" aria-hidden="true"></span>
+                    <h3 class="stack-card__title">Нейросети</h3>
                   </div>
-                  <div class="job-card__meta">
-                    <h3 class="job-card__title">ЮНОНА</h3>
-                    <p class="job-card__role">Senior Product Designer</p>
+                  <div class="stack-card__tags">
+                    <span class="badge badge--stack">AI ресерч</span>
+                    <span class="badge badge--stack">Генерация визуалов</span>
+                    <span class="badge badge--stack">Vibe Coding</span>
+                    <span class="badge badge--stack">Прототипирование</span>
+                    <span class="badge badge--stack">AI<span class="type-sign">-</span>native</span>
+                    <span class="badge badge--stack">Prompting</span>
                   </div>
-                </div>
-                <div class="job-card__tags">
-                  <span class="badge badge--surface">2 года</span>
-                </div>
-              </article>
-
-              <article class="job-card">
-                <div class="job-card__main">
-                  <div class="job-logo" aria-hidden="true">
-                    <img class="job-logo__img" src="./src/assets/img/logos/jobs/arctic-lab.png?v=1" alt="" width="56" height="56" />
-                  </div>
-                  <div class="job-card__meta">
-                    <h3 class="job-card__title">Арктическая лаборатория</h3>
-                    <p class="job-card__role">Middle Product Designer</p>
-                  </div>
-                </div>
-                <div class="job-card__tags">
-                  <span class="badge badge--surface">10 месяцев</span>
                 </div>
               </article>
             </div>
@@ -558,21 +497,67 @@
                 <div class="contact-card__channels">
                   <div class="contact-channel">
                     <span class="contact-channel__label">Телеграм</span>
-                    <a
-                      class="contact-channel__value"
-                      href="https://t.me/moberg_87"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >@moberg_87</a
-                    >
+                    <div class="contact-channel__row">
+                      <a
+                        class="contact-channel__value"
+                        href="https://t.me/moberg_87"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >@moberg_87</a
+                      >
+                      <button
+                        class="btn-copy js-copy"
+                        type="button"
+                        data-copy="@moberg_87"
+                        aria-label="Скопировать @moberg_87"
+                      >
+                        <img
+                          class="btn-copy__icon btn-copy__icon--copy"
+                          src="./src/assets/svg/ui/copy.svg?v=3"
+                          alt=""
+                          width="12"
+                          height="12"
+                        />
+                        <img
+                          class="btn-copy__icon btn-copy__icon--done"
+                          src="./src/assets/svg/ui/check.svg"
+                          alt=""
+                          width="12"
+                          height="12"
+                        />
+                      </button>
+                    </div>
                   </div>
                   <div class="contact-channel">
                     <span class="contact-channel__label">Электронная почта</span>
-                    <a
-                      class="contact-channel__value"
-                      href="mailto:anton.barbarov@yandex.ru"
-                      >anton.barbarov@yandex.ru</a
-                    >
+                    <div class="contact-channel__row">
+                      <a
+                        class="contact-channel__value"
+                        href="mailto:anton.barbarov@yandex.ru"
+                        >anton.barbarov@yandex.ru</a
+                      >
+                      <button
+                        class="btn-copy js-copy"
+                        type="button"
+                        data-copy="anton.barbarov@yandex.ru"
+                        aria-label="Скопировать anton.barbarov@yandex.ru"
+                      >
+                        <img
+                          class="btn-copy__icon btn-copy__icon--copy"
+                          src="./src/assets/svg/ui/copy.svg?v=3"
+                          alt=""
+                          width="12"
+                          height="12"
+                        />
+                        <img
+                          class="btn-copy__icon btn-copy__icon--done"
+                          src="./src/assets/svg/ui/check.svg"
+                          alt=""
+                          width="12"
+                          height="12"
+                        />
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div class="contact-card__socials">
@@ -687,7 +672,13 @@
             </a>
           </div>
         </div>
-        <p class="clock" id="clock">GMT +3, --:--</p>
+        <div class="status-block">
+          <p class="availability">
+            <span class="availability__dot" aria-hidden="true"></span>
+            Open to Work
+          </p>
+          <p class="clock" id="clock">GMT +3, --:--</p>
+        </div>
       </aside>
 
       <section class="mobile-menu" id="mobile-menu" aria-label="Мобильное меню" hidden>
@@ -740,7 +731,7 @@
             <a class="mobile-menu__link js-nav-link is-active" href="#hero-title">Последние кейсы</a>
             <a class="mobile-menu__link js-nav-link" href="#old-cases-title">Ранние кейсы</a>
             <a class="mobile-menu__link js-nav-link" href="#stack-title">Экспертиза</a>
-            <a class="mobile-menu__link js-nav-link" href="#experience-title">Опыт</a>
+            <a class="mobile-menu__link js-nav-link" href="#contact">Контакты</a>
           </nav>
         </div>
         <div class="mobile-menu__footer">
@@ -1009,6 +1000,6 @@
         }
       })();
     </script>
-    <script src="./src/js/main.js?v=20260729-10" type="module"></script>
+    <script src="./src/js/main.js?v=20260730-18" type="module"></script>
   </body>
 </html>

@@ -24,15 +24,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./src/styles/tokens.css?v=20260730-1" />
-    <link rel="stylesheet" href="./src/styles/components.css?v=20260730-4" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260730-15" />
+    <link rel="stylesheet" href="./src/styles/components.css?v=20260730-5" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260730-36" />
   </head>
   <body class="case-page">
     <div class="app">
       <aside class="panel panel--left" aria-label="Навигация">
         <div class="panel__top">
           <a href="./" class="js-scroll-top" aria-label="На главную">
-            <div class="avatar avatar--big" aria-hidden="true" data-avatar-hover="desktop">
+            <div class="avatar avatar--big" aria-hidden="true">
               <img
                 src="./src/assets/img/avatar/avatar-88.png?v=11"
                 alt=""
@@ -42,12 +42,13 @@
             </div>
           </a>
           <nav class="side-nav" aria-label="Разделы кейса">
-            <a class="side-nav__link js-nav-link is-active" href="#main">О продукте</a>
+            <a class="side-nav__link js-nav-link is-active" href="#main">Описание</a>
             <a class="side-nav__link js-nav-link" href="#case-digital-deal">Цифровая сделка</a>
             <a class="side-nav__link js-nav-link" href="#case-landing">Лендинг</a>
             <a class="side-nav__link js-nav-link" href="#case-application-form">Форма подачи заявки</a>
             <a class="side-nav__link js-nav-link" href="#case-banners-hints">Баннеры и подсказки</a>
             <a class="side-nav__link js-nav-link" href="#case-results-block">Результаты</a>
+            <a class="side-nav__link js-nav-link" href="#contact">Контакты</a>
           </nav>
         </div>
         <a class="btn btn--primary" href="./src/assets/docs/Barbarov-Anton-CV.pdf" target="_blank" rel="noopener noreferrer">
@@ -172,10 +173,10 @@
               </div>
 
               <p class="case-intro__description">
-                Я создал с нуля финтех<span class="type-sign">-</span>продукт для
-                российских фермеров на «поле.рф»: без ежемесячных платежей и сниженной
-                процентной ставкой. Продукт был запущен в середине 2024 года, сейчас выходит
-                на финиш реализации. Впереди интеграция с госсервисами.
+                Последние 2 года я проектировал финтех<span class="type-sign">-</span>продукт
+                для российского агробизнеса на «поле.рф»: заем без ежемесячных платежей со
+                сниженной процентной ставкой. Продукт был запущен в середине 2024 года и
+                сейчас выходит на финиш реализации. Впереди интеграция с госсервисами.
               </p>
             </div>
 
@@ -225,14 +226,25 @@
               ></video>
             </figure>
 
-            <p class="case-content__text">
-              До 2024 года на рынке не существовало специализированного финансового
-              продукта, ориентированного исключительно для фермеров. Компания «поле.рф» и
-              раньше предлагала различные финансовые инструменты от других банков, но было
-              принято решение создать свой собственный.
-            </p>
-
             <div class="case-content" aria-label="Подробности кейса">
+              <section class="case-content__section" aria-label="Роль и команда">
+                <h2 class="case-content__title">Роль и команда</h2>
+                <p class="case-content__text">
+                  Я был единственным дизайнером на продукте. Работал в связке с PM и
+                  финансовым аналитиком: discovery, груминги и решения шли совместно.
+                </p>
+              </section>
+
+              <section class="case-content__section" aria-label="Мой вклад">
+                <h2 class="case-content__title">Мой вклад</h2>
+                <p class="case-content__text">
+                  UX и интерфейс всего пути от лендинга до сделки: сценарии, прототипы,
+                  тесты с фермерами и региональными менеджерами, критика и альтернативы к
+                  бизнес<span class="type-sign">-</span>требованиям. Метриками владели PM и
+                  аналитик; я опирался на них и переводил в дизайн<span class="type-sign">-</span>решения.
+                </p>
+              </section>
+
               <section class="case-content__section" aria-label="Бизнес-задачи">
                 <h2 class="case-content__title">Бизнес<span class="type-sign">-</span>задачи</h2>
                 <ul class="case-content__list">
@@ -801,6 +813,8 @@
                   class="case-timeline__img"
                   src="./src/assets/img/cases/case-01-timeline-v2.png"
                   alt="Таймлайн проекта с этапами разработки и бизнес-задачами"
+                  width="777"
+                  height="334"
                   loading="lazy"
                   decoding="async"
                 />
@@ -950,21 +964,67 @@
                   <div class="contact-card__channels">
                     <div class="contact-channel">
                       <span class="contact-channel__label">Телеграм</span>
-                      <a
-                        class="contact-channel__value"
-                        href="https://t.me/moberg_87"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >@moberg_87</a
-                      >
+                      <div class="contact-channel__row">
+                        <a
+                          class="contact-channel__value"
+                          href="https://t.me/moberg_87"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >@moberg_87</a
+                        >
+                        <button
+                          class="btn-copy js-copy"
+                          type="button"
+                          data-copy="@moberg_87"
+                          aria-label="Скопировать @moberg_87"
+                        >
+                          <img
+                            class="btn-copy__icon btn-copy__icon--copy"
+                            src="./src/assets/svg/ui/copy.svg?v=3"
+                            alt=""
+                            width="12"
+                            height="12"
+                          />
+                          <img
+                            class="btn-copy__icon btn-copy__icon--done"
+                            src="./src/assets/svg/ui/check.svg"
+                            alt=""
+                            width="12"
+                            height="12"
+                          />
+                        </button>
+                      </div>
                     </div>
                     <div class="contact-channel">
                       <span class="contact-channel__label">Электронная почта</span>
-                      <a
-                        class="contact-channel__value"
-                        href="mailto:anton.barbarov@yandex.ru"
-                        >anton.barbarov@yandex.ru</a
-                      >
+                      <div class="contact-channel__row">
+                        <a
+                          class="contact-channel__value"
+                          href="mailto:anton.barbarov@yandex.ru"
+                          >anton.barbarov@yandex.ru</a
+                        >
+                        <button
+                          class="btn-copy js-copy"
+                          type="button"
+                          data-copy="anton.barbarov@yandex.ru"
+                          aria-label="Скопировать anton.barbarov@yandex.ru"
+                        >
+                          <img
+                            class="btn-copy__icon btn-copy__icon--copy"
+                            src="./src/assets/svg/ui/copy.svg?v=3"
+                            alt=""
+                            width="12"
+                            height="12"
+                          />
+                          <img
+                            class="btn-copy__icon btn-copy__icon--done"
+                            src="./src/assets/svg/ui/check.svg"
+                            alt=""
+                            width="12"
+                            height="12"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                   <div class="contact-card__socials">
@@ -1079,7 +1139,13 @@
             </a>
           </div>
         </div>
-        <p class="clock" id="clock">GMT +3, --:--</p>
+        <div class="status-block">
+          <p class="availability">
+            <span class="availability__dot" aria-hidden="true"></span>
+            Open to Work
+          </p>
+          <p class="clock" id="clock">GMT +3, --:--</p>
+        </div>
       </aside>
 
       <section class="mobile-menu" id="mobile-menu" aria-label="Мобильное меню" hidden>
@@ -1129,7 +1195,7 @@
           </div>
           <p class="clock mobile-menu__clock mobile-menu__clock--top" id="clock-menu">GMT +3, --:--</p>
           <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
-            <a class="mobile-menu__link js-nav-link is-active" href="#main">О продукте</a>
+            <a class="mobile-menu__link js-nav-link is-active" href="#main">Описание</a>
             <a class="mobile-menu__link js-nav-link" href="#case-digital-deal">Цифровая сделка</a>
             <a class="mobile-menu__link js-nav-link" href="#case-landing">Лендинг</a>
             <a class="mobile-menu__link js-nav-link" href="#case-application-form"
@@ -1139,6 +1205,7 @@
               >Баннеры и подсказки</a
             >
             <a class="mobile-menu__link js-nav-link" href="#case-results-block">Результаты</a>
+            <a class="mobile-menu__link js-nav-link" href="#contact">Контакты</a>
           </nav>
         </div>
         <div class="mobile-menu__footer">
@@ -1219,6 +1286,6 @@
       </section>
     </div>
 
-    <script src="./src/js/main.js?v=20260729-10" type="module"></script>
+    <script src="./src/js/main.js?v=20260730-18" type="module"></script>
   </body>
 </html>
