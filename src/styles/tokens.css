@@ -3,7 +3,10 @@
 
 @font-face {
   font-family: "TT Travels DemiBold";
-  src: url("../assets/fonts/tt-travels-demibold.otf") format("opentype");
+  src:
+    url("../assets/fonts/tt-travels-demibold.woff2") format("woff2"),
+    url("../assets/fonts/tt-travels-demibold.woff") format("woff"),
+    url("../assets/fonts/tt-travels-demibold.otf") format("opentype");
   font-style: normal;
   font-weight: 600;
   font-display: swap;
