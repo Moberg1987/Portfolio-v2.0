@@ -20,7 +20,8 @@ const SCROLL_SPY_EPSILON_PX = 8;
 const WAVE_SOCIALS_CLOSE_DELAY_MS = 120;
 const MOBILE_STICKY_TOPBAR_TRIGGER_PX = 200;
 const MOBILE_STICKY_TOPBAR_TRANSITION_MS = 380;
-const TABS_COLLAPSED_HEIGHT_PX = 500;
+const TABS_COLLAPSE_MQ = window.matchMedia("(max-width: 1024px)");
+const TABS_COLLAPSED_HEIGHT_PX = 280;
 const MOBILE_MENU_TRANSITION_FALLBACK_MS = 280;
 const ACCORDION_ANIMATION_SPEED_PX_PER_MS = 1.65;
 const ACCORDION_ANIMATION_MIN_DURATION_MS = 300;
@@ -711,6 +712,8 @@ for (const tabsBlock of tabsBlocks) {
   const tabPanels = [...tabsBlock.querySelectorAll('[role="tabpanel"]')];
   if (tabButtons.length === 0 || tabPanels.length === 0) continue;
 
+  const isTabsCollapseEnabled = () => TABS_COLLAPSE_MQ.matches;
+
   const clearPreviewState = () => {
     if (tabsHead instanceof HTMLElement) {
       tabsHead.classList.remove("is-previewing");
@@ -726,10 +729,6 @@ for (const tabsBlock of tabsBlocks) {
 
   const getActivePanel = () => {
     return tabPanels.find((tabPanel) => tabPanel.classList.contains("is-active")) ?? tabPanels[0];
-  };
-
-  const getOverflowingPanelsCount = () => {
-    return tabPanels.filter((tabPanel) => tabPanel.scrollHeight > TABS_COLLAPSED_HEIGHT_PX).length;
   };
 
   const isPanelExpanded = (tabPanel) => {
@@ -783,31 +782,13 @@ for (const tabsBlock of tabsBlocks) {
     }
   };
 
-  const syncTabsBodyMinHeight = () => {
-    if (!(tabsBody instanceof HTMLElement)) return;
-
-    const activePanel = getActivePanel();
-    if (isPanelExpanded(activePanel)) {
-      tabsBlock.style.setProperty("--tabs-body-min-height", "0px");
-      return;
-    }
-
-    const maxCollapsedHeight = Math.max(
-      ...tabPanels.map((tabPanel) =>
-        Math.min(tabPanel.scrollHeight, TABS_COLLAPSED_HEIGHT_PX),
-      ),
-    );
-    const needsButtonSpace = getOverflowingPanelsCount() > 0;
-    const buttonSpace = needsButtonSpace ? 72 : 0;
-    const minBodyHeight = Math.max(TABS_COLLAPSED_HEIGHT_PX, maxCollapsedHeight) + buttonSpace;
-    tabsBlock.style.setProperty("--tabs-body-min-height", `${minBodyHeight}px`);
-  };
-
   const syncTabsMoreButton = () => {
     if (!(tabsMoreButton instanceof HTMLButtonElement)) return;
 
+    const collapseEnabled = isTabsCollapseEnabled();
     const activePanel = getActivePanel();
-    const isOverflowing = activePanel.scrollHeight > TABS_COLLAPSED_HEIGHT_PX;
+    const isOverflowing =
+      collapseEnabled && activePanel.scrollHeight > TABS_COLLAPSED_HEIGHT_PX;
     const isExpanded = isPanelExpanded(activePanel);
 
     tabsMoreButton.hidden = !isOverflowing;
@@ -817,8 +798,14 @@ for (const tabsBlock of tabsBlocks) {
   };
 
   const syncActivePanelVisibility = () => {
+    if (tabsBody instanceof HTMLElement) {
+      tabsBlock.style.setProperty("--tabs-body-min-height", "0px");
+    }
+
+    const collapseEnabled = isTabsCollapseEnabled();
     const activePanel = getActivePanel();
-    const isOverflowing = activePanel.scrollHeight > TABS_COLLAPSED_HEIGHT_PX;
+    const isOverflowing =
+      collapseEnabled && activePanel.scrollHeight > TABS_COLLAPSED_HEIGHT_PX;
     const isExpanded = isOverflowing && isPanelExpanded(activePanel);
 
     for (const tabPanel of tabPanels) {
@@ -829,7 +816,6 @@ for (const tabsBlock of tabsBlocks) {
     }
 
     syncTabsMoreButton();
-    syncTabsBodyMinHeight();
   };
 
   const setActiveTab = (targetButton) => {
@@ -891,6 +877,8 @@ for (const tabsBlock of tabsBlocks) {
 
   if (tabsMoreButton instanceof HTMLButtonElement) {
     tabsMoreButton.addEventListener("click", () => {
+      if (!isTabsCollapseEnabled()) return;
+
       const activePanel = getActivePanel();
       const isOverflowing = activePanel.scrollHeight > TABS_COLLAPSED_HEIGHT_PX;
       if (!isOverflowing) return;
@@ -906,6 +894,7 @@ for (const tabsBlock of tabsBlocks) {
     syncTabsHeadIndicator(getActiveButton());
     syncActivePanelVisibility();
   });
+  TABS_COLLAPSE_MQ.addEventListener("change", syncActivePanelVisibility);
 }
 
 function initCarousel(carouselEl) {
