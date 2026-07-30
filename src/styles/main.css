@@ -223,7 +223,8 @@ img {
    h4: .hero__name, .mini-case__title, .stack-card__title, .job-card__title, .contact-card__name, .contact-channel__value
    body: .case-card__meta dd
    mini: .case-card__meta dt, .mini-case__year, .contact-card__role, .contact-channel__label, .clock
-   badge: .badge, .job-card__period
+   badge: .badge
+   mini: .job-card__role
    item: .side-nav__link
 */
 
@@ -1947,13 +1948,6 @@ img {
   min-width: 0;
 }
 
-.job-card__dates {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 0;
-}
-
 .job-card__title {
   margin: 0;
   font-family: var(--font-family);
@@ -1967,7 +1961,7 @@ img {
   white-space: nowrap;
 }
 
-.job-card__period {
+.job-card__role {
   margin: 0;
   font-size: var(--font-mini-size);
   font-weight: var(--font-mini-weight);
@@ -1978,8 +1972,7 @@ img {
 }
 
 .job-card__tags {
-  flex: 0 0 284px;
-  width: 284px;
+  flex: 0 0 auto;
   margin-left: auto;
   display: flex;
   flex-direction: column;
@@ -1994,12 +1987,15 @@ img {
 }
 
 .job-logo {
+  display: block;
   width: 56px;
   height: 56px;
   border-radius: 12px;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
+  color: inherit;
+  text-decoration: none;
 }
 
 .job-logo__img {
@@ -2406,9 +2402,8 @@ img {
     overflow: visible;
   }
 
-  .job-card__dates {
-    gap: 8px;
-    width: 100%;
+  .job-card__role {
+    white-space: normal;
   }
 
   .job-card__tags {
@@ -2421,18 +2416,6 @@ img {
     max-width: 100%;
     margin-left: 0;
     justify-content: flex-start;
-  }
-
-  .experience-list .job-card:first-child .job-card__tags .badge:nth-child(1) {
-    order: 2;
-  }
-
-  .experience-list .job-card:first-child .job-card__tags .badge:nth-child(2) {
-    order: 1;
-  }
-
-  .experience-list .job-card:first-child .job-card__tags .badge:nth-child(3) {
-    order: 3;
   }
 
   .mobile-menu {
