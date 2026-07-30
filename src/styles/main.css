@@ -1685,7 +1685,7 @@ img {
   height: 48px;
   margin-top: 24px;
   padding: 0 20px;
-  border: 1px solid var(--color-neutral-bec1c8);
+  border: 2px solid var(--color-neutral-bec1c8);
   border-radius: 12px;
   background: transparent;
   font-family: var(--font-family);
@@ -1859,6 +1859,36 @@ img {
   border-radius: var(--r-lg);
 }
 
+.stack-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stack-card__dot {
+  display: block;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.stack-card__dot--product {
+  background: #e55457;
+}
+
+.stack-card__dot--research {
+  background: #7b5cdd;
+}
+
+.stack-card__dot--3d {
+  background: #5577e5;
+}
+
+.stack-card__dot--ai {
+  background: #f3af42;
+}
+
 .stack-card__title {
   margin: 0;
   font-family: var(--font-family);
@@ -2027,6 +2057,16 @@ img {
   line-height: var(--font-h2-line);
   letter-spacing: var(--font-h2-tracking);
   color: var(--text);
+}
+
+.contact-card__br {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .contact-card__br {
+    display: block;
+  }
 }
 
 .contact-card__footer {
