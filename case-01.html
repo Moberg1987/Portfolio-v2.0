@@ -25,7 +25,7 @@
     />
     <link rel="stylesheet" href="./src/styles/tokens.css?v=20260730-1" />
     <link rel="stylesheet" href="./src/styles/components.css?v=20260730-7" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260730-37" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260730-38" />
   </head>
   <body class="case-page">
     <div class="app">
@@ -1193,7 +1193,13 @@
             <p class="mobile-menu__name">Антон Барбаров</p>
             <p class="mobile-menu__role">Продуктовый дизайнер</p>
           </div>
-          <p class="clock mobile-menu__clock mobile-menu__clock--top" id="clock-menu">GMT +3, --:--</p>
+          <div class="status-block mobile-menu__status mobile-menu__status--top">
+            <p class="availability">
+              <span class="availability__dot" aria-hidden="true"></span>
+              Open to Work
+            </p>
+            <p class="clock mobile-menu__clock" id="clock-menu">GMT +3, --:--</p>
+          </div>
           <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
             <a class="mobile-menu__link js-nav-link is-active" href="#main">Описание</a>
             <a class="mobile-menu__link js-nav-link" href="#case-digital-deal">Цифровая сделка</a>

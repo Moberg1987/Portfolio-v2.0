@@ -2552,13 +2552,23 @@ img {
     color: var(--text);
   }
 
-  .mobile-menu__clock--top {
-    display: none;
+  .mobile-menu .status-block.mobile-menu__status {
+    align-items: flex-start;
+    align-self: flex-start;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .mobile-menu .status-block.mobile-menu__status .clock {
+    text-align: left;
+  }
+
+  .mobile-menu__status--top {
+    display: flex;
   }
 
   .mobile-menu__clock--bottom {
-    display: block;
-    text-align: left;
+    display: none;
   }
 
   .mobile-menu__nav {
@@ -2894,15 +2904,6 @@ img {
     width: var(--avatar-small);
     height: var(--avatar-small);
     border-radius: var(--avatar-small-radius);
-  }
-
-  .mobile-menu__clock--top {
-    display: block;
-    text-align: left;
-  }
-
-  .mobile-menu__clock--bottom {
-    display: none;
   }
 
   .mobile-menu__nav {
