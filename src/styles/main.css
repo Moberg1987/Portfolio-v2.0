@@ -1662,7 +1662,9 @@ img {
 }
 
 .case-results-tabs__panel.is-active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .case-results-tabs__body {
