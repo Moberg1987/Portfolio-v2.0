@@ -1208,34 +1208,6 @@ for (const copyButton of document.querySelectorAll(".js-copy")) {
   if (copyButton instanceof HTMLButtonElement) initCopyButton(copyButton);
 }
 
-function initStackGlow(grid) {
-  const cards = [...grid.querySelectorAll(".stack-card")];
-  if (cards.length === 0) return;
-
-  const syncMouse = (event) => {
-    for (const card of cards) {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty("--mouse-x", `${event.clientX - rect.left}px`);
-      card.style.setProperty("--mouse-y", `${event.clientY - rect.top}px`);
-    }
-  };
-
-  grid.addEventListener("mousemove", syncMouse);
-
-  for (const card of cards) {
-    card.addEventListener("mouseenter", () => {
-      card.classList.add("is-glowing");
-    });
-    card.addEventListener("mouseleave", () => {
-      card.classList.remove("is-glowing");
-    });
-  }
-}
-
-for (const stackGrid of document.querySelectorAll(".js-stack-glow")) {
-  if (stackGrid instanceof HTMLElement) initStackGlow(stackGrid);
-}
-
 // Sticky-панели + scroll restoration = центр «уезжает в потолок» и ползёт выше с каждым refresh
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";

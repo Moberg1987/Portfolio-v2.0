@@ -45,6 +45,7 @@
             <a class="side-nav__link js-nav-link is-active" href="#main">Описание</a>
             <a class="side-nav__link js-nav-link" href="#case-components-title">Пример компонента</a>
             <a class="side-nav__link js-nav-link" href="#case-other-components-title">Другие компоненты</a>
+            <a class="side-nav__link js-nav-link" href="#case-global-components-title">Глобальные компоненты</a>
             <a class="side-nav__link js-nav-link" href="#case-tokens-title">Токены</a>
             <a class="side-nav__link js-nav-link" href="#case-results-block">Результаты</a>
             <a class="side-nav__link js-nav-link" href="#contact">Контакты</a>
@@ -361,19 +362,9 @@
                   </div>
                 </div>
                 <p class="case-content__text">
-                  В дизайн<span class="type-sign">-</span>системе я разрабатываю несколько категорий
-                  компонентов:
+                  У нас существует дорожная карта разработки и доработки компонентов, а также
+                  часто инициатива по доработкам приходит от команды разработчиков.
                 </p>
-                <ul class="case-content__list">
-                  <li>
-                    базовые элементы (атомы) — фундаментальные строительные блоки;
-                  </li>
-                  <li>
-                    глобальные компоненты (переиспользуемые организмы) — готовые составные
-                    решения для многократного применения;
-                  </li>
-                  <li>визуальные ассеты — иконки и иллюстрации.</li>
-                </ul>
               </section>
 
               <section class="case-content__section" aria-label="Другие компоненты">
@@ -453,25 +444,6 @@
                   <details class="case-accordion">
                     <summary class="case-accordion__summary">
                       <span class="case-accordion__label">
-                        <span class="case-accordion__icon" aria-hidden="true">📢</span>
-                        Status banner
-                      </span>
-                      <span class="case-accordion__chevron" aria-hidden="true"></span>
-                    </summary>
-                    <div class="case-accordion__content">
-                      <div class="case-accordion__content-inner">
-                        <img
-                          class="case-accordion__img"
-                          src="./src/assets/img/cases/universal/accordeon-08.png"
-                          alt="Компонент Status banner и его свойства"
-                          decoding="async"
-                        />
-                      </div>
-                    </div>
-                  </details>
-                  <details class="case-accordion">
-                    <summary class="case-accordion__summary">
-                      <span class="case-accordion__label">
                         <span class="case-accordion__icon" aria-hidden="true">🧱</span>
                         Набор компонентов
                       </span>
@@ -492,10 +464,125 @@
                 </div>
               </section>
 
+              <section class="case-content__section" aria-label="Глобальные компоненты">
+                <h2 class="case-content__title" id="case-global-components-title">
+                  Глобальные компоненты
+                </h2>
+                <p class="case-content__text">
+                  Дизайн<span class="type-sign">-</span>система выходит за рамки стандартных атомарных
+                  компонентов. В её состав также входит библиотека глобальных компонентов — это
+                  масштабные, самодостаточные блоки («организмы»), которые многократно
+                  переиспользуются в разных частях платформы.
+                </p>
+                <div
+                  class="case-carousel case-carousel--h463 js-carousel"
+                  role="region"
+                  aria-roledescription="carousel"
+                  aria-label="Слайды глобальных компонентов"
+                  tabindex="0"
+                >
+                  <div class="case-carousel__viewport">
+                    <ul class="case-carousel__track" aria-live="polite">
+                      <li class="case-carousel__slide is-active" data-slide="0">
+                        <img
+                          class="case-carousel__img"
+                          src="./src/assets/img/cases/case-02-global-01.png"
+                          alt="Глобальный компонент: страница запроса с статусным баннером на десктопе и мобиле"
+                          width="777"
+                          height="463"
+                          decoding="async"
+                        />
+                      </li>
+                      <li class="case-carousel__slide" data-slide="1" aria-hidden="true">
+                        <img
+                          class="case-carousel__img"
+                          src="./src/assets/img/cases/case-02-global-02.png"
+                          alt="Глобальный компонент: футер на десктопе, планшете и мобиле"
+                          width="777"
+                          height="463"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </li>
+                      <li class="case-carousel__slide" data-slide="2" aria-hidden="true">
+                        <img
+                          class="case-carousel__img"
+                          src="./src/assets/img/cases/case-02-global-03.png"
+                          alt="Глобальный компонент: модальное окно Cookies"
+                          width="777"
+                          height="463"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </li>
+                    </ul>
+                    <button
+                      class="case-carousel__arrow case-carousel__arrow--prev js-carousel-prev"
+                      type="button"
+                      aria-label="Предыдущий слайд"
+                    >
+                      <img
+                        src="./src/assets/svg/ui/arrow.svg"
+                        alt=""
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                      />
+                    </button>
+                    <button
+                      class="case-carousel__arrow case-carousel__arrow--next js-carousel-next"
+                      type="button"
+                      aria-label="Следующий слайд"
+                    >
+                      <img
+                        src="./src/assets/svg/ui/arrow.svg"
+                        alt=""
+                        width="20"
+                        height="20"
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </div>
+                  <div class="case-carousel__dots" role="tablist" aria-label="Навигация по слайдам">
+                    <button
+                      class="case-carousel__dot js-carousel-dot is-active"
+                      type="button"
+                      role="tab"
+                      aria-label="Слайд 1"
+                      aria-selected="true"
+                      data-slide="0"
+                    ></button>
+                    <button
+                      class="case-carousel__dot js-carousel-dot"
+                      type="button"
+                      role="tab"
+                      aria-label="Слайд 2"
+                      aria-selected="false"
+                      data-slide="1"
+                    ></button>
+                    <button
+                      class="case-carousel__dot js-carousel-dot"
+                      type="button"
+                      role="tab"
+                      aria-label="Слайд 3"
+                      aria-selected="false"
+                      data-slide="2"
+                    ></button>
+                  </div>
+                </div>
+              </section>
+
               <section class="case-content__section" aria-label="Токены в дизайн-системе">
                 <h2 class="case-content__title" id="case-tokens-title">
                   Токены в дизайн<span class="type-sign">-</span>системе
                 </h2>
+                <p class="case-content__text">
+                  Современная дизайн<span class="type-sign">-</span>система в большей степени
+                  ориентирована на удобство разработки. Именно поэтому в основе нашей
+                  дизайн<span class="type-sign">-</span>системы лежит система токенов. Данный подход
+                  строится на трёх уровнях переменных: глобальных, семантических и компонентных.
+                  Переход на токены мы завершили в 2025 году при моем участии.
+                </p>
                 <div
                   class="case-carousel js-carousel"
                   role="region"
@@ -660,7 +747,7 @@
                       компонентов (дизайнеры, разработчики, менеджеры).
                     </li>
                     <li>
-                      В течение последнего года выступал основным драйвером разработки
+                      В течение последних двух лет выступал основным драйвером разработки
                       компонентов.
                     </li>
                     <li>
@@ -994,6 +1081,7 @@
             <a class="mobile-menu__link js-nav-link is-active" href="#main">Описание</a>
             <a class="mobile-menu__link js-nav-link" href="#case-components-title">Пример компонента</a>
             <a class="mobile-menu__link js-nav-link" href="#case-other-components-title">Другие компоненты</a>
+            <a class="mobile-menu__link js-nav-link" href="#case-global-components-title">Глобальные компоненты</a>
             <a class="mobile-menu__link js-nav-link" href="#case-tokens-title">Токены</a>
             <a class="mobile-menu__link js-nav-link" href="#case-results-block">Результаты</a>
             <a class="mobile-menu__link js-nav-link" href="#contact">Контакты</a>
