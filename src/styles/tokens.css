@@ -1,17 +1,6 @@
 /* Design tokens — Figma node 185:22537
    + Mini text / Button from layout usage where marked */
 
-@font-face {
-  font-family: "TT Travels DemiBold";
-  src:
-    url("../assets/fonts/tt-travels-demibold.woff2") format("woff2"),
-    url("../assets/fonts/tt-travels-demibold.woff") format("woff"),
-    url("../assets/fonts/tt-travels-demibold.otf") format("opentype");
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-
 :root {
   /* ——— Colors / Neutral ——— */
   --color-neutral-050715: #050715;
@@ -42,24 +31,24 @@
 
   /* ——— Font family ——— */
   --font-family: "Inter", system-ui, sans-serif;
-  --font-heading-family: "TT Travels DemiBold", "Inter", system-ui, sans-serif;
+  --font-heading-family: "Inter", system-ui, sans-serif;
 
   /* Heading - 1: 48 / 52 / Medium / -2 */
   --font-h1-size: 48px;
   --font-h1-line: 52px;
-  --font-h1-weight: 600;
+  --font-h1-weight: 500;
   --font-h1-tracking: -2px;
 
   /* Heading - 2: 32 / 36 / Medium / -1 */
   --font-h2-size: 32px;
   --font-h2-line: 36px;
-  --font-h2-weight: 600;
+  --font-h2-weight: 500;
   --font-h2-tracking: -1px;
 
   /* Heading - 3: 24 / 28 / Medium / -1 */
   --font-h3-size: 24px;
   --font-h3-line: 28px;
-  --font-h3-weight: 600;
+  --font-h3-weight: 500;
   --font-h3-tracking: -1px;
 
   /* Heading - 4: 18 / 24 / Medium / 0 */
