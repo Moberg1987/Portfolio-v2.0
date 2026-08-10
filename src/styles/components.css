@@ -17,6 +17,7 @@
 
   --btn-behance-hover: #0055ff;
   --btn-dribbble-hover: #ea4c89;
+  --btn-max-hover: #805eff;
   --btn-telegram-hover: #249bd7;
   --btn-mail-hover: #e55557;
 }
@@ -194,6 +195,27 @@
 .btn--ghost .btn__icon {
   opacity: 0.55;
   transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.btn--max:hover {
+  border-color: var(--btn-max-hover);
+}
+
+.btn--max:hover .btn__icon {
+  opacity: 1;
+  filter: none;
+}
+
+.btn--max:hover .btn__icon--default {
+  display: none;
+}
+
+.btn--max:hover .btn__icon--hover {
+  display: block;
+}
+
+.btn--max .btn__icon--hover {
+  display: none;
 }
 
 .btn--telegram:hover {

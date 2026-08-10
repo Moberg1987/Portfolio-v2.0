@@ -1882,18 +1882,21 @@ img {
 /* ——— Contact ——— */
 
 .contact-card {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "headline socials"
+    "channels channels";
+  column-gap: 24px;
+  row-gap: 32px;
+  align-items: start;
   padding: 24px;
   background: var(--surface);
   border-radius: var(--r-lg);
 }
 
 .contact-card__intro {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  display: contents;
 }
 
 .contact-card__person {
@@ -1921,6 +1924,7 @@ img {
 }
 
 .contact-card__headline {
+  grid-area: headline;
   margin: 0;
   font-family: var(--font-heading-family);
   font-size: var(--font-h2-size);
@@ -1941,15 +1945,13 @@ img {
 }
 
 .contact-card__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  display: contents;
 }
 
 .contact-card__channels {
+  grid-area: channels;
   display: flex;
-  gap: 24px;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
@@ -2037,6 +2039,7 @@ img {
 }
 
 .contact-card__socials {
+  grid-area: socials;
   display: flex;
   gap: 8px;
   flex-shrink: 0;
@@ -2096,6 +2099,10 @@ img {
 
 .wave-stack .wave-stack__social:nth-child(4) {
   transition-delay: 108ms;
+}
+
+.wave-stack .wave-stack__social:nth-child(5) {
+  transition-delay: 144ms;
 }
 
 .wave {
@@ -2744,6 +2751,8 @@ img {
   }
 
   .contact-card {
+    display: flex;
+    flex-direction: column;
     gap: 24px;
     padding: 20px;
   }
@@ -2756,12 +2765,6 @@ img {
     font-size: var(--font-h2-size);
     line-height: var(--font-h2-line);
     letter-spacing: var(--font-h2-tracking);
-  }
-
-  .contact-card__footer {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
   }
 
   .contact-card__channels {
