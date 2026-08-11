@@ -1164,27 +1164,36 @@ const COPY_RESET_MS = 1000;
 
 async function copyTextToClipboard(text) {
   if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(text);
-    return;
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch {
+      // insecure context / denied permission → fallback below
+    }
   }
 
   const textarea = document.createElement("textarea");
   textarea.value = text;
   textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.opacity = "0";
+  textarea.style.cssText = "position:fixed;top:0;left:0;width:1px;height:1px;padding:0;border:0;opacity:0;";
   document.body.appendChild(textarea);
+  textarea.focus();
   textarea.select();
-  document.execCommand("copy");
+  textarea.setSelectionRange(0, textarea.value.length);
+  const copied = document.execCommand("copy");
   textarea.remove();
+  if (!copied) throw new Error("copy failed");
 }
 
 function initCopyButton(button) {
   const defaultLabel = button.getAttribute("aria-label") || "Скопировать";
   let resetTimerId = null;
 
-  button.addEventListener("click", async () => {
-    const text = button.dataset.copy;
+  button.addEventListener("click", async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const text = button.getAttribute("data-copy")?.trim();
     if (!text) return;
 
     try {
