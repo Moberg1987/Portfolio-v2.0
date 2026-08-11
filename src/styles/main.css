@@ -221,8 +221,8 @@ img {
    h2: .section__title, .contact-card__headline
    h3: .case-card__title
    h4: .hero__name, .mini-case__title, .stack-card__title, .contact-card__name, .contact-channel__value
-   body: .case-card__meta dd
-   mini: .case-card__meta dt, .mini-case__year, .contact-card__role, .contact-channel__label, .clock, .availability
+   body: .case-card__meta dd, .contact-card__text
+   mini: .case-card__meta dt, .mini-case__year, .contact-card__role, .clock, .availability
    badge: .badge
    item: .side-nav__link
 */
@@ -1885,10 +1885,10 @@ img {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-areas:
-    "headline socials"
+    "intro socials"
     "channels channels";
   column-gap: 24px;
-  row-gap: 32px;
+  row-gap: 20px;
   align-items: start;
   padding: 24px;
   background: var(--surface);
@@ -1896,7 +1896,11 @@ img {
 }
 
 .contact-card__intro {
-  display: contents;
+  grid-area: intro;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
 }
 
 .contact-card__person {
@@ -1924,7 +1928,6 @@ img {
 }
 
 .contact-card__headline {
-  grid-area: headline;
   margin: 0;
   font-family: var(--font-heading-family);
   font-size: var(--font-h2-size);
@@ -1932,6 +1935,16 @@ img {
   line-height: var(--font-h2-line);
   letter-spacing: var(--font-h2-tracking);
   color: var(--text);
+}
+
+.contact-card__text {
+  margin: 0;
+  max-width: 52ch;
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  line-height: var(--font-body-line);
+  letter-spacing: var(--font-body-tracking);
+  color: var(--text-secondary);
 }
 
 .contact-card__br {
@@ -1951,14 +1964,13 @@ img {
 .contact-card__channels {
   grid-area: channels;
   display: flex;
-  gap: 40px;
+  gap: 28px;
   flex-wrap: wrap;
 }
 
 .contact-channel {
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
 .contact-channel__row {
@@ -1966,14 +1978,6 @@ img {
   align-items: center;
   gap: 8px;
   min-width: 0;
-}
-
-.contact-channel__label {
-  font-size: var(--font-mini-size);
-  font-weight: var(--font-mini-weight);
-  line-height: var(--font-mini-line);
-  letter-spacing: var(--font-mini-tracking);
-  color: var(--text-secondary);
 }
 
 .contact-channel__value {
