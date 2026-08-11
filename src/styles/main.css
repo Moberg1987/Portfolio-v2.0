@@ -1888,7 +1888,7 @@ img {
     "intro socials"
     "channels channels";
   column-gap: 24px;
-  row-gap: 20px;
+  row-gap: 24px;
   align-items: start;
   padding: 24px;
   background: var(--surface);
