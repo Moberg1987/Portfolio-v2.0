@@ -221,7 +221,7 @@ img {
    h2: .section__title, .contact-card__headline
    h3: .case-card__title
    h4: .hero__name, .mini-case__title, .stack-card__title, .contact-card__name, .contact-channel__value
-   body: .case-card__meta dd, .contact-card__text
+   body: .case-card__meta dd
    mini: .case-card__meta dt, .mini-case__year, .contact-card__role, .clock, .availability
    badge: .badge
    item: .side-nav__link
@@ -1935,16 +1935,6 @@ img {
   line-height: var(--font-h2-line);
   letter-spacing: var(--font-h2-tracking);
   color: var(--text);
-}
-
-.contact-card__text {
-  margin: 0;
-  max-width: 52ch;
-  font-size: var(--font-body-size);
-  font-weight: var(--font-body-weight);
-  line-height: var(--font-body-line);
-  letter-spacing: var(--font-body-tracking);
-  color: var(--text-secondary);
 }
 
 .contact-card__br {
