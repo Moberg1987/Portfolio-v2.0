@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check FTP connection and directories
+      - name: Check FTP connection and site directory
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -27,8 +27,18 @@ jobs:
           ftp.prot_p()
 
           print("Secure FTP connection successful")
-          print("FTP current directory:", ftp.pwd())
-          print("FTP root contents:", ftp.nlst())
+
+          site_dir = "/www/barbarov.site/"
+          ftp.cwd(site_dir)
+
+          files = ftp.nlst()
+          print("Site directory:", ftp.pwd())
+          print("Site files:", files)
+
+          if "index.html" in [f.rstrip("/").split("/")[-1] for f in files]:
+              print("SUCCESS: index.html found!")
+          else:
+              raise Exception("index.html not found!")
 
           ftp.quit()
           PY
