@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check FTP connection
+      - name: Check FTP connection and directories
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -25,6 +25,10 @@ jobs:
               os.environ["FTP_PASSWORD"]
           )
           ftp.prot_p()
+
           print("Secure FTP connection successful")
+          print("FTP current directory:", ftp.pwd())
+          print("FTP root contents:", ftp.nlst())
+
           ftp.quit()
           PY
