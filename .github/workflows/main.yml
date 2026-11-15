@@ -1,10 +1,10 @@
-name: Deploy website
+name: Deploy HTTPS preview
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - codex/portfolio-https-preview
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,7 +22,7 @@ jobs:
           port: 21
           protocol: ftps
           local-dir: ./
-          server-dir: /www/barbarov.site/
+          server-dir: /www/barbarov.site/_preview-ai-39b8ae4/
           dangerous-clean-slate: false
           exclude: |
             **/.git*
