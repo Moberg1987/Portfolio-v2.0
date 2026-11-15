@@ -10,6 +10,7 @@ const waveStacks = [...document.querySelectorAll(".wave-stack")];
 const resultCards = [...document.querySelectorAll(".case-result-card")];
 const tabsBlocks = [...document.querySelectorAll(".js-tabs")];
 const caseAccordions = [...document.querySelectorAll(".case-accordion")];
+const productsCover = document.querySelector(".portfolio-products__cover");
 let scrollAnimationFrame = null;
 let isNavProgrammaticScroll = false;
 let programmaticNavId = null;
@@ -609,6 +610,19 @@ for (const link of navLinks) {
 
     runNavScroll();
   });
+}
+
+if (productsCover && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const video = productsCover.querySelector("video");
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.intersectionRatio < 0.3) {
+      video.pause();
+      return;
+    }
+    if (!video.hasAttribute("src")) video.src = video.dataset.src;
+    video.play().catch(() => {});
+  }, { threshold: 0.3 });
+  observer.observe(productsCover);
 }
 
 for (const scrollTopTrigger of scrollTopTriggers) {

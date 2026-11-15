@@ -2856,3 +2856,7 @@ img {
     object-position: center;
   }
 }
+
+.portfolio-products__cover {
+  background: #000;
+}

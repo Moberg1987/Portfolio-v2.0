@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="42.471" height="42.471" viewBox="0 0 42.471 42.471" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Button icon">
+<g id="Union" filter="url(#filter0_d_0_221)">
+<path d="M24.5794 18.2146C25.2705 17.5235 26.3907 17.5236 27.0818 18.2146C27.7729 18.9057 27.7729 20.0259 27.0818 20.717L22.7816 25.0172C22.0905 25.7083 20.9703 25.7083 20.2792 25.0172C19.5882 24.3261 19.5882 23.2059 20.2792 22.5148L24.5794 18.2146Z" fill="white"/>
+<path d="M21.2355 9.43793C29.3799 9.43793 35.9823 16.0403 35.9823 24.1848C35.9823 32.3293 29.3799 38.9317 21.2355 38.9317C13.091 38.9317 6.4886 32.3293 6.4886 24.1848C6.4886 16.0403 13.091 9.43793 21.2355 9.43793ZM21.2355 12.9772C15.0457 12.9772 10.0278 17.995 10.0278 24.1848C10.0278 30.3746 15.0457 35.3924 21.2355 35.3924C27.4253 35.3924 32.4431 30.3746 32.4431 24.1848C32.4431 17.995 27.4253 12.9772 21.2355 12.9772Z" fill-rule="evenodd" clip-rule="evenodd" fill="white"/>
+<path d="M27.394 3.16763C28.3712 3.16776 29.1636 3.96 29.1636 4.93725C29.1636 5.9145 28.3712 6.70674 27.394 6.70688H15.3367C14.3594 6.70688 13.5671 5.91459 13.5671 4.93725C13.5671 3.95992 14.3594 3.16763 15.3367 3.16763H27.394Z" fill="white"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_0_221" x="5.30885" y="3.16763" width="31.8532" height="38.7134" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1.76962"/>
+<feGaussianBlur stdDeviation="0.589875"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_221"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_221" result="shape"/>
+</filter>
+</defs>
+</svg>

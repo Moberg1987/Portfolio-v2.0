@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Личные приложения Антона Барбарова для Windows и Android, спроектированные в Figma и собранные с Codex.">
+  <title>Мои продукты · Антон Барбаров</title>
+  <link rel="icon" href="../favicon.ico">
+  <script>
+    if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+      document.documentElement.classList.add('motion');
+    }
+  </script>
+  <link rel="stylesheet" href="products.css?v=36">
+  <script src="products.js?v=35" defer onerror="document.documentElement.classList.remove('motion')"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner bound">
+      <a class="back" href="../">В портфолио</a>
+      <button class="menu" type="button" aria-controls="product-nav" aria-expanded="false" aria-label="Открыть меню"><img src="media/9a5dd.svg" alt=""><img src="media/1c270.svg" class="menu-close" alt=""></button>
+      <div class="navigation" id="product-nav">
+        <nav aria-label="Разделы страницы">
+          <a href="#start" aria-current="location"><img src="media/02492.png" alt="">Начало</a>
+          <a href="#chicken-timer"><span class="timer-logo" aria-hidden="true"><img src="media/cee9e.png" alt=""><img src="media/26b8a.png" alt=""></span>Chicken Timer</a>
+          <a href="#ai-sorter"><span class="sorter-logo"><img src="media/3f40c.png" alt=""></span>AI Sorter</a>
+          <a href="#pypr"><img src="media/3103f.png" alt="">Pypr</a>
+          <a href="#dark-melancholy"><img src="media/0ec46.png" alt="">Темная меланхолия</a>
+        </nav>
+        <div class="header-contacts"><a href="mailto:anton.barbarov@yandex.ru">E-mail</a><a href="https://t.me/moberg_87">Telegram</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro bound" id="start">
+      <div class="intro-copy">
+        <div class="tools" aria-label="Codex, Figma, GitHub">
+          <img alt="" src="media/124ea.svg"><img alt="" src="media/87e98.svg"><img alt="" src="media/c169e.svg">
+        </div>
+        <h1><span>Придумал.</span> <span>Спроектировал.</span> <span>Собрал.</span></h1>
+        <p><span>Месяц посвятил практической работе с ИИ-инструментами:</span> <span>тестировал разные подходы, собирал решения и доводил</span> <span>их до рабочего состояния. Итогом стали 6 готовых продуктов</span></p>
+      </div>
+      <div class="phone phone-hero" aria-hidden="true">
+        <video data-intro playsinline muted preload="none" disablepictureinpicture data-src="media/hero-phone-intro.mp4"></video>
+        <video data-loop playsinline muted loop preload="none" disablepictureinpicture data-src="media/hero-phone-loop.mp4"></video>
+      </div>
+    </section>
+
+    <section class="timer-section" id="chicken-timer">
+      <div class="bound">
+        <div class="section-head centered reveal"><span class="app-logo timer-logo" aria-hidden="true"><img src="media/cee9e.png" alt=""><img src="media/26b8a.png" alt=""></span>
+          <h2>Одна задача. Никаких лишних функций</h2>
+          <ul class="tags"><li>Windows</li><li>Product Design</li><li>Electron</li><li>AI-assisted Development</li></ul>
+          <p>Работая из дома, я постоянно забывал делать перерывы: вовремя размяться, отойти от компьютера или просто проверить гречку на плите. Мне нужен был небольшой таймер, который всегда под рукой, не мешает работе и позволяет запускать несколько отсчётов одновременно.</p>
+        </div>
+        <div class="timers-wrap reveal">
+          <img class="timer-float timer-left" src="media/9cc8d.png" alt="" loading="lazy">
+          <img class="timer-float timer-right" src="media/a9eac.png" alt="" loading="lazy">
+          <div class="timers" aria-label="Демонстрация таймеров">
+            <div class="timer purple" data-seconds="907" data-progress=".5">
+              <div class="timer-controls" aria-hidden="true"><img src="media/bcfaa.svg" alt=""><img src="media/6a086.svg" alt=""><img src="media/320b3.svg" alt=""></div>
+              <div class="timer-name">Режим работы 🌳</div>
+              <div class="timer-face">
+                <div class="timer-disc"><svg class="timer-progress" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46.65" pathLength="100"/></svg><span class="timer-stop" aria-hidden="true"><img src="media/3bca2.svg" alt=""></span><span>15:07</span></div>
+              </div>
+
+            </div>
+            <div class="timer orange" data-seconds="2292" data-progress=".25">
+              <div class="timer-controls" aria-hidden="true"><img src="media/bcfaa.svg" alt=""><img src="media/6a086.svg" alt=""><img src="media/320b3.svg" alt=""></div>
+              <div class="timer-name">Покурить 🚬</div>
+              <div class="timer-face">
+                <div class="timer-disc"><svg class="timer-progress" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46.65" pathLength="100"/></svg><span class="timer-stop" aria-hidden="true"><img src="media/3bca2.svg" alt=""></span><span>38:12</span></div>
+              </div>
+
+            </div>
+            <div class="timer green" data-seconds="601" data-progress=".139">
+              <div class="timer-controls" aria-hidden="true"><img src="media/bcfaa.svg" alt=""><img src="media/6a086.svg" alt=""><img src="media/320b3.svg" alt=""></div>
+              <div class="timer-name">Рис 🍚</div>
+              <div class="timer-face">
+                <div class="timer-disc"><svg class="timer-progress" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46.65" pathLength="100"/></svg><span class="timer-stop" aria-hidden="true"><img src="media/3bca2.svg" alt=""></span><span>10:01</span></div>
+              </div>
+
+            </div>
+            <div class="timer pink" >
+              <div class="timer-controls" aria-hidden="true"><img src="media/bcfaa.svg" alt=""><img src="media/6a086.svg" alt=""><img src="media/320b3.svg" alt=""></div>
+              <div class="timer-name">Курочка 🍗</div>
+              <div class="timer-face">
+                <div class="timer-set">Установленное время<strong>30:00</strong></div>
+              </div>
+              <div class="timer-actions" aria-hidden="true">
+                <span><img src="media/5d5bf.svg" alt=""></span>
+                <span><img src="media/b1929.svg" alt=""></span>
+              </div>
+            </div>
+            <div class="timer-add" aria-hidden="true"><img src="media/2e005.svg" alt=""></div>
+          </div>
+        </div>
+        <p class="centered timer-note reveal">Несколько часов в Figma, долгие диалоги с Codex и немного борьбы с Windows — так появился Chicken Timer, мой первый самостоятельно собранный продукт.</p>
+      </div>
+    </section>
+
+    <section class="bound sorter" id="ai-sorter">
+      <div class="sorter-track" data-sorter>
+        <div class="sorter-pin">
+          <div class="section-head inset reveal"><span class="app-logo sorter-logo" aria-hidden="true"><img src="media/3f40c.png" alt=""></span>
+            <h2>Не обязательно спасать мир.<br> Иногда достаточно спасти папку Downloads</h2>
+            <ul class="tags"><li>Windows</li><li>Product Design</li><li>Electron</li><li>AI-assisted Development</li></ul>
+            <p>Десятки изображений, иконок, мемов и куча распакованных архивов. Раньше этот хлам я копил неделями и сортировал вручную. Теперь приложение AI Sorter делает всю работу за меня.</p>
+          </div>
+          <div class="sorter-content reveal">
+            <div class="sorter-media">
+              <img src="media/ai-sorter-01.png" alt="Встроенные приложения в AI Sorter">
+              <img src="media/ai-sorter-02.png" alt="Умная сортировка изображений в AI Sorter" hidden>
+              <img src="media/ai-sorter-03.png" alt="Гигиена папок в AI Sorter" hidden>
+              <img src="media/ai-sorter-04.png" alt="Удаление дубликатов в AI Sorter" hidden>
+              <div class="sorter-thumbnail" hidden aria-hidden="true">
+                <div class="sorter-thumbnail-card"><img src="media/0fc3c.png" alt=""><span>2</span></div>
+                <img class="sorter-cursor" src="media/1fcd6.svg" alt="">
+              </div>
+            </div>
+            <div class="sorter-steps">
+              <div class="sorter-step" data-active><h3><button type="button" id="sorter-toggle-1" aria-expanded="true" aria-controls="sorter-panel-1">Встроенные приложения</button></h3><div class="sorter-panel" id="sorter-panel-1"><p>Три инструмента в одном приложении для наведения порядка в папках. Помогают быстро разобрать изображения, удалить лишнее и освободить место.</p></div></div>
+              <div class="sorter-step"><h3><button type="button" id="sorter-toggle-2" aria-expanded="false" aria-controls="sorter-panel-2">Умная сортировка изображений</button></h3><div class="sorter-panel" id="sorter-panel-2" inert><p>Локальная AI-модель анализирует изображения и предлагает сортировку. Можно вручную исправлять, переименовывать и добавлять группы, просматривать и удалять фото. Регулируя параметр поиска сходств, модель ищет семантические связи. Чем выше параметр, тем более мелкие детали выявляет модель. Рекомендуемый диапазон — 58–73%.</p></div></div>
+              <div class="sorter-step"><h3><button type="button" id="sorter-toggle-3" aria-expanded="false" aria-controls="sorter-panel-3">Гигиена папок</button></h3><div class="sorter-panel" id="sorter-panel-3" inert><p>Помогает очистить папку без ручного перебора файлов. Сортирует файлы по форматам и удаляет в корзину архивы, содержимое которых уже распаковано.</p></div></div>
+              <div class="sorter-step"><h3><button type="button" id="sorter-toggle-4" aria-expanded="false" aria-controls="sorter-panel-4">Удаление дубликатов</button></h3><div class="sorter-panel" id="sorter-panel-4" inert><p>Находит одинаковые файлы и помогает избавиться от лишних копий. Перед удалением можно проверить найденные совпадения. Есть настройка поиска дубликатов во вложенных папках с возможностью делать исключения.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="screencast reveal">
+        <figcaption>Короткий скринкаст AI Sorter</figcaption>
+        <video controls autoplay loop playsinline muted preload="metadata" poster="media/sorter-screencast-poster.jpg" src="media/sorter-screencast.mp4" aria-label="Короткий скринкаст AI Sorter"></video>
+        <p class="media-fallback" hidden>Скринкаст недоступен</p>
+      </figure>
+    </section>
+
+    <section class="bound" id="pypr">
+      <div class="section-head centered reveal"><img class="app-logo" src="media/3103f.png" alt="" width="48" height="48">
+        <h2>Когда ИИ становится частью процесса,<br> а не источником хаоса</h2>
+        <ul class="tags"><li>Windows</li><li>Desktop App</li><li>MCP</li><li>AI Workflow</li></ul>
+        <p>Pypr — локальное приложение для управления контекстом и этапами ИИ-разработки. Оно помогает сохранять договорённости, проектные правила и результаты работы, а через MCP передавать актуальный контекст ИИ-агентам.</p>
+      </div>
+      <div class="pypr-demo reveal" data-tabs>
+        <div class="tabs" role="tablist" aria-label="Возможности Pypr">
+          <button id="pypr-tab-0" type="button" role="tab" aria-controls="pypr-panel-0" aria-selected="true" tabindex="0">Управление этапами</button>
+          <button id="pypr-tab-1" type="button" role="tab" aria-controls="pypr-panel-1" aria-selected="false" tabindex="-1">Работа с референсами</button>
+          <button id="pypr-tab-2" type="button" role="tab" aria-controls="pypr-panel-2" aria-selected="false" tabindex="-1">Интеграция с MCP</button>
+          <button id="pypr-tab-3" type="button" role="tab" aria-controls="pypr-panel-3" aria-selected="false" tabindex="-1">Обзор проекта</button>
+        </div>
+        <div class="tab-panel" id="pypr-panel-0" role="tabpanel" aria-labelledby="pypr-tab-0"><img src="media/c3294.png" alt="Управление этапами" loading="lazy"></div>
+        <div class="tab-panel" id="pypr-panel-1" role="tabpanel" aria-labelledby="pypr-tab-1" hidden><img src="media/7bb2b.png" alt="Работа с референсами" loading="lazy"></div>
+        <div class="tab-panel" id="pypr-panel-2" role="tabpanel" aria-labelledby="pypr-tab-2" hidden><img src="media/9ba42.png" alt="Интеграция с MCP" loading="lazy"></div>
+        <div class="tab-panel" id="pypr-panel-3" role="tabpanel" aria-labelledby="pypr-tab-3" hidden><img src="media/f7042.png" alt="Обзор проекта" loading="lazy"></div>
+      </div>
+      <div class="benefits reveal">
+        <h3>Преимущества системы управления контекстом</h3>
+        <ul><li><img src="media/86c53.svg" alt="">Все хранится локально на моем компьютере без риска что-то потерять и это совершенно бесплатно</li><li><img src="media/a5c20.svg" alt="">Каждый этап имеет своего агента с детально прописанными агентскими правилами и скиллами</li><li><img src="media/b4e92.svg" alt="">Контекст проекта максимально сжимается до необходимого минимума</li><li><img src="media/caea6.svg" alt="">Результаты не теряются в бесконечных чатах</li><li><img src="media/39e40.svg" alt="">Легкость внесения правок за счет привязки конкретного чата к конкретному этапу реализации</li></ul>
+      </div>
+    </section>
+
+    <section class="bound" id="dark-melancholy">
+      <div class="melancholy">
+        <div class="section-head reveal"><img class="app-logo" src="media/0ec46.png" alt="" width="48" height="48">
+          <h2>Мой продукт — мои правила.<br>Никаких согласований</h2>
+          <ul class="tags"><li>Android</li><li>iOS</li><li>Mobile App</li><li>Local Playback</li><li>AI-assisted Development</li></ul>
+          <p>Я давно нуждался в музыкальном плеере с собственными подборками, который работает при отключении мобильного интернета, без рекомендательных алгоритмов и попыток угадать моё настроение. Надоел стремный дизайн известных стримингов, мне нужен был мой собственный стремный дизайн. Назвал плейер «Темная меланхолия».</p>
+          <ul class="features">
+            <li><img src="media/5b24f.svg" alt="">Только необходимые действия: воспроизведение, пауза, переключение треков и управление прогрессом</li><li><img src="media/5b24f.svg" alt="">Возможность зацикливать отрезок трека для лучшего усвоения образовательных аудио материалов</li><li><img src="media/5b24f.svg" alt="">Минималистичный дизайн с дефолтной темной темой с эстетикой терминала, бенто и небольшой старомодности</li><li><img src="media/5b24f.svg" alt="">Учтены исключительно мои паттерны поведения при проектировании UX.</li>
+          </ul>
+        </div>
+        <div class="phone phone-case reveal" role="img" aria-label="Мокап плеера «Темная меланхолия»">
+          <img class="phone-still" src="media/melancholy-mockup-poster.jpg" alt="" loading="lazy">
+          <video muted playsinline loop preload="none" data-src="media/melancholy-mockup.mp4"></video>
+        </div>
+      </div>
+      <div class="gallery reveal" data-gallery>
+        <h3 class="centered">Несколько страниц плейера</h3>
+        <div class="gallery-captions centered">
+          <p aria-hidden="true" inert>Список треков оформил в духе кода и терминала: моноширинный шрифт, никаких превью и общий стиль old-fashioned.</p>
+          <p data-current>Главный экран библиотеки спроектировал под длину своего большого пальца и частые сценарии. Самую популярную подборку сделал крупнее и выделил цветом.</p>
+          <p aria-hidden="true" inert>Со страницы трека убрал лишнее. Оставил анимированный шейдер на фоне и только те кнопки управления, которыми пользуюсь.</p>
+          <p aria-hidden="true" inert>Я часто зацикливаю короткие фрагменты учебных аудио. В других плеерах это неудобно или недоступно, поэтому добавил такую возможность в свой.</p>
+          <p aria-hidden="true" inert>На аскетичном экране приветствия — анимированный шейдер в виде чёрной дыры, ломаная типографика и загрузка папки с подборками с телефона.</p>
+          <p aria-hidden="true" inert>Для разных типов аудио сделал гибкие настройки. Оставил между элементами много воздуха, чтобы избежать случайных нажатий и путаницы.</p>
+        </div>
+        <div class="gallery-stage">
+          <button type="button" aria-label="Экран 1" data-slide="0" data-position="-1"><img src="media/04e6e.png?v=2" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Экран 2" data-slide="1" data-position="0"><img src="media/b8007.png?v=2" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Экран 3" data-slide="2" data-position="1"><img src="media/f543d.png?v=2" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Экран 4" data-slide="3" hidden><img src="media/eb119.png?v=2" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Экран 5" data-slide="4" hidden><img src="media/dc499.png" alt="" loading="lazy"></button>
+          <button type="button" aria-label="Экран 6" data-slide="5" hidden><img src="media/532b0.png" alt="" loading="lazy"></button>
+        </div>
+        <div class="gallery-points" aria-label="Выбрать экран">
+          <button type="button" data-point="0" aria-label="Экран 1" aria-pressed="false"></button><button type="button" data-point="1" aria-label="Экран 2" aria-pressed="true"></button><button type="button" data-point="2" aria-label="Экран 3" aria-pressed="false"></button><button type="button" data-point="3" aria-label="Экран 4" aria-pressed="false"></button><button type="button" data-point="4" aria-label="Экран 5" aria-pressed="false"></button><button type="button" data-point="5" aria-label="Экран 6" aria-pressed="false"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bound results centered">
+      <div class="reveal">
+        <h2>Продукты, которые остались со мной</h2>
+        <p>Месяц суперпогружения в AI-инструменты дал 6 реальных помощников, которыми я пользуюсь каждый день. Это не разовый эксперимент: видимо, новый стек уже стал частью моего рабочего ритма. Да, путь был через много итераций и бессонных ночей. Считаю, оно того&nbsp;стоило.</p>
+      </div>
+      <figure class="vinyl reveal">
+        <picture><source media="(prefers-reduced-motion: reduce)" srcset="media/vinyl-still.png"><img src="media/vinyl-loop.gif" width="640" height="640" loading="lazy" alt="Фигурка в шляпе на виниловой пластинке"></picture>
+        <figcaption>Я не грущу, просто хочу спать</figcaption>
+      </figure>
+      <footer class="reveal">
+        <h3>Буду рад пообщаться и обсудить возможное сотрудничество ✍️</h3>
+        <div class="contact-links"><a href="https://t.me/moberg_87"><span>Телеграм</span>@moberg_87</a><a href="mailto:anton.barbarov@yandex.ru"><span>Электронная почта</span>anton.barbarov@yandex.ru</a></div>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

@@ -19,7 +19,7 @@
     />
     <link rel="stylesheet" href="./src/styles/tokens.css?v=20260807-1" />
     <link rel="stylesheet" href="./src/styles/components.css?v=20260730-7" />
-    <link rel="stylesheet" href="./src/styles/main.css?v=20260811-2" />
+    <link rel="stylesheet" href="./src/styles/main.css?v=20260811-4" />
   </head>
   <body>
     <div class="app">
@@ -49,6 +49,7 @@
           </a>
           <nav class="side-nav" aria-label="Разделы">
             <a class="side-nav__link js-nav-link is-active" href="#hero-title">Последние кейсы</a>
+            <a class="side-nav__link js-nav-link" href="#products-title">AI Development</a>
             <a class="side-nav__link js-nav-link" href="#old-cases-title">Ранние кейсы</a>
             <a class="side-nav__link js-nav-link" href="#stack-title">Экспертиза</a>
             <a class="side-nav__link js-nav-link" href="#contact">Контакты</a>
@@ -340,6 +341,37 @@
                 </div>
               </a>
             </div>
+
+            <section class="portfolio-products" id="products" aria-labelledby="products-title">
+              <h2 class="section__title section__title--old-cases" id="products-title">AI Development</h2>
+              <div class="cases">
+                <a class="case-card portfolio-products__card" href="./products/" target="_blank" rel="noopener noreferrer" aria-label="Мои продукты — открыть в новой вкладке">
+                  <div class="case-card__cover portfolio-products__cover" aria-hidden="true">
+                    <video class="case-card__cover-video" data-src="./products/media/sorter-screencast.mp4" poster="./products/media/sorter-screencast-poster.jpg" muted playsinline loop preload="none"></video>
+                  </div>
+                  <div class="case-card__body">
+                    <div class="case-card__head">
+                      <div class="badges">
+                        <span class="badge">Product Design</span>
+                        <span class="badge">Codex</span>
+                      </div>
+                      <h3 class="case-card__title">Придумал. Спроектировал. Собрал.</h3>
+                    </div>
+                    <dl class="case-card__meta">
+                      <div>
+                        <dt>Период работы</dt>
+                        <dd>2026</dd>
+                      </div>
+                      <div>
+                        <dt>Главный результат</dt>
+                        <dd>6 продуктов за один месяц</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </a>
+              </div>
+            </section>
+
 
             <h2 class="section__title section__title--old-cases" id="old-cases-title">Кейсы 2021<span class="type-sign">-</span>2023</h2>
             <div class="mini-cases mini-cases--with-title" id="old-cases">
@@ -761,6 +793,7 @@
           </div>
           <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
             <a class="mobile-menu__link js-nav-link is-active" href="#hero-title">Последние кейсы</a>
+            <a class="mobile-menu__link js-nav-link" href="#products-title">AI Development</a>
             <a class="mobile-menu__link js-nav-link" href="#old-cases-title">Ранние кейсы</a>
             <a class="mobile-menu__link js-nav-link" href="#stack-title">Экспертиза</a>
             <a class="mobile-menu__link js-nav-link" href="#contact">Контакты</a>
@@ -1032,6 +1065,6 @@
         }
       })();
     </script>
-    <script src="./src/js/main.js?v=20260811-8" type="module"></script>
+    <script src="./src/js/main.js?v=20260811-10" type="module"></script>
   </body>
 </html>
